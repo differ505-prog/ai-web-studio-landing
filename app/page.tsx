@@ -1,4 +1,5 @@
 import { ContactSection } from "@/components/contact-section";
+import { FAQ } from "@/components/FAQ";
 import { FooterSection } from "@/components/footer-section";
 import { HeroSection } from "@/components/hero-section";
 import { PainPointsSection } from "@/components/pain-points-section";
@@ -38,6 +39,7 @@ export default function HomePage() {
         <PortfolioSection />
         <WorkflowSection />
         <Pricing />
+        <FAQ />
         <ContactSection />
         <FooterSection />
       </main>

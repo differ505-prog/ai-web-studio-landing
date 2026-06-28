@@ -41,6 +41,8 @@ export function ContactSection() {
         </div>
 
         <form
+          action="https://formspree.io/f/YOUR_FORM_ID"
+          method="POST"
           className="rounded-[30px] border border-white/10 bg-[linear-gradient(180deg,rgba(8,12,17,0.75),rgba(8,12,17,0.6))] p-6"
           aria-label="聯絡表單"
         >
@@ -82,12 +84,19 @@ export function ContactSection() {
             </label>
 
             <button
-              type="button"
+              type="submit"
               className="inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-teal-300 via-emerald-300 to-amber-200 px-6 py-3.5 text-sm font-semibold text-slate-950 transition hover:scale-[1.01]"
             >
               送出需求
               <Send className="h-4 w-4" />
             </button>
+            <p className="text-xs leading-relaxed text-slate-400">
+              表單目前已預留 Formspree 串接格式，請在正式上線前將
+              <code className="mx-1 rounded bg-white/5 px-1.5 py-0.5 text-slate-300">
+                YOUR_FORM_ID
+              </code>
+              替換成你的 Formspree 表單 ID。
+            </p>
           </div>
         </form>
       </div>
