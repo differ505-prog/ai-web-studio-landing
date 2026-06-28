@@ -11,7 +11,7 @@ import { WorkflowSection } from "@/components/workflow-section";
 const structuredData = {
   "@context": "https://schema.org",
   "@type": "ProfessionalService",
-  name: "AI 網頁開發接案工作室",
+  name: "築時數位",
   description:
     "提供 AI 網頁開發、Landing Page、企業官網、內部自動化系統與 AI 深度整合服務。",
   areaServed: "Taiwan",

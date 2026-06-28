@@ -2,10 +2,10 @@ import type { Metadata } from "next";
 import { Noto_Sans_TC, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 
-const siteName = "AI 網頁開發接案工作室";
+const siteName = "築時數位";
 const siteUrl = "https://example.com";
 const title =
-  "AI 網頁開發接案工作室 | 極速交付的次世代網站、系統與 AI 整合開發";
+  "築時數位 | 極速交付的次世代網站、系統與 AI 整合開發";
 const description =
   "以 Next.js、React、TypeScript 與 AI 協作流程，幾天內打造高轉換 Landing Page、企業官網、內部系統與 AI 深度整合方案，兼顧美感、效能、SEO 與商業轉換。";
 
@@ -60,7 +60,7 @@ export async function generateMetadata(): Promise<Metadata> {
           url: "/og-image.svg",
           width: 1200,
           height: 630,
-          alt: "AI 網頁開發接案工作室官方網站預覽圖",
+          alt: "築時數位官方網站預覽圖",
         },
       ],
     },

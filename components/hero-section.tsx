@@ -43,7 +43,7 @@ export function HeroSection() {
             <span className="font-display block text-xs uppercase tracking-[0.28em] text-slate-500">
               Official Landing Page
             </span>
-            <span className="text-lg font-semibold text-slate-50">AI 網頁開發接案工作室</span>
+            <span className="text-lg font-semibold text-slate-50">築時數位</span>
           </span>
         </a>
 
