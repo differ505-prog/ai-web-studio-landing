@@ -27,7 +27,7 @@ const plans: Plan[] = [
   {
     name: "品牌起步方案",
     badge: "生活品牌首選",
-    price: "NT$ 9,900",
+    price: "NT$ 9，900",
     delivery: "3-5 個工作天",
     audience: "適合餐飲店面、個人品牌、選物與空間風格工作室快速建立精緻門面。",
     cta: "立即整理品牌首頁",
@@ -44,7 +44,7 @@ const plans: Plan[] = [
   },
   {
     name: "品牌延伸方案",
-    price: "NT$ 29,900 起",
+    price: "NT$ 29，900 起",
     delivery: "2-4 週",
     audience: "適合需要多頁官網、預約流程、後台管理或更完整品牌內容架構的成長型品牌。",
     cta: "預約品牌架構諮詢",

@@ -8,7 +8,7 @@ const services = [
     title: "品牌形象官網",
     description:
       "以雜誌式的閱讀節奏重整品牌介紹、服務亮點與詢問入口，讓第一印象更完整而安定。",
-    highlights: ["首頁敘事重構", "RWD 響應式頁面", "基礎 SEO 與品牌 metadata"],
+    highlights: ["首頁敘事重構", "RWD 響應式頁面", "基礎 SEO 與社群分享標籤"],
   },
   {
     icon: LineChart,

@@ -13,7 +13,7 @@ const showcaseCases = [
     imageAlt: "帶有海景與柔和日光氛圍的高質感民宿空間",
     href: "https://www.summerrockvilla.com.tw/",
     cta: "實際體驗民宿官網",
-    plan: "對應 9,900 起步方案",
+    plan: "對應 9，900 起步方案",
     imageRatioClass: "aspect-[4/5]",
   },
   {
@@ -25,7 +25,7 @@ const showcaseCases = [
     imageAlt: "帶有極簡侘寂感與現代線條的室內設計空間",
     href: "https://www.qingxidesign.tw/",
     cta: "探索設計工作室官網",
-    plan: "對應 29,900 延伸方案",
+    plan: "對應 29，900 延伸方案",
     imageRatioClass: "aspect-[4/3]",
   },
 ] as const;

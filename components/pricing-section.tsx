@@ -6,7 +6,7 @@ const plans = [
   {
     name: "極速啟動版",
     summary: "適合需要快速上線、驗證市場或建立專業品牌門面的團隊。",
-    price: "專案制 NT$ 60,000 起",
+    price: "專案制 NT$ 60，000 起",
     delivery: "交付時間：5 - 10 個工作天",
     featured: false,
     features: [
