@@ -32,15 +32,17 @@ export function PortfolioSection() {
 
       <article className="mt-10 overflow-hidden rounded-[34px] border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.04),rgba(255,255,255,0.02))]">
         <div className="grid gap-0 lg:grid-cols-[1.05fr_0.95fr]">
-          <div className="relative min-h-[360px]">
-            <Image
-              src="https://source.unsplash.com/random/1200x900/?dashboard,software,ui"
-              alt="展示複雜數據儀表板與 B2B 管理後台介面的系統畫面"
-              fill
-              className="object-cover"
-              sizes="(max-width: 1024px) 100vw, 50vw"
-            />
-            <div className="absolute inset-0 bg-gradient-to-tr from-[#0b0f14] via-[#0b0f14]/55 to-transparent" />
+          <div className="p-6 sm:p-8 lg:p-10">
+            <div className="relative min-h-[360px] overflow-hidden rounded-2xl shadow-2xl">
+              <Image
+                src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80"
+                alt="展示複雜數據儀表板與 B2B 管理後台介面的系統畫面"
+                fill
+                className="object-cover"
+                sizes="(max-width: 1024px) 100vw, 50vw"
+              />
+              <div className="absolute inset-0 bg-gradient-to-tr from-[#0b0f14] via-[#0b0f14]/55 to-transparent" />
+            </div>
           </div>
 
           <div className="p-6 sm:p-8 lg:p-10">

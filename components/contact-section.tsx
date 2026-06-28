@@ -90,13 +90,7 @@ export function ContactSection() {
               送出需求
               <Send className="h-4 w-4" />
             </button>
-            <p className="text-xs leading-relaxed text-slate-400">
-              表單目前已預留 Formspree 串接格式，請在正式上線前將
-              <code className="mx-1 rounded bg-white/5 px-1.5 py-0.5 text-slate-300">
-                YOUR_FORM_ID
-              </code>
-              替換成你的 Formspree 表單 ID。
-            </p>
+            {/* 正式上線前請將 YOUR_FORM_ID 替換成你的 Formspree 表單 ID。 */}
           </div>
         </form>
       </div>
