@@ -1,22 +1,23 @@
 <svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <rect width="1200" height="630" rx="32" fill="#050816"/>
-  <circle cx="209" cy="124" r="180" fill="#6D5BFF" fill-opacity="0.28"/>
-  <circle cx="1026" cy="143" r="150" fill="#31D0FF" fill-opacity="0.24"/>
-  <rect x="63" y="58" width="1074" height="514" rx="28" fill="#0A1023" fill-opacity="0.72" stroke="#8A95FF" stroke-opacity="0.22"/>
-  <text x="96" y="228" fill="#F5F7FF" font-size="72" font-family="Arial, Helvetica, sans-serif" font-weight="700">
+  <rect width="1200" height="630" rx="32" fill="#0B0F14"/>
+  <circle cx="190" cy="138" r="190" fill="#2EE2C6" fill-opacity="0.18"/>
+  <circle cx="1038" cy="120" r="160" fill="#F5C06C" fill-opacity="0.13"/>
+  <circle cx="910" cy="482" r="180" fill="#367BFF" fill-opacity="0.10"/>
+  <rect x="63" y="58" width="1074" height="514" rx="28" fill="#121821" fill-opacity="0.78" stroke="#5E817A" stroke-opacity="0.24"/>
+  <text x="96" y="228" fill="#F3EFE8" font-size="72" font-family="Arial, Helvetica, sans-serif" font-weight="700">
     AI 網頁開發接案工作室
   </text>
-  <text x="96" y="320" fill="#C3CCEA" font-size="34" font-family="Arial, Helvetica, sans-serif">
-    極速交付、AI 原型生成、企業級網站與系統整合
+  <text x="96" y="320" fill="#B7C1CC" font-size="34" font-family="Arial, Helvetica, sans-serif">
+    極速交付、AI 原型生成、品牌官網與系統整合
   </text>
   <rect x="96" y="396" width="262" height="62" rx="31" fill="url(#paint0_linear)"/>
   <text x="136" y="437" fill="white" font-size="28" font-family="Arial, Helvetica, sans-serif" font-weight="700">
-    Next.js + AI Delivery
+    Graphite + Neon Teal
   </text>
   <defs>
     <linearGradient id="paint0_linear" x1="96" y1="396" x2="358" y2="458" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#735BFF"/>
-      <stop offset="1" stop-color="#31D0FF"/>
+      <stop stop-color="#2EE2C6"/>
+      <stop offset="1" stop-color="#F5C06C"/>
     </linearGradient>
   </defs>
 </svg>

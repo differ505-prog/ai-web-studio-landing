@@ -3,7 +3,7 @@ import { FooterSection } from "@/components/footer-section";
 import { HeroSection } from "@/components/hero-section";
 import { PainPointsSection } from "@/components/pain-points-section";
 import { PortfolioSection } from "@/components/portfolio-section";
-import { PricingSection } from "@/components/pricing-section";
+import { Pricing } from "@/components/Pricing";
 import { ServicesSection } from "@/components/services-section";
 import { WorkflowSection } from "@/components/workflow-section";
 
@@ -37,7 +37,7 @@ export default function HomePage() {
         <ServicesSection />
         <PortfolioSection />
         <WorkflowSection />
-        <PricingSection />
+        <Pricing />
         <ContactSection />
         <FooterSection />
       </main>
