@@ -35,7 +35,11 @@ const plans: Plan[] = [
     ctaHref: "#contact",
     featured: true,
     features: [
-      { label: "專屬一頁式高質感響應式網頁 (RWD)", included: true },
+      {
+        label:
+          "專屬品牌形象官網 (支援多區塊動態導覽與平滑滾動)",
+        included: true,
+      },
       { label: "基本 SEO 搜尋引擎優化與 OG 標籤設定", included: true },
       { label: "社群連結與在地化聯絡表單 (無縫串接 Email 或 LINE)", included: true },
       { label: "免費協助部署與首年免主機費 (採用 Serverless 架構)", included: true },
