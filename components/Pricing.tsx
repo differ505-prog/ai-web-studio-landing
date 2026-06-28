@@ -75,7 +75,11 @@ const plans: Plan[] = [
       },
       {
         label:
-          "第三方 API 深度整合 (支付金流、LINE Notify、AI 大模型自動化數據分析)",
+          "第三方 API 深度整合 (如：綠界金流、Line Pay、一卡通 iPASS 票證服務、AI 大模型數據分析)",
+        included: true,
+      },
+      {
+        label: "上線後 30 天內免費技術支援與 Bug 修復保障",
         included: true,
       },
       { label: "專案啟動前需求訪談與架構拆解會議", included: true },

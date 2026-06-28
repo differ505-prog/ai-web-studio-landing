@@ -34,8 +34,8 @@ export function PortfolioSection() {
         <div className="grid gap-0 lg:grid-cols-[1.05fr_0.95fr]">
           <div className="relative min-h-[360px]">
             <Image
-              src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=80"
-              alt="展示雲端系統操作與數位化管理情境的科技工作畫面"
+              src="https://source.unsplash.com/random/1200x900/?dashboard,software,ui"
+              alt="展示複雜數據儀表板與 B2B 管理後台介面的系統畫面"
               fill
               className="object-cover"
               sizes="(max-width: 1024px) 100vw, 50vw"
