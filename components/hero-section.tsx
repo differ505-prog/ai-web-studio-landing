@@ -75,7 +75,7 @@ export function HeroSection() {
             className="mt-7 max-w-4xl font-serif text-4xl font-semibold tracking-wide text-stone-900 sm:text-5xl lg:text-7xl lg:leading-[1.15]"
           >
             讓你的品牌網站像一本
-            <span className="text-[#8B5E3C]"> 值得翻閱的生活雜誌 </span>
+            <span className="text-[#8B5E3C]"> 值得翻閱的生活雜誌，</span>
             在第一眼就傳遞品味、安心與信任。
           </h1>
 

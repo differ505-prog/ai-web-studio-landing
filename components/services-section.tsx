@@ -32,7 +32,7 @@ export function ServicesSection() {
       <SectionIntro
         eyebrow="Core Services"
         title="設計不只是漂亮，而是讓品牌被更細緻地理解。"
-        description="我們會先整理內容，再安排節奏，最後才把視覺放進去。這讓網站不只是好看，而是更像你的品牌本人。"
+        description="我們會先整理內容，再安排節奏，最後才把視覺放進去。讓網站不只是一張亮眼的數位名片，而是能真實傳遞你品牌溫度的專屬空間。"
       />
 
       <div className="mt-12 grid gap-6 lg:grid-cols-3">
