@@ -26,13 +26,13 @@ export function HeroSection() {
       ariaLabelledBy="hero-title"
       className="relative overflow-hidden rounded-[36px] border border-white/10 bg-white/5 px-6 py-8 shadow-[0_28px_120px_rgba(0,0,0,0.35)] backdrop-blur-md sm:px-8 lg:px-10 lg:py-10"
     >
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_12%,rgba(88,28,135,0.16),transparent_22%),radial-gradient(circle_at_82%_16%,rgba(14,116,144,0.14),transparent_20%)]" />
-      <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-indigo-400/60 to-transparent" />
-      <div className="absolute -left-16 top-10 h-40 w-40 rounded-full bg-purple-900/10 blur-3xl" />
-      <div className="absolute bottom-0 right-0 h-56 w-56 rounded-full bg-cyan-900/10 blur-3xl" />
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_18%_12%,rgba(88,28,135,0.16),transparent_22%),radial-gradient(circle_at_82%_16%,rgba(14,116,144,0.14),transparent_20%)]" />
+      <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-indigo-400/60 to-transparent" />
+      <div className="pointer-events-none absolute -left-16 top-10 h-40 w-40 rounded-full bg-purple-900/10 blur-3xl" />
+      <div className="pointer-events-none absolute bottom-0 right-0 h-56 w-56 rounded-full bg-cyan-900/10 blur-3xl" />
 
       <nav
-        className="flex flex-col gap-5 border-b border-white/10 pb-6 sm:flex-row sm:items-center sm:justify-between"
+        className="relative z-10 flex flex-col gap-5 border-b border-white/10 pb-6 sm:flex-row sm:items-center sm:justify-between"
         aria-label="主選單"
       >
         <a href="#top" className="flex items-center gap-3 text-white">
@@ -66,7 +66,7 @@ export function HeroSection() {
         </div>
       </nav>
 
-      <div className="grid gap-12 py-12 lg:grid-cols-[minmax(0,1.2fr)_minmax(340px,0.8fr)] lg:items-center">
+      <div className="relative z-10 grid gap-12 py-12 lg:grid-cols-[minmax(0,1.2fr)_minmax(340px,0.8fr)] lg:items-center">
         <div>
           <div className="font-display inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-indigo-100">
             <Zap className="h-4 w-4" />
@@ -121,9 +121,9 @@ export function HeroSection() {
         </div>
 
         <div className="relative">
-          <div className="absolute inset-0 rounded-[28px] bg-gradient-to-br from-indigo-500/12 via-transparent to-cyan-500/10 blur-2xl" />
+          <div className="pointer-events-none absolute inset-0 rounded-[28px] bg-gradient-to-br from-indigo-500/12 via-transparent to-cyan-500/10 blur-2xl" />
           <article className="relative overflow-hidden rounded-[30px] border border-white/10 bg-white/5 p-6 backdrop-blur-md shadow-2xl">
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(99,102,241,0.12),transparent_28%),radial-gradient(circle_at_bottom_left,rgba(6,182,212,0.08),transparent_26%)]" />
+            <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(99,102,241,0.12),transparent_28%),radial-gradient(circle_at_bottom_left,rgba(6,182,212,0.08),transparent_26%)]" />
             <div className="flex items-center justify-between">
               <div>
                 <p className="font-display text-xs uppercase tracking-[0.28em] text-slate-500">
