@@ -103,26 +103,26 @@ export function Pricing() {
             key={plan.name}
             whileHover={{ y: -8, scale: 1.015 }}
             transition={{ type: "spring", stiffness: 260, damping: 20 }}
-            className={`relative flex h-full flex-col overflow-hidden rounded-[32px] border p-7 shadow-[0_24px_80px_rgba(0,0,0,0.22)] ${
+            className={`relative flex h-full flex-col overflow-hidden rounded-[32px] border border-white/10 bg-white/5 p-7 backdrop-blur-md shadow-[0_24px_80px_rgba(0,0,0,0.22)] ${
               plan.featured
-                ? "border-teal-300/35 bg-[linear-gradient(180deg,rgba(46,226,198,0.14),rgba(255,255,255,0.04)_18%,rgba(255,255,255,0.03))]"
-                : "border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.05),rgba(255,255,255,0.02))]"
+                ? "ring-1 ring-indigo-500/50 shadow-[0_0_15px_rgba(99,102,241,0.2),0_24px_80px_rgba(0,0,0,0.22)]"
+                : ""
             }`}
           >
             {plan.featured ? (
               <>
-                <div className="absolute -right-10 -top-12 h-40 w-40 rounded-full bg-teal-300/18 blur-3xl" />
-                <div className="absolute right-0 top-0 h-1 w-full bg-gradient-to-r from-transparent via-amber-200/80 to-transparent" />
+                <div className="absolute -right-10 -top-12 h-40 w-40 rounded-full bg-indigo-500/18 blur-3xl" />
+                <div className="absolute right-0 top-0 h-1 w-full bg-gradient-to-r from-transparent via-indigo-400/80 to-transparent" />
               </>
             ) : (
-              <div className="absolute -left-10 bottom-0 h-36 w-36 rounded-full bg-sky-300/8 blur-3xl" />
+              <div className="absolute -left-10 bottom-0 h-36 w-36 rounded-full bg-cyan-400/8 blur-3xl" />
             )}
 
             <div className="relative flex h-full flex-col">
               <div className="flex items-start justify-between gap-4">
                 <div>
                   {plan.badge ? (
-                    <span className="font-display inline-flex items-center gap-2 rounded-full border border-amber-200/25 bg-amber-200/12 px-3 py-1 text-xs font-semibold tracking-[0.18em] text-amber-100">
+                    <span className="font-display inline-flex items-center gap-2 rounded-full border border-indigo-400/25 bg-indigo-500/10 px-3 py-1 text-xs font-semibold tracking-[0.18em] text-indigo-100">
                       <Sparkles className="h-3.5 w-3.5" />
                       {plan.badge}
                     </span>
@@ -132,25 +132,25 @@ export function Pricing() {
                     </span>
                   )}
 
-                  <h3 className="mt-5 text-3xl font-semibold text-stone-50">
+                  <h3 className="mt-5 text-3xl font-bold tracking-tight text-slate-50">
                     {plan.name}
                   </h3>
                 </div>
               </div>
 
-              <div className="mt-6 rounded-3xl border border-white/10 bg-black/20 p-5">
+              <div className="mt-6 rounded-3xl border border-white/10 bg-white/5 p-5 backdrop-blur-md">
                 <p className="text-sm text-slate-400">方案價格</p>
-                <p className="font-display mt-2 text-4xl font-semibold text-stone-50">
+                <p className="font-display mt-2 text-4xl font-bold tracking-tight text-slate-50">
                   {plan.price}
                 </p>
-                <p className="mt-3 text-sm font-medium text-teal-100">
+                <p className="mt-3 text-sm font-medium text-cyan-300">
                   交付時間：{plan.delivery}
                 </p>
               </div>
 
-              <div className="mt-6 rounded-3xl border border-white/10 bg-white/5 p-5">
+              <div className="mt-6 rounded-3xl border border-white/10 bg-white/5 p-5 backdrop-blur-md">
                 <p className="text-sm text-slate-400">目標客群</p>
-                <p className="mt-2 text-sm leading-7 text-slate-200">{plan.audience}</p>
+                <p className="mt-2 text-sm leading-relaxed text-slate-300">{plan.audience}</p>
               </div>
 
               <ul className="mt-6 space-y-3">
@@ -159,13 +159,13 @@ export function Pricing() {
                     key={feature.label}
                     className={`flex items-start gap-3 rounded-2xl border px-4 py-3 text-sm leading-7 ${
                       feature.included
-                        ? "border-white/10 bg-white/5 text-slate-100"
+                        ? "border-white/10 bg-white/5 text-slate-100 backdrop-blur-md"
                         : "border-white/6 bg-white/[0.03] text-slate-500 opacity-70"
                     }`}
                   >
                     <span
                       className={`mt-1 shrink-0 ${
-                        feature.included ? "text-teal-100" : "text-slate-500"
+                        feature.included ? "text-emerald-400" : "text-slate-500"
                       }`}
                     >
                       {feature.included ? (
@@ -183,8 +183,8 @@ export function Pricing() {
                 href={plan.ctaHref}
                 className={`mt-8 inline-flex items-center justify-center rounded-full px-6 py-3.5 text-sm font-semibold transition ${
                   plan.secondary
-                    ? "border border-white/15 bg-white/5 text-white hover:border-teal-300/35 hover:bg-teal-300/10"
-                    : "bg-gradient-to-r from-teal-300 via-emerald-300 to-amber-200 text-slate-950 hover:scale-[1.01]"
+                    ? "border border-gray-600 bg-transparent text-white hover:border-gray-300 hover:bg-white/5"
+                    : "bg-gradient-to-r from-indigo-500 to-cyan-500 text-white hover:-translate-y-0.5 hover:brightness-110"
                 }`}
               >
                 {plan.cta}

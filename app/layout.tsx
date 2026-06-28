@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Noto_Sans_TC, Space_Grotesk } from "next/font/google";
+import { Noto_Sans_TC, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 
 const siteName = "AI 網頁開發接案工作室";
@@ -15,9 +15,9 @@ const bodyFont = Noto_Sans_TC({
   variable: "--font-body",
 });
 
-const displayFont = Space_Grotesk({
+const displayFont = Plus_Jakarta_Sans({
   subsets: ["latin"],
-  weight: ["500", "700"],
+  weight: ["600", "700", "800"],
   variable: "--font-display",
 });
 
