@@ -4,7 +4,6 @@ import { AnimatePresence, motion } from "framer-motion";
 import { Minus, Plus } from "lucide-react";
 import { useState } from "react";
 import { AnimatedSection } from "@/components/animated-section";
-import { SectionIntro } from "@/components/section-intro";
 
 const faqs = [
   {
@@ -29,12 +28,17 @@ export function FAQ() {
 
   return (
     <AnimatedSection id="faq" ariaLabelledBy="faq-title" className="mt-24">
-      <SectionIntro
-        eyebrow="FAQ"
-        title="把客戶最常擔心的問題，先回答清楚。"
-        description="從後續更新、交付時程到主機與網域協助，我們把常見疑慮先攤開來說，讓高單價方案的信任感建立在透明與可執行的承諾上。"
-        align="center"
-      />
+      <div className="mx-auto max-w-3xl text-center">
+        <p className="font-display text-sm font-semibold uppercase tracking-[0.32em] text-indigo-200/75">
+          FAQ
+        </p>
+        <p
+          id="faq-title"
+          className="mt-4 text-base leading-relaxed text-slate-300 md:text-lg"
+        >
+          從後續更新、交付時程到主機與網域協助，我們把常見疑慮先攤開來說，讓高單價方案的信任感建立在透明與可執行的承諾上。
+        </p>
+      </div>
 
       <div className="mx-auto mt-10 grid max-w-4xl gap-4">
         {faqs.map((item, index) => {
