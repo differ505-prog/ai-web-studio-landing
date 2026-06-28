@@ -5,7 +5,7 @@ import { SectionIntro } from "@/components/section-intro";
 
 const showcaseCases = [
   {
-    name: "夏洛克民宿 Summer Rock Villa",
+    name: "夏岩民宿 Summer Rock Villa",
     description:
       "讓旅客在訂房前，就先感受空間的溫柔。以流暢的頁面導覽與細膩的響應式排版，完整呈現旅宿的空間氣質與在地體驗。",
     image:
@@ -36,7 +36,7 @@ export function PortfolioSection() {
       <SectionIntro
         eyebrow="Selected Direction"
         title="我們偏愛用真實作品說話，讓案例本身成為最安靜也最有力的說服。"
-        description="以下兩個網站皆為築時數位自有營運品牌，我們以相同的編輯式視覺語言，分別呈現旅宿品牌與設計工作室在不同內容密度下的閱讀節奏與商業信任感。"
+        description="以下為品牌官方授權展示的精選案例。我們以一致的編輯式視覺語言，針對不同產業的內容密度，量身打造專屬的閱讀節奏與商業信任感。"
       />
 
       <div className="mt-12 grid gap-6 lg:grid-cols-2 lg:gap-8">
@@ -61,7 +61,7 @@ export function PortfolioSection() {
 
               <div className="mt-7">
                 <span className="w-fit rounded-full border border-stone-200 px-3 py-1 text-xs tracking-widest text-stone-500">
-                  [ 築時數位 自有營運品牌 ]
+                  [ 品牌官方授權展示 ]
                 </span>
                 <p className="mt-5 text-sm text-stone-500">{plan}</p>
                 <h3 className="mt-3 font-serif text-3xl font-semibold tracking-wide text-stone-900">
