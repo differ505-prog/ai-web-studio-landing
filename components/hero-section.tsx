@@ -141,11 +141,11 @@ export function HeroSection() {
                 </p>
               </div>
               <div className="rounded-[24px] border border-stone-200 bg-stone-50 p-5">
-                <p className="text-sm text-stone-500">設計關鍵字</p>
+                <p className="text-sm text-stone-500">價值承諾</p>
                 <ul className="mt-4 space-y-3 text-sm leading-7 text-stone-700">
-                  <li>襯線標題與拉開字距，提升雜誌感與呼吸感</li>
-                  <li>米白背景與白卡陰影，建立輕盈且高級的閱讀層次</li>
-                  <li>陶土色 CTA 與莫蘭迪綠點綴，讓互動更安定耐看</li>
+                  <li>優雅的閱讀節奏：透過極致的字體編排與呼吸感留白，讓訪客能放鬆地停留在您的網站。</li>
+                  <li>溫潤的視覺層次：放棄冷硬的科技感，以輕盈乾淨的版面，完美突顯您作品與商品的最美細節。</li>
+                  <li>安定的互動體驗：不使用刺眼強烈的按鈕逼迫點擊，而是以柔和的視覺引導，自然提升客戶的詢問意願。</li>
                 </ul>
               </div>
             </div>
