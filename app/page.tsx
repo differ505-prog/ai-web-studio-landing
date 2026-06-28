@@ -21,7 +21,7 @@ const structuredData = {
     "內部自動化系統",
     "AI 系統整合",
   ],
-  url: "https://example.com",
+  url: "https://arrive-studio.vercel.app/",
 };
 
 export default function HomePage() {

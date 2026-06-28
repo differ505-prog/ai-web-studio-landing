@@ -3,7 +3,7 @@ import { Noto_Sans_TC, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 
 const siteName = "築時數位";
-const siteUrl = "https://example.com";
+const siteUrl = "https://arrive-studio.vercel.app/";
 const title =
   "築時數位 | 極速交付的次世代網站、系統與 AI 整合開發";
 const description =
