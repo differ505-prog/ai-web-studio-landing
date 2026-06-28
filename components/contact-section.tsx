@@ -6,14 +6,17 @@ export function ContactSection() {
     <AnimatedSection
       id="contact"
       ariaLabelledBy="contact-title"
-      className="mt-24 overflow-hidden rounded-[32px] border border-cyan-400/20 bg-gradient-to-br from-violet-500/10 via-white/[0.04] to-cyan-400/10"
+      className="mt-24 overflow-hidden rounded-[34px] border border-teal-300/20 bg-gradient-to-br from-teal-300/10 via-white/[0.04] to-amber-200/10"
     >
       <div className="grid gap-10 p-6 sm:p-8 lg:grid-cols-[0.9fr_1.1fr] lg:p-10">
         <div>
-          <p className="text-sm font-semibold uppercase tracking-[0.28em] text-cyan-300/80">
+          <p className="font-display text-sm font-semibold uppercase tracking-[0.3em] text-teal-300/80">
             Final CTA
           </p>
-          <h2 id="contact-title" className="mt-4 text-3xl font-semibold tracking-tight text-white md:text-5xl">
+          <h2
+            id="contact-title"
+            className="mt-4 text-3xl font-semibold tracking-tight text-stone-50 md:text-5xl"
+          >
             如果你要的是更快上線、更好轉換、更能延伸的網站，現在就開始。
           </h2>
           <p className="mt-5 max-w-xl text-base leading-8 text-slate-300 md:text-lg">
@@ -21,15 +24,15 @@ export function ContactSection() {
           </p>
 
           <div className="mt-8 space-y-4">
-            <div className="rounded-3xl border border-white/10 bg-slate-950/40 p-5">
+            <div className="rounded-3xl border border-white/10 bg-black/20 p-5">
               <p className="text-sm text-slate-400">適合立即諮詢的情境</p>
-              <p className="mt-2 text-lg font-semibold text-white">
+              <p className="mt-2 text-lg font-semibold text-stone-50">
                 新產品要快速上線、企業官網改版、流程數位化、AI 功能導入
               </p>
             </div>
             <a
               href="mailto:hello@example.com"
-              className="inline-flex items-center gap-2 text-sm font-semibold text-cyan-200 transition hover:text-cyan-100"
+              className="inline-flex items-center gap-2 text-sm font-semibold text-teal-100 transition hover:text-teal-50"
             >
               hello@example.com
               <Mail className="h-4 w-4" />
@@ -37,7 +40,10 @@ export function ContactSection() {
           </div>
         </div>
 
-        <form className="rounded-[28px] border border-white/10 bg-slate-950/55 p-6" aria-label="聯絡表單">
+        <form
+          className="rounded-[30px] border border-white/10 bg-[linear-gradient(180deg,rgba(8,12,17,0.75),rgba(8,12,17,0.6))] p-6"
+          aria-label="聯絡表單"
+        >
           <div className="grid gap-5">
             <label className="block">
               <span className="mb-2 block text-sm font-medium text-slate-200">姓名</span>
@@ -77,7 +83,7 @@ export function ContactSection() {
 
             <button
               type="button"
-              className="inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-violet-500 to-cyan-400 px-6 py-3.5 text-sm font-semibold text-slate-950 transition hover:scale-[1.01]"
+              className="inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-teal-300 via-emerald-300 to-amber-200 px-6 py-3.5 text-sm font-semibold text-slate-950 transition hover:scale-[1.01]"
             >
               送出需求
               <Send className="h-4 w-4" />

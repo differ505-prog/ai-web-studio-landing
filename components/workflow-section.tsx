@@ -43,15 +43,15 @@ export function WorkflowSection() {
         {steps.map(({ icon: Icon, step, title, description }) => (
           <article
             key={step}
-            className="relative rounded-[28px] border border-white/10 bg-white/[0.04] p-6"
+            className="relative rounded-[30px] border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.04),rgba(255,255,255,0.02))] p-6"
           >
-            <span className="text-xs font-semibold uppercase tracking-[0.32em] text-slate-500">
+            <span className="font-display text-xs font-semibold uppercase tracking-[0.32em] text-slate-500">
               Step {step}
             </span>
-            <div className="mt-5 flex h-14 w-14 items-center justify-center rounded-2xl border border-violet-400/20 bg-violet-400/10 text-violet-200">
+            <div className="mt-5 flex h-14 w-14 items-center justify-center rounded-2xl border border-teal-300/20 bg-teal-300/10 text-teal-100">
               <Icon className="h-6 w-6" />
             </div>
-            <h3 className="mt-6 text-2xl font-semibold text-white">{title}</h3>
+            <h3 className="mt-6 text-2xl font-semibold text-stone-50">{title}</h3>
             <p className="mt-4 text-sm leading-7 text-slate-300">{description}</p>
           </article>
         ))}

@@ -30,7 +30,7 @@ export function PortfolioSection() {
         description="以下展示一個具代表性的系統 PoC 方向，說明我們如何將複雜的營運流程拆解、重構並轉化成可落地的數位產品。"
       />
 
-      <article className="mt-10 overflow-hidden rounded-[32px] border border-white/10 bg-white/[0.04]">
+      <article className="mt-10 overflow-hidden rounded-[34px] border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.04),rgba(255,255,255,0.02))]">
         <div className="grid gap-0 lg:grid-cols-[1.05fr_0.95fr]">
           <div className="relative min-h-[360px]">
             <Image
@@ -40,14 +40,14 @@ export function PortfolioSection() {
               className="object-cover"
               sizes="(max-width: 1024px) 100vw, 50vw"
             />
-            <div className="absolute inset-0 bg-gradient-to-tr from-[#050816] via-[#050816]/50 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-tr from-[#0b0f14] via-[#0b0f14]/55 to-transparent" />
           </div>
 
           <div className="p-6 sm:p-8 lg:p-10">
-            <div className="inline-flex rounded-full border border-cyan-400/25 bg-cyan-400/10 px-4 py-2 text-sm text-cyan-200">
+            <div className="font-display inline-flex rounded-full border border-teal-300/20 bg-teal-300/10 px-4 py-2 text-sm text-teal-100">
               精選案例
             </div>
-            <h3 className="mt-5 text-3xl font-semibold text-white">
+            <h3 className="mt-5 text-3xl font-semibold text-stone-50">
               系統櫃配件與空間收納自動化管理系統
             </h3>
             <p className="mt-5 text-base leading-8 text-slate-300">
@@ -60,14 +60,14 @@ export function PortfolioSection() {
               {outcomes.map(({ icon: Icon, title, description }) => (
                 <div
                   key={title}
-                  className="rounded-3xl border border-white/10 bg-slate-950/45 p-5"
+                  className="rounded-3xl border border-white/10 bg-black/20 p-5"
                 >
                   <div className="flex items-start gap-4">
-                    <span className="rounded-2xl border border-white/10 bg-white/5 p-3 text-cyan-200">
+                    <span className="rounded-2xl border border-white/10 bg-white/5 p-3 text-teal-100">
                       <Icon className="h-5 w-5" />
                     </span>
                     <div>
-                      <h4 className="text-lg font-semibold text-white">{title}</h4>
+                      <h4 className="text-lg font-semibold text-stone-50">{title}</h4>
                       <p className="mt-2 text-sm leading-7 text-slate-300">{description}</p>
                     </div>
                   </div>
@@ -77,7 +77,7 @@ export function PortfolioSection() {
 
             <a
               href="#contact"
-              className="mt-8 inline-flex items-center gap-2 text-sm font-semibold text-cyan-200 transition hover:text-cyan-100"
+              className="mt-8 inline-flex items-center gap-2 text-sm font-semibold text-teal-100 transition hover:text-teal-50"
             >
               想打造你的產業 PoC
               <ArrowUpRight className="h-4 w-4" />

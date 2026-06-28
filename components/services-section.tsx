@@ -39,12 +39,12 @@ export function ServicesSection() {
         {services.map(({ icon: Icon, title, description, highlights }) => (
           <article
             key={title}
-            className="group rounded-[28px] border border-white/10 bg-white/[0.04] p-6 transition hover:-translate-y-1 hover:border-cyan-400/30 hover:bg-white/[0.06]"
+            className="group rounded-[30px] border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.04),rgba(255,255,255,0.02))] p-6 transition hover:-translate-y-1 hover:border-teal-300/30 hover:bg-white/[0.06]"
           >
-            <div className="flex h-14 w-14 items-center justify-center rounded-2xl border border-cyan-400/25 bg-cyan-400/10 text-cyan-200">
+            <div className="flex h-14 w-14 items-center justify-center rounded-2xl border border-teal-300/20 bg-teal-300/10 text-teal-100">
               <Icon className="h-6 w-6" />
             </div>
-            <h3 className="mt-6 text-2xl font-semibold text-white">{title}</h3>
+            <h3 className="mt-6 text-2xl font-semibold text-stone-50">{title}</h3>
             <p className="mt-4 text-sm leading-7 text-slate-300">{description}</p>
 
             <div className="mt-6 flex items-center gap-2 text-xs uppercase tracking-[0.24em] text-slate-500">
@@ -55,7 +55,7 @@ export function ServicesSection() {
               {highlights.map((item) => (
                 <li
                   key={item}
-                  className="rounded-2xl border border-white/8 bg-slate-950/40 px-4 py-3 text-sm text-slate-200"
+                  className="rounded-2xl border border-white/8 bg-black/20 px-4 py-3 text-sm text-slate-200"
                 >
                   {item}
                 </li>

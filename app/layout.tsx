@@ -1,12 +1,25 @@
 import type { Metadata } from "next";
+import { Noto_Sans_TC, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 
 const siteName = "AI 網頁開發接案工作室";
 const siteUrl = "https://example.com";
 const title =
-  "AI 網頁開發接案工作室 | 極速交付的次世代官網、系統與 AI 整合開發";
+  "AI 網頁開發接案工作室 | 極速交付的次世代網站、系統與 AI 整合開發";
 const description =
-  "以 Next.js、React、TypeScript 與 AI 協作流程，幾天內打造高轉換 Landing Page、企業官網、內部系統與 AI 深度整合方案，兼顧美感、效能與 SEO。";
+  "以 Next.js、React、TypeScript 與 AI 協作流程，幾天內打造高轉換 Landing Page、企業官網、內部系統與 AI 深度整合方案，兼顧美感、效能、SEO 與商業轉換。";
+
+const bodyFont = Noto_Sans_TC({
+  subsets: ["latin"],
+  weight: ["400", "500", "700", "900"],
+  variable: "--font-body",
+});
+
+const displayFont = Space_Grotesk({
+  subsets: ["latin"],
+  weight: ["500", "700"],
+  variable: "--font-display",
+});
 
 export async function generateMetadata(): Promise<Metadata> {
   return {
@@ -23,6 +36,9 @@ export async function generateMetadata(): Promise<Metadata> {
       "SEO 優化",
       "RWD 響應式網站",
       "網站接案工作室",
+      "AI 網頁設計",
+      "UI UX 設計",
+      "數位轉型開發",
     ],
     applicationName: siteName,
     authors: [{ name: siteName }],
@@ -75,7 +91,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="zh-Hant" className="dark">
-      <body className="app-shell antialiased">{children}</body>
+      <body
+        className={`${bodyFont.variable} ${displayFont.variable} app-shell antialiased`}
+      >
+        {children}
+      </body>
     </html>
   );
 }

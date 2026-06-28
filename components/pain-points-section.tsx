@@ -24,26 +24,26 @@ export function PainPointsSection() {
       />
 
       <div className="mt-10 grid gap-6 lg:grid-cols-2">
-        <article className="rounded-[28px] border border-rose-400/15 bg-rose-400/5 p-6">
+        <article className="rounded-[30px] border border-orange-200/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.03),rgba(255,255,255,0.02))] p-6">
           <div className="flex items-center gap-3">
-            <span className="rounded-2xl border border-rose-400/20 bg-rose-400/10 p-3 text-rose-200">
+            <span className="rounded-2xl border border-orange-200/15 bg-orange-200/8 p-3 text-orange-100">
               <AlertTriangle className="h-5 w-5" />
             </span>
             <div>
-              <h3 className="text-2xl font-semibold text-white">傳統開發模式</h3>
+              <h3 className="text-2xl font-semibold text-stone-50">傳統開發模式</h3>
               <p className="mt-1 text-sm text-slate-400">高溝通成本、週期拉長、超出預算的常見來源。</p>
             </div>
           </div>
 
           <div className="mt-6 space-y-4">
             {traditional.map(({ icon: Icon, label, description }) => (
-              <div key={label} className="rounded-3xl border border-white/8 bg-slate-950/50 p-5">
+              <div key={label} className="rounded-3xl border border-white/8 bg-black/20 p-5">
                 <div className="flex items-start gap-4">
-                  <span className="mt-1 rounded-2xl border border-white/10 bg-white/5 p-2 text-rose-200">
+                  <span className="mt-1 rounded-2xl border border-white/10 bg-white/5 p-2 text-orange-100">
                     <Icon className="h-4 w-4" />
                   </span>
                   <div>
-                    <h4 className="text-lg font-semibold text-white">{label}</h4>
+                    <h4 className="text-lg font-semibold text-stone-50">{label}</h4>
                     <p className="mt-2 text-sm leading-7 text-slate-300">{description}</p>
                   </div>
                 </div>
@@ -52,26 +52,26 @@ export function PainPointsSection() {
           </div>
         </article>
 
-        <article className="rounded-[28px] border border-cyan-400/20 bg-cyan-400/5 p-6 shadow-[0_0_60px_rgba(49,208,255,0.08)]">
+        <article className="rounded-[30px] border border-teal-300/20 bg-teal-300/6 p-6 shadow-[0_0_60px_rgba(46,226,198,0.07)]">
           <div className="flex items-center gap-3">
-            <span className="rounded-2xl border border-cyan-400/20 bg-cyan-400/10 p-3 text-cyan-200">
+            <span className="rounded-2xl border border-teal-300/20 bg-teal-300/10 p-3 text-teal-100">
               <CheckCircle2 className="h-5 w-5" />
             </span>
             <div>
-              <h3 className="text-2xl font-semibold text-white">我們的 AI 開發模式</h3>
+              <h3 className="text-2xl font-semibold text-stone-50">我們的 AI 開發模式</h3>
               <p className="mt-1 text-sm text-slate-400">敏捷迭代、快速驗證、透明交付，為成長速度而設計。</p>
             </div>
           </div>
 
           <div className="mt-6 space-y-4">
             {aiDriven.map(({ icon: Icon, label, description }) => (
-              <div key={label} className="rounded-3xl border border-white/8 bg-slate-950/50 p-5">
+              <div key={label} className="rounded-3xl border border-white/8 bg-black/20 p-5">
                 <div className="flex items-start gap-4">
-                  <span className="mt-1 rounded-2xl border border-white/10 bg-white/5 p-2 text-cyan-200">
+                  <span className="mt-1 rounded-2xl border border-white/10 bg-white/5 p-2 text-teal-100">
                     <Icon className="h-4 w-4" />
                   </span>
                   <div>
-                    <h4 className="text-lg font-semibold text-white">{label}</h4>
+                    <h4 className="text-lg font-semibold text-stone-50">{label}</h4>
                     <p className="mt-2 text-sm leading-7 text-slate-300">{description}</p>
                   </div>
                 </div>

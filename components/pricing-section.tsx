@@ -48,32 +48,32 @@ export function PricingSection() {
             key={name}
             className={`rounded-[30px] border p-7 ${
               featured
-                ? "border-cyan-400/25 bg-gradient-to-br from-cyan-400/10 via-white/[0.05] to-violet-400/10 shadow-[0_0_80px_rgba(61,208,255,0.08)]"
-                : "border-white/10 bg-white/[0.04]"
+                ? "border-teal-300/25 bg-gradient-to-br from-teal-300/10 via-white/[0.05] to-amber-200/10 shadow-[0_0_80px_rgba(46,226,198,0.08)]"
+                : "border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.04),rgba(255,255,255,0.02))]"
             }`}
           >
             <div className="flex items-start justify-between gap-4">
               <div>
-                <h3 className="text-3xl font-semibold text-white">{name}</h3>
+                <h3 className="text-3xl font-semibold text-stone-50">{name}</h3>
                 <p className="mt-3 text-sm leading-7 text-slate-300">{summary}</p>
               </div>
               {featured ? (
-                <span className="rounded-full border border-cyan-400/25 bg-cyan-400/10 px-3 py-1 text-xs font-semibold text-cyan-200">
+                <span className="rounded-full border border-teal-300/20 bg-teal-300/10 px-3 py-1 text-xs font-semibold text-teal-100">
                   Most Popular
                 </span>
               ) : null}
             </div>
 
-            <div className="mt-8 rounded-3xl border border-white/10 bg-slate-950/40 p-5">
+            <div className="mt-8 rounded-3xl border border-white/10 bg-black/20 p-5">
               <p className="text-sm text-slate-400">方案費用</p>
-              <p className="mt-2 text-3xl font-semibold text-white">{price}</p>
-              <p className="mt-3 text-sm text-cyan-200">{delivery}</p>
+              <p className="font-display mt-2 text-3xl font-semibold text-stone-50">{price}</p>
+              <p className="mt-3 text-sm text-teal-100">{delivery}</p>
             </div>
 
             <ul className="mt-8 space-y-4">
               {features.map((feature) => (
                 <li key={feature} className="flex items-start gap-3 text-sm leading-7 text-slate-200">
-                  <span className="mt-1 rounded-full border border-emerald-400/25 bg-emerald-400/10 p-1 text-emerald-200">
+                  <span className="mt-1 rounded-full border border-teal-300/20 bg-teal-300/10 p-1 text-teal-100">
                     <Check className="h-3.5 w-3.5" />
                   </span>
                   <span>{feature}</span>
