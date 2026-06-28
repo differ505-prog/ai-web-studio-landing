@@ -5,7 +5,7 @@ import { SectionIntro } from "@/components/section-intro";
 
 const showcaseCases = [
   {
-    name: "夏岩民宿 Summer Rock Villa",
+    name: "夏洛克民宿 Summer Rock Villa",
     description:
       "讓旅客在訂房前，就先感受空間的溫柔。以流暢的頁面導覽與細膩的響應式排版，完整呈現旅宿的空間氣質與在地體驗。",
     image:
