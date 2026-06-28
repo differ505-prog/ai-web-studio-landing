@@ -48,6 +48,13 @@ export async function generateMetadata(): Promise<Metadata> {
     alternates: {
       canonical: "/",
     },
+    icons: {
+      icon: [
+        { url: "/icon.svg", type: "image/svg+xml" },
+      ],
+      shortcut: "/icon.svg",
+      apple: "/icon.svg",
+    },
     openGraph: {
       type: "website",
       locale: "zh_TW",
