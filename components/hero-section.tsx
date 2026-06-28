@@ -1,21 +1,19 @@
-import { ArrowRight, Bot, Gauge, Sparkles, Zap } from "lucide-react";
+import Image from "next/image";
+import { ArrowRight, Leaf, Sparkles } from "lucide-react";
 import { AnimatedSection } from "@/components/animated-section";
 
 const quickStats = [
   {
-    label: "平均啟動時程",
-    value: "72 小時內",
-    icon: Zap,
+    label: "首版提案節奏",
+    value: "3-5 個工作天",
   },
   {
-    label: "交付模式",
-    value: "AI 協作迭代",
-    icon: Bot,
+    label: "適合品牌",
+    value: "餐飲 / 收納 / 生活選物",
   },
   {
-    label: "效能與 SEO",
-    value: "同步優化",
-    icon: Gauge,
+    label: "合作方式",
+    value: "策略、設計、開發一體完成",
   },
 ];
 
@@ -24,160 +22,131 @@ export function HeroSection() {
     <AnimatedSection
       id="top"
       ariaLabelledBy="hero-title"
-      className="relative overflow-hidden rounded-[36px] border border-white/10 bg-white/5 px-6 py-8 shadow-[0_28px_120px_rgba(0,0,0,0.35)] backdrop-blur-md sm:px-8 lg:px-10 lg:py-10"
+      className="relative overflow-hidden rounded-[40px] border border-stone-200/80 bg-white px-6 py-8 shadow-[0_8px_30px_rgb(0,0,0,0.04)] sm:px-8 lg:px-10 lg:py-10"
     >
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_18%_12%,rgba(88,28,135,0.16),transparent_22%),radial-gradient(circle_at_82%_16%,rgba(14,116,144,0.14),transparent_20%)]" />
-      <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-indigo-400/60 to-transparent" />
-      <div className="pointer-events-none absolute -left-16 top-10 h-40 w-40 rounded-full bg-purple-900/10 blur-3xl" />
-      <div className="pointer-events-none absolute bottom-0 right-0 h-56 w-56 rounded-full bg-cyan-900/10 blur-3xl" />
+      <div className="pointer-events-none absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-stone-100/80 to-transparent" />
 
       <nav
-        className="relative z-10 flex flex-col gap-5 border-b border-white/10 pb-6 sm:flex-row sm:items-center sm:justify-between"
+        className="relative z-10 flex flex-col gap-5 border-b border-stone-200 pb-6 sm:flex-row sm:items-center sm:justify-between"
         aria-label="主選單"
       >
-        <a href="#top" className="flex items-center gap-3 text-white">
-          <span className="flex h-11 w-11 items-center justify-center rounded-2xl border border-white/10 bg-white/5 text-cyan-300">
+        <a href="#top" className="flex items-center gap-3 text-stone-900">
+          <span className="flex h-11 w-11 items-center justify-center rounded-full border border-stone-200 bg-stone-100 text-emerald-700/70">
             <Sparkles className="h-5 w-5" />
           </span>
           <span>
-            <span className="font-display block text-xs uppercase tracking-[0.28em] text-slate-500">
-              Official Landing Page
+            <span className="block text-[11px] uppercase tracking-[0.28em] text-stone-500">
+              Editorial Landing Page
             </span>
-            <span className="text-lg font-semibold text-slate-50">築時數位</span>
+            <span className="font-serif text-xl font-semibold tracking-wide text-stone-900">
+              築時數位
+            </span>
           </span>
         </a>
 
-        <div className="flex flex-wrap items-center gap-3 text-sm text-slate-300">
-          <a href="#services" className="rounded-full px-3 py-2 transition hover:bg-white/5 hover:text-white">
+        <div className="flex flex-wrap items-center gap-2 text-sm text-stone-600">
+          <a href="#services" className="rounded-full px-3 py-2 transition hover:bg-stone-100 hover:text-stone-900">
             核心服務
           </a>
-          <a href="#portfolio" className="rounded-full px-3 py-2 transition hover:bg-white/5 hover:text-white">
-            實戰案例
+          <a href="#portfolio" className="rounded-full px-3 py-2 transition hover:bg-stone-100 hover:text-stone-900">
+            風格案例
           </a>
-          <a href="#pricing" className="rounded-full px-3 py-2 transition hover:bg-white/5 hover:text-white">
-            透明報價
+          <a href="#pricing" className="rounded-full px-3 py-2 transition hover:bg-stone-100 hover:text-stone-900">
+            合作方案
           </a>
           <a
             href="#contact"
-            className="rounded-full border border-gray-600 bg-transparent px-4 py-2 font-medium text-slate-200 transition hover:border-gray-300 hover:bg-white/5"
+            className="rounded-full border border-stone-300 px-4 py-2 font-medium text-stone-700 transition hover:bg-stone-100"
           >
-            免費諮詢
+            預約諮詢
           </a>
         </div>
       </nav>
 
-      <div className="relative z-10 grid gap-12 py-12 lg:grid-cols-[minmax(0,1.2fr)_minmax(340px,0.8fr)] lg:items-center">
+      <div className="relative z-10 grid gap-12 py-14 lg:grid-cols-[minmax(0,1.05fr)_minmax(360px,0.95fr)] lg:items-center lg:py-20">
         <div>
-          <div className="font-display inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-indigo-100">
-            <Zap className="h-4 w-4" />
-            極速交付的次世代 AI 網頁開發
+          <div className="inline-flex items-center gap-2 rounded-full border border-stone-200 bg-stone-100 px-4 py-2 text-sm text-stone-600">
+            <Leaf className="h-4 w-4 text-emerald-700/70" />
+            為生活美學品牌而生的溫潤網站體驗
           </div>
 
           <h1
             id="hero-title"
-            className="font-display mt-6 max-w-4xl text-4xl font-extrabold tracking-tight text-slate-50 sm:text-5xl lg:text-7xl lg:leading-[1.02]"
+            className="mt-7 max-w-4xl font-serif text-4xl font-semibold tracking-wide text-stone-900 sm:text-5xl lg:text-7xl lg:leading-[1.15]"
           >
-            極速交付你的品牌門面，
-            <span className="bg-gradient-to-r from-slate-50 via-indigo-200 to-cyan-200 bg-clip-text text-transparent">
-              讓次世代 AI 網頁開發直接成為你的成長引擎。
-            </span>
+            讓你的品牌網站像一本
+            <span className="text-[#8B5E3C]"> 值得翻閱的生活雜誌 </span>
+            在第一眼就傳遞品味、安心與信任。
           </h1>
 
-          <p className="mt-6 max-w-2xl text-base leading-relaxed text-slate-300 sm:text-lg">
-            打破傳統動輒數月的開發週期，我們以 AI 賦能設計、原型與工程流程，快速打造兼具質感、效能與 SEO
-            的官方網站與商業系統，讓你的商業點子在最短時間內完美上線。
+          <p className="mt-7 max-w-2xl text-base leading-8 text-stone-700 sm:text-lg">
+            我們把網站從冷硬的資訊堆疊，重新梳理成更有呼吸感的品牌場景。無論你經營的是空間收納、餐飲美學或選物品牌，都能用更細膩的節奏承接詢問、建立信任，並讓每一次瀏覽都更貼近你的品牌溫度。
           </p>
 
-          <div className="mt-8 flex flex-col gap-4 sm:flex-row">
+          <div className="mt-9 flex flex-col gap-4 sm:flex-row">
             <a
               href="#pricing"
-              className="inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-indigo-500 to-cyan-500 px-6 py-3.5 text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:brightness-110"
+              className="inline-flex items-center justify-center gap-2 rounded-full bg-[#8B5E3C] px-6 py-3.5 text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:bg-stone-800"
             >
-              查看我們的方案
+              查看合作方案
               <ArrowRight className="h-4 w-4" />
             </a>
             <a
               href="#contact"
-              className="inline-flex items-center justify-center rounded-full border border-gray-600 bg-transparent px-6 py-3.5 text-sm font-semibold text-white transition hover:border-gray-300 hover:bg-white/5"
+              className="inline-flex items-center justify-center rounded-full border border-stone-300 px-6 py-3.5 text-sm font-semibold text-stone-700 transition hover:bg-stone-100"
             >
-              免費諮詢評估
+              預約風格諮詢
             </a>
           </div>
 
-          <div className="mt-10 grid gap-4 sm:grid-cols-3">
-            {quickStats.map(({ label, value, icon: Icon }) => (
+          <div className="mt-12 grid gap-4 sm:grid-cols-3">
+            {quickStats.map(({ label, value }) => (
               <article
                 key={label}
-                className="rounded-3xl border border-white/10 bg-white/5 p-4 backdrop-blur-md shadow-[inset_0_1px_0_rgba(255,255,255,0.04)]"
+                className="rounded-[28px] border border-stone-200 bg-stone-50/80 p-5"
               >
-                <div className="flex h-10 w-10 items-center justify-center rounded-2xl border border-white/10 bg-white/5 text-cyan-400">
-                  <Icon className="h-4 w-4" />
-                </div>
-                <p className="mt-4 text-sm text-slate-400">{label}</p>
-                <p className="font-display mt-1 text-lg font-bold tracking-tight text-slate-50">{value}</p>
+                <p className="text-sm text-stone-500">{label}</p>
+                <p className="mt-3 font-serif text-lg font-semibold tracking-wide text-stone-900">
+                  {value}
+                </p>
               </article>
             ))}
           </div>
         </div>
 
         <div className="relative">
-          <div className="pointer-events-none absolute inset-0 rounded-[28px] bg-gradient-to-br from-indigo-500/12 via-transparent to-cyan-500/10 blur-2xl" />
-          <article className="relative overflow-hidden rounded-[30px] border border-white/10 bg-white/5 p-6 backdrop-blur-md shadow-2xl">
-            <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(99,102,241,0.12),transparent_28%),radial-gradient(circle_at_bottom_left,rgba(6,182,212,0.08),transparent_26%)]" />
-            <div className="flex items-center justify-between">
+          <article className="overflow-hidden rounded-[32px] border border-stone-200 bg-[#f7f2ea] shadow-[0_8px_30px_rgb(0,0,0,0.04)]">
+            <div className="relative min-h-[520px]">
+              <Image
+                src="https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=1200&q=80"
+                alt="以柔和木質、餐桌器皿與生活選物呈現的日系北歐空間氛圍"
+                fill
+                className="object-cover"
+                sizes="(max-width: 1024px) 100vw, 42vw"
+                priority
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#f7f2ea] via-[#f7f2ea]/20 to-transparent" />
+            </div>
+
+            <div className="relative grid gap-4 border-t border-stone-200 bg-white/90 p-6 sm:grid-cols-[1.1fr_0.9fr]">
               <div>
-                <p className="font-display text-xs uppercase tracking-[0.28em] text-slate-500">
-                  Delivery Dashboard
+                <p className="text-xs uppercase tracking-[0.28em] text-stone-500">
+                  Brand Direction
                 </p>
-                <p className="mt-1 text-xl font-bold tracking-tight text-slate-50">AI Sprint Pipeline</p>
-              </div>
-              <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-medium text-cyan-200">
-                Ready to Launch
-              </span>
-            </div>
-
-            <div className="relative mt-6 space-y-4">
-              <div className="rounded-3xl border border-white/10 bg-white/5 p-4">
-                <div className="flex items-center justify-between text-sm text-slate-300">
-                  <span>需求定義與商業目標</span>
-                  <span className="font-display text-cyan-300">100%</span>
-                </div>
-                <div className="mt-3 h-2 rounded-full bg-white/10">
-                  <div className="h-2 w-full rounded-full bg-gradient-to-r from-indigo-500 to-cyan-500" />
-                </div>
-              </div>
-              <div className="rounded-3xl border border-white/10 bg-white/5 p-4">
-                <div className="flex items-center justify-between text-sm text-slate-300">
-                  <span>AI 原型與畫面定稿</span>
-                  <span className="font-display text-cyan-300">90%</span>
-                </div>
-                <div className="mt-3 h-2 rounded-full bg-white/10">
-                  <div className="h-2 w-[90%] rounded-full bg-gradient-to-r from-indigo-500 to-cyan-500" />
-                </div>
-              </div>
-              <div className="rounded-3xl border border-white/10 bg-white/5 p-4">
-                <div className="flex items-center justify-between text-sm text-slate-300">
-                  <span>前後端整合與 QA 測試</span>
-                  <span className="font-display text-cyan-300">78%</span>
-                </div>
-                <div className="mt-3 h-2 rounded-full bg-white/10">
-                  <div className="h-2 w-[78%] rounded-full bg-gradient-to-r from-indigo-500 to-cyan-500" />
-                </div>
-              </div>
-            </div>
-
-            <div className="relative mt-6 grid gap-4 sm:grid-cols-2">
-              <div className="rounded-3xl border border-white/10 bg-white/5 p-4">
-                <p className="text-sm text-slate-400">推薦技術棧</p>
-                <p className="font-display mt-2 text-lg font-bold tracking-tight text-slate-50">
-                  Next.js / TypeScript
+                <p className="mt-3 font-serif text-2xl font-semibold tracking-wide text-stone-900">
+                  Calm, Editorial, Trustworthy
+                </p>
+                <p className="mt-3 text-sm leading-7 text-stone-700">
+                  以材質感、留白、柔和層次與細節排版，讓品牌訊息更像被細心編輯，而不是被大聲推銷。
                 </p>
               </div>
-              <div className="rounded-3xl border border-white/10 bg-white/5 p-4">
-                <p className="text-sm text-slate-400">預估首版交付</p>
-                <p className="font-display mt-2 text-lg font-bold tracking-tight text-slate-50">
-                  3 - 7 個工作天
-                </p>
+              <div className="rounded-[24px] border border-stone-200 bg-stone-50 p-5">
+                <p className="text-sm text-stone-500">設計關鍵字</p>
+                <ul className="mt-4 space-y-3 text-sm leading-7 text-stone-700">
+                  <li>襯線標題與拉開字距，提升雜誌感與呼吸感</li>
+                  <li>米白背景與白卡陰影，建立輕盈且高級的閱讀層次</li>
+                  <li>陶土色 CTA 與莫蘭迪綠點綴，讓互動更安定耐看</li>
+                </ul>
               </div>
             </div>
           </article>

@@ -1,13 +1,17 @@
 import type { Metadata } from "next";
-import { Noto_Sans_TC, Plus_Jakarta_Sans } from "next/font/google";
+import {
+  Noto_Sans_TC,
+  Noto_Serif_TC,
+  Playfair_Display,
+} from "next/font/google";
 import "./globals.css";
 
 const siteName = "築時數位";
 const siteUrl = "https://arrive-studio.vercel.app/";
 const title =
-  "築時數位 | 極速交付的次世代網站、系統與 AI 整合開發";
+  "築時數位 | 以溫潤而高轉換的品牌網站，陪你把品味變成信任";
 const description =
-  "以 Next.js、React、TypeScript 與 AI 協作流程，幾天內打造高轉換 Landing Page、企業官網、內部系統與 AI 深度整合方案，兼顧美感、效能、SEO 與商業轉換。";
+  "為講究空間美學、餐飲體驗與生活風格的品牌主理人，打造優雅、清晰且能承接商機的網站與數位體驗。";
 
 const bodyFont = Noto_Sans_TC({
   subsets: ["latin"],
@@ -15,10 +19,16 @@ const bodyFont = Noto_Sans_TC({
   variable: "--font-body",
 });
 
-const displayFont = Plus_Jakarta_Sans({
+const serifTcFont = Noto_Serif_TC({
   subsets: ["latin"],
-  weight: ["600", "700", "800"],
-  variable: "--font-display",
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-serif-tc",
+});
+
+const serifLatinFont = Playfair_Display({
+  subsets: ["latin"],
+  weight: ["500", "600", "700", "800"],
+  variable: "--font-serif-latin",
 });
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -27,31 +37,27 @@ export async function generateMetadata(): Promise<Metadata> {
     title,
     description,
     keywords: [
-      "AI 網頁開發",
+      "品牌網站設計",
+      "餐飲品牌網站",
+      "生活美學官網",
       "Landing Page 設計",
       "Next.js 開發",
-      "企業形象官網",
-      "內部自動化系統",
-      "AI 系統整合",
+      "女性品牌形象網站",
+      "空間收納品牌網站",
       "SEO 優化",
       "RWD 響應式網站",
       "網站接案工作室",
-      "AI 網頁設計",
-      "UI UX 設計",
-      "數位轉型開發",
     ],
     applicationName: siteName,
     authors: [{ name: siteName }],
     creator: siteName,
     publisher: siteName,
-    category: "technology",
+    category: "design",
     alternates: {
       canonical: "/",
     },
     icons: {
-      icon: [
-        { url: "/icon.svg", type: "image/svg+xml" },
-      ],
+      icon: [{ url: "/icon.svg", type: "image/svg+xml" }],
       shortcut: "/icon.svg",
       apple: "/icon.svg",
     },
@@ -97,9 +103,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="zh-Hant" className="dark">
+    <html lang="zh-Hant">
       <body
-        className={`${bodyFont.variable} ${displayFont.variable} app-shell antialiased`}
+        className={`${bodyFont.variable} ${serifTcFont.variable} ${serifLatinFont.variable} app-shell bg-stone-50 text-stone-800 antialiased`}
       >
         {children}
       </body>

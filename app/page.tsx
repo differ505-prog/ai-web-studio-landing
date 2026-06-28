@@ -13,14 +13,9 @@ const structuredData = {
   "@type": "ProfessionalService",
   name: "築時數位",
   description:
-    "提供 AI 網頁開發、Landing Page、企業官網、內部自動化系統與 AI 深度整合服務。",
+    "提供品牌網站、風格 Landing Page、企業官網與兼具美感與轉換的數位體驗規劃。",
   areaServed: "Taiwan",
-  serviceType: [
-    "企業形象官網",
-    "Landing Page",
-    "內部自動化系統",
-    "AI 系統整合",
-  ],
+  serviceType: ["品牌官網", "Landing Page", "形象網站", "數位體驗設計"],
   url: "https://arrive-studio.vercel.app/",
 };
 
@@ -32,7 +27,7 @@ export default function HomePage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
       />
 
-      <main className="mx-auto w-full max-w-7xl px-6 py-6 sm:px-10 lg:px-12 lg:py-8">
+      <main className="mx-auto w-full max-w-[1440px] px-5 py-5 sm:px-8 lg:px-10 lg:py-8">
         <HeroSection />
         <PainPointsSection />
         <ServicesSection />

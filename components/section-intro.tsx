@@ -15,13 +15,13 @@ export function SectionIntro({
 
   return (
     <div className={`max-w-3xl ${alignment}`}>
-      <p className="font-display text-sm font-semibold uppercase tracking-[0.32em] text-indigo-200/75">
+      <p className="text-xs uppercase tracking-[0.36em] text-stone-500">
         {eyebrow}
       </p>
-      <h2 className="mt-4 text-3xl font-extrabold tracking-tight text-slate-50 md:text-5xl">
+      <h2 className="mt-5 font-serif text-3xl font-semibold tracking-wide text-stone-900 md:text-5xl md:leading-[1.25]">
         {title}
       </h2>
-      <p className="mt-5 text-base leading-relaxed text-slate-300 md:text-lg">
+      <p className="mt-6 text-base leading-8 text-stone-700 md:text-lg">
         {description}
       </p>
     </div>

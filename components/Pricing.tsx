@@ -25,153 +25,118 @@ type Plan = {
 
 const plans: Plan[] = [
   {
-    name: "極速啟動版",
-    badge: "🔥 實體店家首選",
+    name: "品牌起步方案",
+    badge: "生活品牌首選",
     price: "NT$ 9,900",
     delivery: "3-5 個工作天",
-    audience:
-      "需要建立專業形象的餐飲實體店面、個人品牌或微型工作室。",
-    cta: "立即啟動數位店面",
+    audience: "適合餐飲店面、個人品牌、選物與空間風格工作室快速建立精緻門面。",
+    cta: "立即整理品牌首頁",
     ctaHref: "#contact",
     featured: true,
     features: [
-      {
-        label:
-          "專屬品牌形象官網 (支援多區塊動態導覽與平滑滾動)",
-        included: true,
-      },
-      { label: "基本 SEO 搜尋引擎優化與 OG 標籤設定", included: true },
-      { label: "社群連結與在地化聯絡表單 (無縫串接 Email 或 LINE)", included: true },
-      { label: "免費協助部署與首年免主機費 (採用 Serverless 架構)", included: true },
-      { label: "上線後 7 天內免費微調 1 次", included: true },
-      { label: "專屬會員 / 員工登入權限管理系統", included: false },
-      {
-        label:
-          "系統櫃配件、空間收納或餐飲實體營運的深度客製邏輯",
-        included: false,
-      },
+      { label: "單頁式品牌 Landing Page 與流暢段落導覽", included: true },
+      { label: "基礎 SEO、OG 與品牌資訊設定", included: true },
+      { label: "聯絡表單、社群連結與 CTA 導流設計", included: true },
+      { label: "部署協助與上線後 7 天內一次微調", included: true },
+      { label: "後台會員與複雜營運邏輯整合", included: false },
+      { label: "深度客製資料流程或 AI 功能串接", included: false },
     ],
   },
   {
-    name: "企業客製化系統",
+    name: "品牌延伸方案",
     price: "NT$ 29,900 起",
     delivery: "2-4 週",
-    audience:
-      "面臨複雜庫存與報價痛點的空間收納業者、系統櫃廠或餐飲營運團隊。",
-    cta: "預約產業專屬架構諮詢",
+    audience: "適合需要多頁官網、預約流程、後台管理或更完整品牌內容架構的成長型品牌。",
+    cta: "預約品牌架構諮詢",
     ctaHref: "#contact",
     secondary: true,
     features: [
-      { label: "包含極速啟動版所有功能，並升級為多頁面架構", included: true },
-      { label: "專屬會員 / 員工登入權限管理系統", included: true },
-      {
-        label:
-          "深度客製化業務邏輯 (例如：系統櫃五金配件雲端清單、複雜空間規劃自動報價模型)",
-        included: true,
-      },
-      {
-        label: "實體營運痛點解決方案 (例如：餐飲排班與耗損追蹤)",
-        included: true,
-      },
-      {
-        label:
-          "第三方 API 深度整合 (如：綠界金流、Line Pay、一卡通 iPASS 票證服務、AI 大模型數據分析)",
-        included: true,
-      },
-      {
-        label: "上線後 30 天內免費技術支援與 Bug 修復保障",
-        included: true,
-      },
-      { label: "專案啟動前需求訪談與架構拆解會議", included: true },
+      { label: "包含起步方案內容，並延伸為多頁品牌網站", included: true },
+      { label: "可加入會員、預約、詢價或內容管理機制", included: true },
+      { label: "服務流程、案例與方案說明的完整頁面編排", included: true },
+      { label: "第三方工具、付款或 AI 功能的延伸整合", included: true },
+      { label: "上線後 30 天內技術支援與調整建議", included: true },
+      { label: "專案啟動前的品牌訪談與架構拆解", included: true },
     ],
   },
 ];
 
 export function Pricing() {
   return (
-    <AnimatedSection id="pricing" ariaLabelledBy="pricing-title" className="mt-24">
+    <AnimatedSection id="pricing" ariaLabelledBy="pricing-title" className="py-24 lg:py-32">
       <SectionIntro
         eyebrow="Pricing / Plans"
-        title="透明、極速、無隱藏費用的開發方案"
-        description="打破傳統軟體外包數十萬的門檻。我們專注於實體產業的數位轉型，用 AI 賦能，把省下來的開發時間回饋到你的預算上。"
+        title="把報價說清楚，讓合作從一開始就保持從容。"
+        description="每個方案都以可感知的交付成果為核心，不用被複雜術語包圍，也不用擔心額外費用在後面才出現。"
         align="center"
       />
 
-      <div className="mx-auto mt-10 grid max-w-6xl gap-6 lg:grid-cols-2 lg:items-stretch">
+      <div className="mx-auto mt-12 grid max-w-6xl gap-6 lg:grid-cols-2 lg:items-stretch">
         {plans.map((plan) => (
           <motion.article
             key={plan.name}
-            whileHover={{ y: -8, scale: 1.015 }}
+            whileHover={{ y: -6 }}
             transition={{ type: "spring", stiffness: 260, damping: 20 }}
-            className={`relative flex h-full flex-col overflow-hidden rounded-[32px] border border-white/10 bg-white/5 p-7 backdrop-blur-md shadow-[0_24px_80px_rgba(0,0,0,0.22)] ${
+            className={`relative flex h-full flex-col overflow-hidden rounded-[32px] border p-7 shadow-[0_8px_30px_rgb(0,0,0,0.04)] ${
               plan.featured
-                ? "ring-1 ring-indigo-500/50 shadow-[0_0_15px_rgba(99,102,241,0.2),0_24px_80px_rgba(0,0,0,0.22)]"
-                : ""
+                ? "border-stone-200 bg-[#f6f1e9]"
+                : "border-stone-200 bg-white"
             }`}
           >
-            {plan.featured ? (
-              <>
-                <div className="absolute -right-10 -top-12 h-40 w-40 rounded-full bg-indigo-500/18 blur-3xl" />
-                <div className="absolute right-0 top-0 h-1 w-full bg-gradient-to-r from-transparent via-indigo-400/80 to-transparent" />
-              </>
-            ) : (
-              <div className="absolute -left-10 bottom-0 h-36 w-36 rounded-full bg-cyan-400/8 blur-3xl" />
-            )}
-
             <div className="relative flex h-full flex-col">
               <div className="flex items-start justify-between gap-4">
                 <div>
                   {plan.badge ? (
-                    <span className="font-display inline-flex items-center gap-2 rounded-full border border-indigo-400/25 bg-indigo-500/10 px-3 py-1 text-xs font-semibold tracking-[0.18em] text-indigo-100">
-                      <Sparkles className="h-3.5 w-3.5" />
+                    <span className="inline-flex items-center gap-2 rounded-full border border-stone-200 bg-white px-3 py-1 text-xs font-semibold tracking-[0.18em] text-stone-600">
+                      <Sparkles className="h-3.5 w-3.5 text-[#8B5E3C]" />
                       {plan.badge}
                     </span>
                   ) : (
-                    <span className="font-display inline-flex rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-semibold tracking-[0.18em] text-slate-300">
-                      產業專屬架構
+                    <span className="inline-flex rounded-full border border-stone-200 bg-stone-50 px-3 py-1 text-xs font-semibold tracking-[0.18em] text-stone-500">
+                      進階合作
                     </span>
                   )}
 
-                  <h3 className="mt-5 text-3xl font-bold tracking-tight text-slate-50">
+                  <h3 className="mt-5 font-serif text-3xl font-semibold tracking-wide text-stone-900">
                     {plan.name}
                   </h3>
                 </div>
               </div>
 
-              <div className="mt-6 rounded-3xl border border-white/10 bg-white/5 p-5 backdrop-blur-md">
-                <p className="text-sm text-slate-400">方案價格</p>
-                <p className="font-display mt-2 text-4xl font-bold tracking-tight text-slate-50">
+              <div className="mt-6 rounded-[28px] border border-stone-200 bg-white p-5">
+                <p className="text-sm text-stone-500">方案價格</p>
+                <p className="mt-2 font-serif text-4xl font-semibold tracking-wide text-stone-900">
                   {plan.price}
                 </p>
-                <p className="mt-3 text-sm font-medium text-cyan-300">
+                <p className="mt-3 text-sm font-medium text-[#8B5E3C]">
                   交付時間：{plan.delivery}
                 </p>
               </div>
 
-              <div className="mt-6 rounded-3xl border border-white/10 bg-white/5 p-5 backdrop-blur-md">
-                <p className="text-sm text-slate-400">目標客群</p>
-                <p className="mt-2 text-sm leading-relaxed text-slate-300">{plan.audience}</p>
+              <div className="mt-6 rounded-[28px] border border-stone-200 bg-white p-5">
+                <p className="text-sm text-stone-500">適合對象</p>
+                <p className="mt-2 text-sm leading-7 text-stone-700">{plan.audience}</p>
               </div>
 
               <ul className="mt-6 space-y-3">
                 {plan.features.map((feature) => (
                   <li
                     key={feature.label}
-                    className={`flex items-start gap-3 rounded-2xl border px-4 py-3 text-sm leading-7 ${
+                    className={`flex items-start gap-3 rounded-[22px] border px-4 py-3 text-sm leading-7 ${
                       feature.included
-                        ? "border-white/10 bg-white/5 text-slate-100 backdrop-blur-md"
-                        : "border-white/6 bg-white/[0.03] text-slate-500 opacity-70"
+                        ? "border-stone-200 bg-white text-stone-700"
+                        : "border-stone-200 bg-stone-50 text-stone-400"
                     }`}
                   >
                     <span
                       className={`mt-1 shrink-0 ${
-                        feature.included ? "text-emerald-400" : "text-slate-500"
+                        feature.included ? "text-emerald-700/70" : "text-stone-400"
                       }`}
                     >
                       {feature.included ? (
-                        <CheckCircle className="h-4.5 w-4.5" />
+                        <CheckCircle className="h-[18px] w-[18px]" />
                       ) : (
-                        <X className="h-4.5 w-4.5" />
+                        <X className="h-[18px] w-[18px]" />
                       )}
                     </span>
                     <span>{feature.label}</span>
@@ -183,8 +148,8 @@ export function Pricing() {
                 href={plan.ctaHref}
                 className={`mt-8 inline-flex items-center justify-center rounded-full px-6 py-3.5 text-sm font-semibold transition ${
                   plan.secondary
-                    ? "border border-gray-600 bg-transparent text-white hover:border-gray-300 hover:bg-white/5"
-                    : "bg-gradient-to-r from-indigo-500 to-cyan-500 text-white hover:-translate-y-0.5 hover:brightness-110"
+                    ? "border border-stone-300 text-stone-700 hover:bg-stone-100"
+                    : "bg-[#8B5E3C] text-white hover:-translate-y-0.5 hover:bg-stone-800"
                 }`}
               >
                 {plan.cta}

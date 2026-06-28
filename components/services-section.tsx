@@ -5,57 +5,59 @@ import { SectionIntro } from "@/components/section-intro";
 const services = [
   {
     icon: Building2,
-    title: "企業形象官網",
+    title: "品牌形象官網",
     description:
-      "打造高質感品牌官網與 Landing Page，兼顧 RWD、SEO、效能與轉換設計，讓流量真正轉化成商機。",
-    highlights: ["品牌視覺設計", "RWD 響應式開發", "SEO 結構優化"],
+      "以雜誌式的閱讀節奏重整品牌介紹、服務亮點與詢問入口，讓第一印象更完整而安定。",
+    highlights: ["首頁敘事重構", "RWD 響應式頁面", "基礎 SEO 與品牌 metadata"],
   },
   {
     icon: LineChart,
-    title: "內部自動化系統",
+    title: "營運資訊整理",
     description:
-      "從表單、資料管理、流程追蹤到視覺化儀表板，將重複性工作數位化，讓團隊效率大幅提升。",
-    highlights: ["流程優化", "資料視覺化", "權限與後台管理"],
+      "把原本零散的服務流程、方案內容與常見問答收斂成更有條理的內容架構，降低溝通成本。",
+    highlights: ["服務架構梳理", "方案內容排版", "表單與導流優化"],
   },
   {
     icon: Cpu,
-    title: "AI 系統深度整合",
+    title: "數位體驗延伸",
     description:
-      "無縫串接各大模型 API 與企業級雲端基礎設施，讓 AI 不只是展示，而是真正融入你的產品與流程。",
-    highlights: ["模型 API 串接", "雲端架構整合", "企業級安全與擴充"],
+      "若品牌需要更進一步的預約、會員、資料管理或 AI 功能，我們也能延伸成可持續擴充的系統。",
+    highlights: ["後台與權限規劃", "第三方串接", "可擴充技術架構"],
   },
 ];
 
 export function ServicesSection() {
   return (
-    <AnimatedSection id="services" ariaLabelledBy="services-title" className="mt-24">
+    <AnimatedSection id="services" ariaLabelledBy="services-title" className="py-24 lg:py-32">
       <SectionIntro
         eyebrow="Core Services"
-        title="不是只做漂亮頁面，而是交付真正能帶來成果的數位產品。"
-        description="我們從商業目標出發，選擇合適的技術與介面策略。每一項服務都以高速交付、可維護架構與實際營運價值為核心。"
+        title="設計不只是漂亮，而是讓品牌被更細緻地理解。"
+        description="我們會先整理內容，再安排節奏，最後才把視覺放進去。這讓網站不只是好看，而是更像你的品牌本人。"
       />
 
-      <div className="mt-10 grid gap-6 lg:grid-cols-3">
+      <div className="mt-12 grid gap-6 lg:grid-cols-3">
         {services.map(({ icon: Icon, title, description, highlights }) => (
           <article
             key={title}
-            className="group rounded-[30px] border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.04),rgba(255,255,255,0.02))] p-6 transition hover:-translate-y-1 hover:border-teal-300/30 hover:bg-white/[0.06]"
+            className="group rounded-[32px] border border-stone-200 bg-white p-7 shadow-[0_8px_30px_rgb(0,0,0,0.04)] transition hover:-translate-y-1"
           >
-            <div className="flex h-14 w-14 items-center justify-center rounded-2xl border border-teal-300/20 bg-teal-300/10 text-teal-100">
+            <div className="flex h-14 w-14 items-center justify-center rounded-full border border-stone-200 bg-stone-100 text-[#8B5E3C]">
               <Icon className="h-6 w-6" />
             </div>
-            <h3 className="mt-6 text-2xl font-semibold text-stone-50">{title}</h3>
-            <p className="mt-4 text-sm leading-7 text-slate-300">{description}</p>
+            <h3 className="mt-7 font-serif text-2xl font-semibold tracking-wide text-stone-900">
+              {title}
+            </h3>
+            <p className="mt-4 text-sm leading-8 text-stone-700">{description}</p>
 
-            <div className="mt-6 flex items-center gap-2 text-xs uppercase tracking-[0.24em] text-slate-500">
+            <div className="mt-7 flex items-center gap-2 text-xs uppercase tracking-[0.24em] text-stone-500">
               <Blocks className="h-4 w-4" />
-              交付重點
+              服務內容
             </div>
             <ul className="mt-4 space-y-3">
               {highlights.map((item) => (
                 <li
                   key={item}
-                  className="rounded-2xl border border-white/8 bg-black/20 px-4 py-3 text-sm text-slate-200"
+                  className="rounded-[22px] border border-stone-200 bg-stone-50 px-4 py-3 text-sm text-stone-700"
                 >
                   {item}
                 </li>
