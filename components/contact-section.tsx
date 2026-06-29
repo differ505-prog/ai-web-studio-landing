@@ -29,21 +29,28 @@ export function ContactSection() {
               </p>
             </div>
             <a
-              href="mailto:hello@example.com"
+              href="mailto:hello.arrivestudio@gmail.com"
               className="inline-flex items-center gap-2 text-sm font-semibold text-[#8B5E3C] transition hover:text-stone-800"
             >
-              hello@example.com
+              hello.arrivestudio@gmail.com
               <Mail className="h-4 w-4" />
             </a>
           </div>
         </div>
 
         <form
-          action="https://formspree.io/f/YOUR_FORM_ID"
+          action="https://formsubmit.co/hello.arrivestudio@gmail.com"
           method="POST"
           className="rounded-[32px] border border-stone-200 bg-[#f7f3ec] p-6"
           aria-label="聯絡表單"
         >
+          <input type="hidden" name="_subject" value="Arrive Studio 官網新詢問" />
+          <input type="hidden" name="_captcha" value="false" />
+          <input
+            type="hidden"
+            name="_next"
+            value="https://arrive-studio.vercel.app/?contact=success#contact"
+          />
           <div className="grid gap-5">
             <label className="block">
               <span className="mb-2 block text-sm font-medium text-stone-700">姓名</span>
@@ -53,6 +60,8 @@ export function ContactSection() {
                   type="text"
                   name="name"
                   placeholder="請輸入你的姓名"
+                  required
+                  autoComplete="name"
                   className="w-full bg-transparent text-stone-800 placeholder:text-stone-400"
                 />
               </div>
@@ -66,6 +75,8 @@ export function ContactSection() {
                   type="email"
                   name="email"
                   placeholder="you@company.com"
+                  required
+                  autoComplete="email"
                   className="w-full bg-transparent text-stone-800 placeholder:text-stone-400"
                 />
               </div>
@@ -77,6 +88,7 @@ export function ContactSection() {
                 name="message"
                 rows={6}
                 placeholder="請簡述你的品牌類型、想呈現的風格，以及目前最想改善的頁面問題。"
+                required
                 className="w-full rounded-[20px] border border-stone-200 bg-white px-4 py-3 text-stone-800 placeholder:text-stone-400"
               />
             </label>
@@ -88,7 +100,6 @@ export function ContactSection() {
               送出需求
               <Send className="h-4 w-4" />
             </button>
-            {/* 正式上線前請將 YOUR_FORM_ID 替換成你的 Formspree 表單 ID。 */}
           </div>
         </form>
       </div>

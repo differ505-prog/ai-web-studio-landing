@@ -15,6 +15,7 @@ const structuredData = {
   description:
     "提供品牌網站、風格 Landing Page、企業官網與兼具美感與轉換的數位體驗規劃。",
   areaServed: "Taiwan",
+  email: "hello.arrivestudio@gmail.com",
   serviceType: ["品牌官網", "Landing Page", "形象網站", "數位體驗設計"],
   url: "https://arrive-studio.vercel.app/",
 };
