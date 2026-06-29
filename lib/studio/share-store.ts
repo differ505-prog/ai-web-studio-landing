@@ -119,12 +119,16 @@ export async function getSharedContractPayload(token: string) {
     return MEMORY_SHARED.get(token) ?? null;
   }
 
-  const raw = await runKvCommand(["GET", buildStorageKey(token)]);
-  if (!raw) {
-    return null;
-  }
+  try {
+    const raw = await runKvCommand(["GET", buildStorageKey(token)]);
+    if (!raw) {
+      return null;
+    }
 
-  return JSON.parse(String(raw)) as SharedContractPayload;
+    return JSON.parse(String(raw)) as SharedContractPayload;
+  } catch {
+    return MEMORY_SHARED.get(token) ?? null;
+  }
 }
 
 export async function saveSharedContractPayloadFallback(payload: SharedContractPayload) {
@@ -133,7 +137,13 @@ export async function saveSharedContractPayloadFallback(payload: SharedContractP
 
 export async function createShareToken(payload: SharedContractPayload) {
   if (isContractLinkStorageConfigured()) {
-    return saveSharedContractPayload(payload);
+    try {
+      return await saveSharedContractPayload(payload);
+    } catch {
+      // Gracefully degrade to an inline token so contract sharing still works
+      // even if KV credentials exist but the upstream store is unavailable.
+      return saveSharedContractPayloadFallback(payload);
+    }
   }
 
   return saveSharedContractPayloadFallback(payload);
@@ -171,18 +181,23 @@ export async function saveSignedContractRecord(
     return record;
   }
 
-  const saveResult = await runKvCommand([
-    "SET",
-    buildSignedRecordStorageKey(recordId),
-    JSON.stringify(record),
-  ]);
+  try {
+    const saveResult = await runKvCommand([
+      "SET",
+      buildSignedRecordStorageKey(recordId),
+      JSON.stringify(record),
+    ]);
 
-  if (saveResult !== "OK") {
-    throw new Error("已簽紀錄儲存失敗。");
+    if (saveResult !== "OK") {
+      throw new Error("已簽紀錄儲存失敗。");
+    }
+
+    await runKvCommand(["LPUSH", SIGNED_CONTRACT_INDEX_KEY, recordId]);
+    return record;
+  } catch {
+    MEMORY_SIGNED.set(recordId, record);
+    return record;
   }
-
-  await runKvCommand(["LPUSH", SIGNED_CONTRACT_INDEX_KEY, recordId]);
-  return record;
 }
 
 export async function listSignedContractRecords(limit = 50) {
@@ -192,23 +207,29 @@ export async function listSignedContractRecords(limit = 50) {
       .slice(0, limit);
   }
 
-  const ids = await runKvCommand(["LRANGE", SIGNED_CONTRACT_INDEX_KEY, 0, Math.max(0, limit - 1)]);
-  if (!Array.isArray(ids)) {
-    return [];
+  try {
+    const ids = await runKvCommand(["LRANGE", SIGNED_CONTRACT_INDEX_KEY, 0, Math.max(0, limit - 1)]);
+    if (!Array.isArray(ids)) {
+      return [];
+    }
+
+    const records = await Promise.all(
+      ids.map(async (recordId) => {
+        const raw = await runKvCommand(["GET", buildSignedRecordStorageKey(String(recordId))]);
+        if (!raw) {
+          return null;
+        }
+
+        return JSON.parse(String(raw)) as SignedContractRecord;
+      }),
+    );
+
+    return records.filter(Boolean) as SignedContractRecord[];
+  } catch {
+    return Array.from(MEMORY_SIGNED.values())
+      .sort((a, b) => b.signedAt.localeCompare(a.signedAt))
+      .slice(0, limit);
   }
-
-  const records = await Promise.all(
-    ids.map(async (recordId) => {
-      const raw = await runKvCommand(["GET", buildSignedRecordStorageKey(String(recordId))]);
-      if (!raw) {
-        return null;
-      }
-
-      return JSON.parse(String(raw)) as SignedContractRecord;
-    }),
-  );
-
-  return records.filter(Boolean) as SignedContractRecord[];
 }
 
 export async function getSignedContractRecord(recordId: string) {
@@ -216,10 +237,14 @@ export async function getSignedContractRecord(recordId: string) {
     return MEMORY_SIGNED.get(recordId) ?? null;
   }
 
-  const raw = await runKvCommand(["GET", buildSignedRecordStorageKey(recordId)]);
-  if (!raw) {
-    return null;
-  }
+  try {
+    const raw = await runKvCommand(["GET", buildSignedRecordStorageKey(recordId)]);
+    if (!raw) {
+      return null;
+    }
 
-  return JSON.parse(String(raw)) as SignedContractRecord;
+    return JSON.parse(String(raw)) as SignedContractRecord;
+  } catch {
+    return MEMORY_SIGNED.get(recordId) ?? null;
+  }
 }
