@@ -8,7 +8,13 @@ import type { ContractDraft } from "@/lib/studio/types";
 
 type ShareState = "idle" | "loading" | "success" | "error";
 
-export function ContractEditor({ initialDraft }: { initialDraft: ContractDraft }) {
+export function ContractEditor({
+  initialDraft,
+  isKvEnabled,
+}: {
+  initialDraft: ContractDraft;
+  isKvEnabled: boolean;
+}) {
   const [paymentPlan, setPaymentPlan] = useState<keyof typeof paymentPlanPresets>(
     initialDraft.paymentPlanLabel.includes("4-4-2") ? "4-4-2" : "3-4-3",
   );
@@ -160,6 +166,11 @@ export function ContractEditor({ initialDraft }: { initialDraft: ContractDraft }
         </ControlCard>
 
         <ControlCard title="簽署分享">
+          <p className="rounded-[18px] bg-stone-50 px-4 py-3 text-sm leading-7 text-stone-600">
+            {isKvEnabled
+              ? "目前已啟用 Vercel KV，產生的是正式短版簽署連結，已簽留存也會持久保存。"
+              : "目前尚未啟用 Vercel KV，系統會先退回 inline 簽署連結；功能可用，但網址會較長，建議正式上線前補上 KV。"}
+          </p>
           <button
             type="button"
             onClick={handleShare}

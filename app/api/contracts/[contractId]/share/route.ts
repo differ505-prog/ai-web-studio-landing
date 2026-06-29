@@ -1,3 +1,4 @@
+import { auth } from "@/auth";
 import { NextResponse } from "next/server";
 import { headers } from "next/headers";
 import { findContractDraft } from "@/lib/studio/mock-data";
@@ -8,6 +9,12 @@ export async function POST(
   request: Request,
   context: { params: Promise<{ contractId: string }> },
 ) {
+  const session = await auth();
+
+  if (!session?.user?.email) {
+    return NextResponse.json({ message: "請先登入築時數位工作面板。" }, { status: 401 });
+  }
+
   const { contractId } = await context.params;
   const fallbackDraft = findContractDraft(contractId);
 

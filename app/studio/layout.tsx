@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import { redirect } from "next/navigation";
+import { auth } from "@/auth";
 
 export const metadata: Metadata = {
   title: "築時數位工作面板",
@@ -14,5 +16,15 @@ export default function StudioLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  return <StudioGate>{children}</StudioGate>;
+}
+
+async function StudioGate({ children }: { children: React.ReactNode }) {
+  const session = await auth();
+
+  if (!session?.user?.email) {
+    redirect("/login");
+  }
+
   return children;
 }

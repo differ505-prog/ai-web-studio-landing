@@ -1,5 +1,13 @@
+import { auth, signOut } from "@/auth";
 import Link from "next/link";
-import { FileBadge2, FilePenLine, FolderKanban, LayoutDashboard, ScrollText } from "lucide-react";
+import {
+  FileBadge2,
+  FilePenLine,
+  FolderKanban,
+  LayoutDashboard,
+  LogOut,
+  ScrollText,
+} from "lucide-react";
 
 const navItems = [
   { href: "/studio", label: "總覽", icon: LayoutDashboard },
@@ -9,7 +17,7 @@ const navItems = [
   { href: "/studio/templates", label: "模板", icon: FileBadge2 },
 ];
 
-export function StudioShell({
+export async function StudioShell({
   title,
   eyebrow,
   description,
@@ -20,6 +28,8 @@ export function StudioShell({
   description: string;
   children: React.ReactNode;
 }) {
+  const session = await auth();
+
   return (
     <div className="min-h-screen bg-[linear-gradient(180deg,#f7f3ed_0%,#f2ece3_100%)] text-stone-800">
       <div className="mx-auto flex min-h-screen w-full max-w-[1600px] gap-6 px-4 py-4 md:px-6 lg:px-8">
@@ -49,11 +59,32 @@ export function StudioShell({
             })}
           </nav>
 
-          <div className="mt-auto rounded-[24px] border border-stone-200 bg-[#efe6d9] p-5">
-            <p className="text-sm font-semibold text-stone-900">目前建議模式</p>
-            <p className="mt-2 text-sm leading-7 text-stone-700">
-              內部工作面板獨立使用，客戶則透過專屬 token 開啟手機簽署頁。
-            </p>
+          <div className="mt-auto space-y-4">
+            <div className="rounded-[24px] border border-stone-200 bg-[#efe6d9] p-5">
+              <p className="text-sm font-semibold text-stone-900">目前建議模式</p>
+              <p className="mt-2 text-sm leading-7 text-stone-700">
+                內部工作面板獨立使用，客戶則透過專屬 token 開啟手機簽署頁。
+              </p>
+            </div>
+
+            <div className="rounded-[24px] border border-stone-200 bg-white p-5">
+              <p className="text-xs uppercase tracking-[0.24em] text-stone-500">Signed In</p>
+              <p className="mt-3 text-sm font-medium text-stone-900">{session?.user?.email ?? "未登入"}</p>
+              <form
+                action={async () => {
+                  "use server";
+                  await signOut({ redirectTo: "/login" });
+                }}
+              >
+                <button
+                  type="submit"
+                  className="mt-4 inline-flex items-center gap-2 rounded-full border border-stone-300 px-4 py-2 text-sm font-semibold text-stone-700 transition hover:border-stone-500"
+                >
+                  <LogOut className="h-4 w-4" />
+                  登出
+                </button>
+              </form>
+            </div>
           </div>
         </aside>
 
