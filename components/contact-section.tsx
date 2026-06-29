@@ -1,7 +1,15 @@
-import { Mail, Send, User2 } from "lucide-react";
+"use client";
+
+import { useState } from "react";
+import { LoaderCircle, Mail, Send, User2 } from "lucide-react";
 import { AnimatedSection } from "@/components/animated-section";
 
+type SubmitState = "idle" | "submitting" | "success" | "error";
+
 export function ContactSection() {
+  const [submitState, setSubmitState] = useState<SubmitState>("idle");
+  const [feedbackMessage, setFeedbackMessage] = useState("");
+
   return (
     <AnimatedSection
       id="contact"
@@ -39,19 +47,62 @@ export function ContactSection() {
         </div>
 
         <form
-          action="https://formsubmit.co/hello.arrivestudio@gmail.com"
-          method="POST"
           className="rounded-[32px] border border-stone-200 bg-[#f7f3ec] p-6"
           aria-label="聯絡表單"
+          onSubmit={async (event) => {
+            event.preventDefault();
+
+            const form = event.currentTarget;
+            const formData = new FormData(form);
+
+            const payload = {
+              name: String(formData.get("name") ?? "").trim(),
+              email: String(formData.get("email") ?? "").trim(),
+              message: String(formData.get("message") ?? "").trim(),
+              website: String(formData.get("website") ?? "").trim(),
+            };
+
+            setSubmitState("submitting");
+            setFeedbackMessage("");
+
+            try {
+              const response = await fetch("/api/contact", {
+                method: "POST",
+                headers: {
+                  "Content-Type": "application/json",
+                },
+                body: JSON.stringify(payload),
+              });
+
+              const result = (await response.json()) as { message?: string };
+
+              if (!response.ok) {
+                throw new Error(result.message || "送出失敗，請稍後再試。");
+              }
+
+              form.reset();
+              setSubmitState("success");
+              setFeedbackMessage(result.message || "已成功送出，我們會盡快與你聯繫。");
+            } catch (error) {
+              setSubmitState("error");
+              setFeedbackMessage(
+                error instanceof Error ? error.message : "系統忙碌中，請稍後再試或直接來信。",
+              );
+            }
+          }}
         >
-          <input type="hidden" name="_subject" value="Arrive Studio 官網新詢問" />
-          <input type="hidden" name="_captcha" value="false" />
-          <input
-            type="hidden"
-            name="_next"
-            value="https://arrive-studio.vercel.app/?contact=success#contact"
-          />
           <div className="grid gap-5">
+            <label className="hidden" aria-hidden="true">
+              <span>網站</span>
+              <input
+                type="text"
+                name="website"
+                tabIndex={-1}
+                autoComplete="off"
+                className="hidden"
+              />
+            </label>
+
             <label className="block">
               <span className="mb-2 block text-sm font-medium text-stone-700">姓名</span>
               <div className="flex items-center gap-3 rounded-[20px] border border-stone-200 bg-white px-4 py-3">
@@ -62,6 +113,7 @@ export function ContactSection() {
                   placeholder="請輸入你的姓名"
                   required
                   autoComplete="name"
+                  disabled={submitState === "submitting"}
                   className="w-full bg-transparent text-stone-800 placeholder:text-stone-400"
                 />
               </div>
@@ -77,6 +129,7 @@ export function ContactSection() {
                   placeholder="you@company.com"
                   required
                   autoComplete="email"
+                  disabled={submitState === "submitting"}
                   className="w-full bg-transparent text-stone-800 placeholder:text-stone-400"
                 />
               </div>
@@ -89,16 +142,35 @@ export function ContactSection() {
                 rows={6}
                 placeholder="請簡述你的品牌類型、想呈現的風格，以及目前最想改善的頁面問題。"
                 required
+                disabled={submitState === "submitting"}
                 className="w-full rounded-[20px] border border-stone-200 bg-white px-4 py-3 text-stone-800 placeholder:text-stone-400"
               />
             </label>
 
+            {feedbackMessage ? (
+              <p
+                className={`rounded-[20px] px-4 py-3 text-sm leading-7 ${
+                  submitState === "success"
+                    ? "border border-emerald-200 bg-emerald-50 text-emerald-700"
+                    : "border border-rose-200 bg-rose-50 text-rose-700"
+                }`}
+                role={submitState === "error" ? "alert" : "status"}
+              >
+                {feedbackMessage}
+              </p>
+            ) : null}
+
             <button
               type="submit"
-              className="inline-flex items-center justify-center gap-2 rounded-full bg-[#8B5E3C] px-6 py-3.5 text-sm font-semibold text-white transition hover:bg-stone-800"
+              disabled={submitState === "submitting"}
+              className="inline-flex items-center justify-center gap-2 rounded-full bg-[#8B5E3C] px-6 py-3.5 text-sm font-semibold text-white transition hover:bg-stone-800 disabled:cursor-not-allowed disabled:bg-stone-400"
             >
-              送出需求
-              <Send className="h-4 w-4" />
+              {submitState === "submitting" ? "送出中..." : "送出需求"}
+              {submitState === "submitting" ? (
+                <LoaderCircle className="h-4 w-4 animate-spin" />
+              ) : (
+                <Send className="h-4 w-4" />
+              )}
             </button>
           </div>
         </form>
