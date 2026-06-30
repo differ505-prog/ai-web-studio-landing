@@ -3,6 +3,8 @@ import { StudioShell } from "@/components/studio/studio-shell";
 import { createBlankContractDraft } from "@/lib/studio/defaults";
 import { isContractLinkStorageConfigured } from "@/lib/studio/share-store";
 
+export const dynamic = "force-dynamic";
+
 export default function StudioNewContractPage() {
   const draft = createBlankContractDraft();
   const isKvConfigured = isContractLinkStorageConfigured();

@@ -1,4 +1,3 @@
-import { randomUUID } from "node:crypto";
 import { buildContractClauses, buildPaymentStages, paymentPlanPresets } from "@/lib/studio/templates";
 import type { ClientProfile, ContractDraft } from "@/lib/studio/types";
 
@@ -17,14 +16,19 @@ export const defaultContractNotes = [
   "附件三：品牌素材交接清單",
 ];
 
+function createDraftId(prefix: "contract" | "project") {
+  const suffix = `${Date.now().toString(36)}${Math.random().toString(36).slice(2, 8)}`;
+  return `${prefix}-${suffix}`;
+}
+
 export function createBlankContractDraft(): ContractDraft {
   const totalAmount = 36000;
   const paymentPlanLabel = "3-4-3 分期付款";
   const paymentStages = buildPaymentStages(totalAmount, paymentPlanPresets["3-4-3"]);
 
   return {
-    id: `contract-${randomUUID().replace(/-/g, "").slice(0, 12)}`,
-    projectId: `project-${randomUUID().replace(/-/g, "").slice(0, 12)}`,
+    id: createDraftId("contract"),
+    projectId: createDraftId("project"),
     projectTitle: "待命名專案",
     title: "築時數位網站設計與開發委託合約",
     totalAmount,

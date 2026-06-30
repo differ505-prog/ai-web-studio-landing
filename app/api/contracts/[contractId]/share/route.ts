@@ -25,6 +25,10 @@ export async function POST(
 
   const draft = body?.draft ?? fallbackDraft;
 
+  if (!draft) {
+    return NextResponse.json({ message: "找不到可分享的合約內容。" }, { status: 404 });
+  }
+
   const payload: SharedContractPayload = {
     source: "arrive-studio-workbench",
     draft,
