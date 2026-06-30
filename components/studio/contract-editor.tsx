@@ -18,40 +18,89 @@ export function ContractEditor({
   const [paymentPlan, setPaymentPlan] = useState<keyof typeof paymentPlanPresets>(
     initialDraft.paymentPlanLabel.includes("4-4-2") ? "4-4-2" : "3-4-3",
   );
+  const [projectTitle, setProjectTitle] = useState(initialDraft.projectTitle);
+  const [contractTitle, setContractTitle] = useState(initialDraft.title);
   const [totalAmount, setTotalAmount] = useState(initialDraft.totalAmount);
+  const [clientName, setClientName] = useState(initialDraft.client.name);
+  const [clientCompanyName, setClientCompanyName] = useState(initialDraft.client.companyName);
+  const [clientContactPerson, setClientContactPerson] = useState(initialDraft.client.contactPerson);
+  const [clientEmail, setClientEmail] = useState(initialDraft.client.email);
+  const [clientPhone, setClientPhone] = useState(initialDraft.client.phone);
+  const [clientAddress, setClientAddress] = useState(initialDraft.client.address);
   const [revisionRounds, setRevisionRounds] = useState(initialDraft.freeRevisionRounds);
   const [extraRevisionFee, setExtraRevisionFee] = useState(initialDraft.extraRevisionFee);
+  const [finalReviewDays, setFinalReviewDays] = useState(initialDraft.finalReviewDays);
   const [ghostingDays, setGhostingDays] = useState(initialDraft.ghostingDays);
   const [warrantyDays, setWarrantyDays] = useState(initialDraft.warrantyDays);
+  const [jurisdiction, setJurisdiction] = useState(initialDraft.jurisdiction);
+  const [notesText, setNotesText] = useState(initialDraft.notes.join("\n"));
   const [shareState, setShareState] = useState<ShareState>("idle");
   const [shareLink, setShareLink] = useState("");
   const [shareMessage, setShareMessage] = useState("");
 
   const draft = useMemo<ContractDraft>(() => {
     const paymentStages = buildPaymentStages(totalAmount, paymentPlanPresets[paymentPlan]);
+    const notes = notesText
+      .split("\n")
+      .map((note) => note.trim())
+      .filter(Boolean);
 
     return {
       ...initialDraft,
+      projectTitle,
+      title: contractTitle,
       totalAmount,
+      client: {
+        ...initialDraft.client,
+        name: clientName,
+        companyName: clientCompanyName,
+        contactPerson: clientContactPerson,
+        email: clientEmail,
+        phone: clientPhone,
+        address: clientAddress,
+      },
       freeRevisionRounds: revisionRounds,
       extraRevisionFee,
+      finalReviewDays,
       ghostingDays,
       warrantyDays,
+      jurisdiction,
       paymentPlanLabel: `${paymentPlan} 分期付款`,
       paymentStages,
       clauses: buildContractClauses({
-        projectTitle: initialDraft.projectTitle,
+        projectTitle,
         totalAmount,
         paymentPlanLabel: `${paymentPlan} 分期付款`,
         freeRevisionRounds: revisionRounds,
         extraRevisionFee,
-        finalReviewDays: initialDraft.finalReviewDays,
+        finalReviewDays,
         ghostingDays,
         warrantyDays,
-        jurisdiction: initialDraft.jurisdiction,
+        jurisdiction,
       }),
+      notes,
+      updatedAt: new Date().toISOString(),
     };
-  }, [extraRevisionFee, ghostingDays, initialDraft, paymentPlan, revisionRounds, totalAmount, warrantyDays]);
+  }, [
+    clientAddress,
+    clientCompanyName,
+    clientContactPerson,
+    clientEmail,
+    clientName,
+    clientPhone,
+    contractTitle,
+    extraRevisionFee,
+    finalReviewDays,
+    ghostingDays,
+    initialDraft,
+    jurisdiction,
+    notesText,
+    paymentPlan,
+    projectTitle,
+    revisionRounds,
+    totalAmount,
+    warrantyDays,
+  ]);
 
   async function handleShare() {
     setShareState("loading");
@@ -106,9 +155,79 @@ export function ContractEditor({
           <p className="text-xs uppercase tracking-[0.28em] text-stone-500">Contract Controls</p>
           <h3 className="mt-3 text-2xl font-semibold tracking-[0.05em] text-stone-900">築時合約工作台</h3>
           <p className="mt-3 text-sm leading-7 text-stone-600">
-            保留築時數位的防禦型條款骨架，只微調關鍵變數，讓每份合約都能快速送出。
+            先填甲方資訊與專案資料，再套用築時數位的防禦型條款骨架，快速產出可直接傳給客戶簽署的正式合約。
           </p>
         </div>
+
+        <ControlCard title="基本資料">
+          <FieldRow label="專案名稱">
+            <input
+              type="text"
+              value={projectTitle}
+              onChange={(event) => setProjectTitle(event.target.value)}
+              className="w-full rounded-[18px] border border-stone-200 bg-white px-4 py-3 text-sm text-stone-800"
+            />
+          </FieldRow>
+          <FieldRow label="合約標題">
+            <input
+              type="text"
+              value={contractTitle}
+              onChange={(event) => setContractTitle(event.target.value)}
+              className="w-full rounded-[18px] border border-stone-200 bg-white px-4 py-3 text-sm text-stone-800"
+            />
+          </FieldRow>
+        </ControlCard>
+
+        <ControlCard title="甲方資訊">
+          <FieldRow label="客戶名稱">
+            <input
+              type="text"
+              value={clientName}
+              onChange={(event) => setClientName(event.target.value)}
+              className="w-full rounded-[18px] border border-stone-200 bg-white px-4 py-3 text-sm text-stone-800"
+            />
+          </FieldRow>
+          <FieldRow label="客戶公司">
+            <input
+              type="text"
+              value={clientCompanyName}
+              onChange={(event) => setClientCompanyName(event.target.value)}
+              className="w-full rounded-[18px] border border-stone-200 bg-white px-4 py-3 text-sm text-stone-800"
+            />
+          </FieldRow>
+          <FieldRow label="聯絡窗口">
+            <input
+              type="text"
+              value={clientContactPerson}
+              onChange={(event) => setClientContactPerson(event.target.value)}
+              className="w-full rounded-[18px] border border-stone-200 bg-white px-4 py-3 text-sm text-stone-800"
+            />
+          </FieldRow>
+          <FieldRow label="聯絡 Email">
+            <input
+              type="email"
+              value={clientEmail}
+              onChange={(event) => setClientEmail(event.target.value)}
+              className="w-full rounded-[18px] border border-stone-200 bg-white px-4 py-3 text-sm text-stone-800"
+            />
+          </FieldRow>
+          <FieldRow label="聯絡電話">
+            <input
+              type="text"
+              value={clientPhone}
+              onChange={(event) => setClientPhone(event.target.value)}
+              className="w-full rounded-[18px] border border-stone-200 bg-white px-4 py-3 text-sm text-stone-800"
+            />
+          </FieldRow>
+          <FieldRow label="客戶地址">
+            <textarea
+              value={clientAddress}
+              onChange={(event) => setClientAddress(event.target.value)}
+              rows={3}
+              className="w-full rounded-[18px] border border-stone-200 bg-white px-4 py-3 text-sm leading-7 text-stone-800"
+            />
+          </FieldRow>
+        </ControlCard>
 
         <ControlCard title="總價與付款方式">
           <label className="block">
@@ -154,6 +273,15 @@ export function ContractEditor({
               className="w-full rounded-[18px] border border-stone-200 bg-white px-4 py-3 text-sm text-stone-800"
             />
           </FieldRow>
+          <FieldRow label="驗收回覆天數">
+            <input
+              type="number"
+              min={1}
+              value={finalReviewDays}
+              onChange={(event) => setFinalReviewDays(Number(event.target.value || 1))}
+              className="w-full rounded-[18px] border border-stone-200 bg-white px-4 py-3 text-sm text-stone-800"
+            />
+          </FieldRow>
           <FieldRow label="失聯終止天數">
             <input
               type="number"
@@ -170,6 +298,25 @@ export function ContractEditor({
               value={warrantyDays}
               onChange={(event) => setWarrantyDays(Number(event.target.value || 7))}
               className="w-full rounded-[18px] border border-stone-200 bg-white px-4 py-3 text-sm text-stone-800"
+            />
+          </FieldRow>
+          <FieldRow label="管轄法院">
+            <input
+              type="text"
+              value={jurisdiction}
+              onChange={(event) => setJurisdiction(event.target.value)}
+              className="w-full rounded-[18px] border border-stone-200 bg-white px-4 py-3 text-sm text-stone-800"
+            />
+          </FieldRow>
+        </ControlCard>
+
+        <ControlCard title="附件與備註">
+          <FieldRow label="備註清單（每行一則）">
+            <textarea
+              value={notesText}
+              onChange={(event) => setNotesText(event.target.value)}
+              rows={5}
+              className="w-full rounded-[18px] border border-stone-200 bg-white px-4 py-3 text-sm leading-7 text-stone-800"
             />
           </FieldRow>
         </ControlCard>

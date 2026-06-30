@@ -16,13 +16,13 @@ export async function POST(
   }
 
   const { contractId } = await context.params;
+  const body = (await request.json().catch(() => null)) as { draft?: ContractDraft } | null;
   const fallbackDraft = findContractDraft(contractId);
 
-  if (!fallbackDraft) {
+  if (!fallbackDraft && !body?.draft) {
     return NextResponse.json({ message: "找不到指定合約。" }, { status: 404 });
   }
 
-  const body = (await request.json().catch(() => null)) as { draft?: ContractDraft } | null;
   const draft = body?.draft ?? fallbackDraft;
 
   const payload: SharedContractPayload = {
