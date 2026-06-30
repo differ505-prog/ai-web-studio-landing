@@ -32,16 +32,17 @@ export async function POST(
   };
 
   try {
-    const token = await createShareToken(payload);
+    const shareResult = await createShareToken(payload);
     const requestHeaders = await headers();
     const host = requestHeaders.get("x-forwarded-host") || requestHeaders.get("host");
     const protocol = requestHeaders.get("x-forwarded-proto") || new URL(request.url).protocol.replace(":", "");
     const origin = host ? `${protocol}://${host}` : new URL(request.url).origin;
 
     return NextResponse.json({
-      token,
-      shareUrl: `${origin}/sign/${token}`,
-      message: "簽署連結已建立。",
+      token: shareResult.token,
+      shareUrl: `${origin}/sign/${shareResult.token}`,
+      storageMode: shareResult.storageMode,
+      message: shareResult.message,
     });
   } catch (error) {
     return NextResponse.json(

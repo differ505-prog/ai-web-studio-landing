@@ -1,3 +1,4 @@
+import { Redis } from "@upstash/redis";
 import { createHash, randomUUID } from "node:crypto";
 import { sampleSignedRecords } from "@/lib/studio/mock-data";
 import type {
@@ -27,9 +28,21 @@ function getKvConfig() {
   };
 }
 
+let redisClient: Redis | null | undefined;
+
 export function isContractLinkStorageConfigured() {
   const { url, token } = getKvConfig();
   return Boolean(url && token);
+}
+
+function getKvClient() {
+  if (redisClient !== undefined) {
+    return redisClient;
+  }
+
+  const { url, token } = getKvConfig();
+  redisClient = url && token ? new Redis({ url, token }) : null;
+  return redisClient;
 }
 
 function createToken() {
@@ -42,30 +55,6 @@ function buildStorageKey(token: string) {
 
 function buildSignedRecordStorageKey(recordId: string) {
   return `${SIGNED_CONTRACT_PREFIX}${recordId}`;
-}
-
-async function runKvCommand(command: Array<string | number>) {
-  const { url, token } = getKvConfig();
-
-  if (!url || !token) {
-    throw new Error("KV storage is not configured.");
-  }
-
-  const response = await fetch(url, {
-    method: "POST",
-    headers: {
-      Authorization: `Bearer ${token}`,
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(command),
-  });
-
-  if (!response.ok) {
-    throw new Error(`KV request failed with status ${response.status}`);
-  }
-
-  const data = (await response.json()) as { result: unknown };
-  return data.result;
 }
 
 function encodeInlinePayload(payload: SharedContractPayload) {
@@ -86,20 +75,17 @@ function decodeInlinePayload(token: string) {
 }
 
 export async function saveSharedContractPayload(payload: SharedContractPayload) {
-  if (!isContractLinkStorageConfigured()) {
+  const redis = getKvClient();
+  if (!redis) {
     return encodeInlinePayload(payload);
   }
 
   for (let attempt = 0; attempt < 3; attempt += 1) {
     const token = createToken();
-    const setResult = await runKvCommand([
-      "SET",
-      buildStorageKey(token),
-      JSON.stringify(payload),
-      "EX",
-      CONTRACT_LINK_TTL_SECONDS,
-      "NX",
-    ]);
+    const setResult = await redis.set(buildStorageKey(token), payload, {
+      ex: CONTRACT_LINK_TTL_SECONDS,
+      nx: true,
+    });
 
     if (setResult === "OK") {
       return token;
@@ -115,17 +101,18 @@ export async function getSharedContractPayload(token: string) {
     return inlinePayload;
   }
 
-  if (!isContractLinkStorageConfigured()) {
+  const redis = getKvClient();
+  if (!redis) {
     return MEMORY_SHARED.get(token) ?? null;
   }
 
   try {
-    const raw = await runKvCommand(["GET", buildStorageKey(token)]);
+    const raw = await redis.get<SharedContractPayload>(buildStorageKey(token));
     if (!raw) {
       return null;
     }
 
-    return JSON.parse(String(raw)) as SharedContractPayload;
+    return raw;
   } catch {
     return MEMORY_SHARED.get(token) ?? null;
   }
@@ -135,18 +122,40 @@ export async function saveSharedContractPayloadFallback(payload: SharedContractP
   return encodeInlinePayload(payload);
 }
 
+export type ShareTokenResult = {
+  token: string;
+  storageMode: "kv" | "inline";
+  message: string;
+};
+
 export async function createShareToken(payload: SharedContractPayload) {
   if (isContractLinkStorageConfigured()) {
     try {
-      return await saveSharedContractPayload(payload);
-    } catch {
+      const token = await saveSharedContractPayload(payload);
+      return {
+        token,
+        storageMode: "kv" as const,
+        message: "簽署連結已建立，已使用短版 token 儲存。",
+      };
+    } catch (error) {
       // Gracefully degrade to an inline token so contract sharing still works
       // even if KV credentials exist but the upstream store is unavailable.
-      return saveSharedContractPayloadFallback(payload);
+      return {
+        token: await saveSharedContractPayloadFallback(payload),
+        storageMode: "inline" as const,
+        message:
+          error instanceof Error
+            ? `KV 目前無法使用，已自動改用較長的備援連結。原因：${error.message}`
+            : "KV 目前無法使用，已自動改用較長的備援連結。",
+      };
     }
   }
 
-  return saveSharedContractPayloadFallback(payload);
+  return {
+    token: await saveSharedContractPayloadFallback(payload),
+    storageMode: "inline" as const,
+    message: "目前尚未偵測到 KV 設定，已改用較長的備援連結。",
+  };
 }
 
 export async function saveSignedContractRecord(
@@ -176,23 +185,20 @@ export async function saveSignedContractRecord(
     payload,
   };
 
-  if (!isContractLinkStorageConfigured()) {
+  const redis = getKvClient();
+  if (!redis) {
     MEMORY_SIGNED.set(recordId, record);
     return record;
   }
 
   try {
-    const saveResult = await runKvCommand([
-      "SET",
-      buildSignedRecordStorageKey(recordId),
-      JSON.stringify(record),
-    ]);
+    const saveResult = await redis.set(buildSignedRecordStorageKey(recordId), record);
 
     if (saveResult !== "OK") {
       throw new Error("已簽紀錄儲存失敗。");
     }
 
-    await runKvCommand(["LPUSH", SIGNED_CONTRACT_INDEX_KEY, recordId]);
+    await redis.lpush(SIGNED_CONTRACT_INDEX_KEY, recordId);
     return record;
   } catch {
     MEMORY_SIGNED.set(recordId, record);
@@ -201,26 +207,27 @@ export async function saveSignedContractRecord(
 }
 
 export async function listSignedContractRecords(limit = 50) {
-  if (!isContractLinkStorageConfigured()) {
+  const redis = getKvClient();
+  if (!redis) {
     return Array.from(MEMORY_SIGNED.values())
       .sort((a, b) => b.signedAt.localeCompare(a.signedAt))
       .slice(0, limit);
   }
 
   try {
-    const ids = await runKvCommand(["LRANGE", SIGNED_CONTRACT_INDEX_KEY, 0, Math.max(0, limit - 1)]);
+    const ids = await redis.lrange<string[]>(SIGNED_CONTRACT_INDEX_KEY, 0, Math.max(0, limit - 1));
     if (!Array.isArray(ids)) {
       return [];
     }
 
     const records = await Promise.all(
       ids.map(async (recordId) => {
-        const raw = await runKvCommand(["GET", buildSignedRecordStorageKey(String(recordId))]);
+        const raw = await redis.get<SignedContractRecord>(buildSignedRecordStorageKey(String(recordId)));
         if (!raw) {
           return null;
         }
 
-        return JSON.parse(String(raw)) as SignedContractRecord;
+        return raw;
       }),
     );
 
@@ -233,17 +240,18 @@ export async function listSignedContractRecords(limit = 50) {
 }
 
 export async function getSignedContractRecord(recordId: string) {
-  if (!isContractLinkStorageConfigured()) {
+  const redis = getKvClient();
+  if (!redis) {
     return MEMORY_SIGNED.get(recordId) ?? null;
   }
 
   try {
-    const raw = await runKvCommand(["GET", buildSignedRecordStorageKey(recordId)]);
+    const raw = await redis.get<SignedContractRecord>(buildSignedRecordStorageKey(recordId));
     if (!raw) {
       return null;
     }
 
-    return JSON.parse(String(raw)) as SignedContractRecord;
+    return raw;
   } catch {
     return MEMORY_SIGNED.get(recordId) ?? null;
   }

@@ -10,10 +10,10 @@ type ShareState = "idle" | "loading" | "success" | "error";
 
 export function ContractEditor({
   initialDraft,
-  isKvEnabled,
+  isKvConfigured,
 }: {
   initialDraft: ContractDraft;
-  isKvEnabled: boolean;
+  isKvConfigured: boolean;
 }) {
   const [paymentPlan, setPaymentPlan] = useState<keyof typeof paymentPlanPresets>(
     initialDraft.paymentPlanLabel.includes("4-4-2") ? "4-4-2" : "3-4-3",
@@ -66,14 +66,23 @@ export function ContractEditor({
         body: JSON.stringify({ draft }),
       });
 
-      const result = (await response.json()) as { shareUrl?: string; message?: string };
+      const result = (await response.json()) as {
+        shareUrl?: string;
+        message?: string;
+        storageMode?: "kv" | "inline";
+      };
 
       if (!response.ok || !result.shareUrl) {
         throw new Error(result.message || "簽署連結產生失敗。");
       }
 
       setShareLink(result.shareUrl);
-      setShareMessage("簽署連結已產生，可以直接貼給客戶在手機上簽署。");
+      setShareMessage(
+        result.message ||
+          (result.storageMode === "kv"
+            ? "簽署連結已產生，可以直接貼給客戶在手機上簽署。"
+            : "簽署連結已產生，目前為較長的備援連結，客戶仍可正常閱讀合約全文並完成簽署。"),
+      );
       setShareState("success");
     } catch (error) {
       setShareState("error");
@@ -167,9 +176,9 @@ export function ContractEditor({
 
         <ControlCard title="簽署分享">
           <p className="rounded-[18px] bg-stone-50 px-4 py-3 text-sm leading-7 text-stone-600">
-            {isKvEnabled
-              ? "目前已啟用 Vercel KV，產生的是正式短版簽署連結，已簽留存也會持久保存。"
-              : "目前尚未啟用 Vercel KV，系統會先退回 inline 簽署連結；功能可用，但網址會較長，建議正式上線前補上 KV。"}
+            {isKvConfigured
+              ? "目前已偵測到 Vercel KV 設定；若上游儲存可用，會產生正式短版簽署連結。若儲存暫時異常，系統會自動退回較長的備援連結。"
+              : "目前尚未偵測到 Vercel KV 設定，系統會先退回 inline 簽署連結；功能可用，但網址會較長，建議正式上線前補上 KV。"}
           </p>
           <button
             type="button"
