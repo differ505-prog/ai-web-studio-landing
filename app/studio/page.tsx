@@ -5,7 +5,7 @@ import { StatusPill } from "@/components/studio/status-pill";
 import { blueprintSnapshot } from "@/lib/studio/blueprint";
 import { formatCurrency } from "@/lib/studio/format";
 import { studioContracts, studioProjects } from "@/lib/studio/mock-data";
-import { getOpsSummary, opsTaskGroups } from "@/lib/studio/ops";
+import { getOpsStaticSummary } from "@/lib/studio/ops";
 
 const metrics = [
   {
@@ -25,7 +25,7 @@ const metrics = [
   },
 ];
 
-const opsSummary = getOpsSummary(opsTaskGroups);
+const opsSummary = getOpsStaticSummary();
 
 export default function StudioPage() {
   return (
@@ -95,7 +95,7 @@ export default function StudioPage() {
             <p className="text-xs uppercase tracking-[0.24em] text-stone-500">Operations Console</p>
             <h3 className="mt-3 text-2xl font-semibold tracking-[0.05em] text-stone-900">任務作戰台</h3>
             <p className="mt-3 max-w-3xl text-sm leading-7 text-stone-700">
-              目前先收斂成你指定的那組任務，讓你可以直接在後台勾選、收合、追蹤完成度，不需要再回頭翻截圖。
+              目前先收斂成你指定的那組任務，並補上每週循環、次數制達標與升級規則，讓作戰台不只是清單，而是真的會計算進度。
             </p>
           </div>
           <Link
@@ -112,12 +112,12 @@ export default function StudioPage() {
             <p className="mt-3 text-2xl font-semibold tracking-[0.05em] text-stone-900">{opsSummary.totalGroups}</p>
           </article>
           <article className="rounded-[22px] border border-stone-200 bg-stone-50 p-4">
-            <p className="text-sm text-stone-500">子任務總數</p>
+            <p className="text-sm text-stone-500">任務節點</p>
             <p className="mt-3 text-2xl font-semibold tracking-[0.05em] text-stone-900">{opsSummary.totalItems}</p>
           </article>
           <article className="rounded-[22px] border border-stone-200 bg-[#f4ece0] p-4">
-            <p className="text-sm text-stone-500">待推進</p>
-            <p className="mt-3 text-2xl font-semibold tracking-[0.05em] text-stone-900">{opsSummary.pendingItems}</p>
+            <p className="text-sm text-stone-500">本週所需動作</p>
+            <p className="mt-3 text-2xl font-semibold tracking-[0.05em] text-stone-900">{opsSummary.totalRequiredActions}</p>
           </article>
         </div>
       </section>
