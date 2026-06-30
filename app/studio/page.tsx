@@ -1,7 +1,8 @@
 import Link from "next/link";
-import { ArrowRight, FileSignature, FolderOpenDot, ReceiptText, WalletCards } from "lucide-react";
+import { ArrowRight, Compass, FileSignature, FolderOpenDot, ReceiptText, WalletCards } from "lucide-react";
 import { StudioShell } from "@/components/studio/studio-shell";
 import { StatusPill } from "@/components/studio/status-pill";
+import { blueprintSnapshot } from "@/lib/studio/blueprint";
 import { formatCurrency } from "@/lib/studio/format";
 import { studioContracts, studioProjects } from "@/lib/studio/mock-data";
 
@@ -62,6 +63,28 @@ export default function StudioPage() {
           </div>
         </section>
       </div>
+
+      <section className="mt-6 rounded-[28px] border border-stone-200 bg-[#f7f1e7] p-6">
+        <div className="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
+          <div>
+            <p className="text-xs uppercase tracking-[0.24em] text-stone-500">Strategy Blueprint</p>
+            <h3 className="mt-3 text-2xl font-semibold tracking-[0.05em] text-stone-900">
+              外部藍圖先抓方向，面板內再落地執行
+            </h3>
+            <p className="mt-3 max-w-3xl text-sm leading-7 text-stone-700">
+              目前外部藍圖顯示 {blueprintSnapshot.brand} 進度為 {blueprintSnapshot.completion}。我已把最重要的動作整理成
+              工作面板版本，避免你每次都要跳出去重新解讀長篇任務清單。
+            </p>
+          </div>
+          <Link
+            href="/studio/blueprint"
+            className="inline-flex items-center gap-2 rounded-full bg-[#8B5E3C] px-5 py-3 text-sm font-semibold text-white transition hover:bg-stone-900"
+          >
+            <Compass className="h-4 w-4" />
+            打開策略藍圖
+          </Link>
+        </div>
+      </section>
 
       <div className="mt-6 grid gap-6 xl:grid-cols-[1.2fr_0.8fr]">
         <section className="rounded-[28px] border border-stone-200 bg-white p-6">

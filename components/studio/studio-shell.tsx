@@ -1,6 +1,7 @@
 import { auth, signOut } from "@/auth";
 import Link from "next/link";
 import {
+  Compass,
   FileBadge2,
   FilePenLine,
   FolderKanban,
@@ -11,6 +12,7 @@ import {
 
 const navItems = [
   { href: "/studio", label: "總覽", icon: LayoutDashboard },
+  { href: "/studio/blueprint", label: "藍圖", icon: Compass },
   { href: "/studio/projects", label: "案件", icon: FolderKanban },
   { href: "/studio/contracts", label: "合約", icon: FilePenLine },
   { href: "/studio/records", label: "留存", icon: ScrollText },
