@@ -1,10 +1,11 @@
 import Link from "next/link";
-import { ArrowRight, Compass, FileSignature, FolderOpenDot, ReceiptText, WalletCards } from "lucide-react";
+import { ArrowRight, CheckSquare, Compass, FileSignature, FolderOpenDot, ReceiptText, WalletCards } from "lucide-react";
 import { StudioShell } from "@/components/studio/studio-shell";
 import { StatusPill } from "@/components/studio/status-pill";
 import { blueprintSnapshot } from "@/lib/studio/blueprint";
 import { formatCurrency } from "@/lib/studio/format";
 import { studioContracts, studioProjects } from "@/lib/studio/mock-data";
+import { getOpsSummary, opsTaskGroups } from "@/lib/studio/ops";
 
 const metrics = [
   {
@@ -23,6 +24,8 @@ const metrics = [
     icon: WalletCards,
   },
 ];
+
+const opsSummary = getOpsSummary(opsTaskGroups);
 
 export default function StudioPage() {
   return (
@@ -83,6 +86,39 @@ export default function StudioPage() {
             <Compass className="h-4 w-4" />
             打開策略藍圖
           </Link>
+        </div>
+      </section>
+
+      <section className="mt-6 rounded-[28px] border border-stone-200 bg-white p-6">
+        <div className="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
+          <div>
+            <p className="text-xs uppercase tracking-[0.24em] text-stone-500">Operations Console</p>
+            <h3 className="mt-3 text-2xl font-semibold tracking-[0.05em] text-stone-900">任務作戰台</h3>
+            <p className="mt-3 max-w-3xl text-sm leading-7 text-stone-700">
+              目前先收斂成你指定的那組任務，讓你可以直接在後台勾選、收合、追蹤完成度，不需要再回頭翻截圖。
+            </p>
+          </div>
+          <Link
+            href="/studio/ops"
+            className="inline-flex items-center gap-2 rounded-full bg-stone-900 px-5 py-3 text-sm font-semibold text-white transition hover:bg-[#8B5E3C]"
+          >
+            <CheckSquare className="h-4 w-4" />
+            打開作戰台
+          </Link>
+        </div>
+        <div className="mt-5 grid gap-4 md:grid-cols-3">
+          <article className="rounded-[22px] border border-stone-200 bg-stone-50 p-4">
+            <p className="text-sm text-stone-500">任務群組</p>
+            <p className="mt-3 text-2xl font-semibold tracking-[0.05em] text-stone-900">{opsSummary.totalGroups}</p>
+          </article>
+          <article className="rounded-[22px] border border-stone-200 bg-stone-50 p-4">
+            <p className="text-sm text-stone-500">子任務總數</p>
+            <p className="mt-3 text-2xl font-semibold tracking-[0.05em] text-stone-900">{opsSummary.totalItems}</p>
+          </article>
+          <article className="rounded-[22px] border border-stone-200 bg-[#f4ece0] p-4">
+            <p className="text-sm text-stone-500">待推進</p>
+            <p className="mt-3 text-2xl font-semibold tracking-[0.05em] text-stone-900">{opsSummary.pendingItems}</p>
+          </article>
         </div>
       </section>
 
