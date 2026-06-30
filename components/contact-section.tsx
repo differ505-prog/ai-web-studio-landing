@@ -1,7 +1,8 @@
 "use client";
 
+import Image from "next/image";
 import { useState } from "react";
-import { LoaderCircle, Mail, Send, User2 } from "lucide-react";
+import { LoaderCircle, Mail, MessageCircleMore, QrCode, Send, User2 } from "lucide-react";
 import { AnimatedSection } from "@/components/animated-section";
 
 type SubmitState = "idle" | "submitting" | "success" | "error";
@@ -35,6 +36,58 @@ export function ContactSection() {
               <p className="mt-2 font-serif text-lg font-semibold tracking-wide text-stone-900">
                 品牌剛起步、想改版首頁、需要更好的詢問轉換，或想把服務內容整理得更清楚
               </p>
+            </div>
+            <div className="rounded-[28px] border border-stone-200 bg-[#f7f3ec] p-5">
+              <div className="flex flex-col gap-5 sm:flex-row sm:items-center sm:justify-between">
+                <div className="max-w-md">
+                  <p className="inline-flex items-center gap-2 text-sm font-medium text-stone-500">
+                    <MessageCircleMore className="h-4 w-4" />
+                    LINE 官方帳號
+                  </p>
+                  <p className="mt-3 font-serif text-xl font-semibold tracking-wide text-stone-900">
+                    想更快開始，也可以直接加 LINE 詢問。
+                  </p>
+                  <p className="mt-3 text-sm leading-7 text-stone-700">
+                    適合先快速確認需求方向、預約初步諮詢，或先丟品牌現況給築時數位評估。
+                  </p>
+                  <div className="mt-4 flex flex-wrap gap-3">
+                    <a
+                      href="https://lin.ee/uh4z4dL"
+                      target="_blank"
+                      rel="noreferrer"
+                      className="inline-flex items-center gap-2 rounded-full bg-[#06C755] px-5 py-3 text-sm font-semibold text-white transition hover:brightness-95"
+                    >
+                      加入 LINE 官方帳號
+                      <MessageCircleMore className="h-4 w-4" />
+                    </a>
+                    <a
+                      href="https://lin.ee/uh4z4dL"
+                      target="_blank"
+                      rel="noreferrer"
+                      className="inline-flex items-center gap-2 rounded-full border border-stone-300 px-5 py-3 text-sm font-semibold text-stone-700 transition hover:bg-stone-100"
+                    >
+                      複製加入連結
+                      <QrCode className="h-4 w-4" />
+                    </a>
+                  </div>
+                </div>
+
+                <a
+                  href="https://lin.ee/uh4z4dL"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="mx-auto block w-full max-w-[180px] rounded-[24px] border border-stone-200 bg-white p-4 text-center transition hover:border-stone-300 sm:mx-0"
+                >
+                  <Image
+                    src="https://qr-official.line.me/gs/M_552pciiq_GW.png?oat_content=qr"
+                    alt="築時數位 LINE 官方帳號 QR Code"
+                    width={180}
+                    height={180}
+                    className="mx-auto h-auto w-full"
+                  />
+                  <p className="mt-3 text-xs uppercase tracking-[0.22em] text-stone-500">Scan To Add</p>
+                </a>
+              </div>
             </div>
             <a
               href="mailto:hello.arrivestudio@gmail.com"
