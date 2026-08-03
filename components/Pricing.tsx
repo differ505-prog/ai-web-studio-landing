@@ -15,7 +15,6 @@ type Plan = {
   badge?: string;
   icon?: "sparkles" | "smartphone";
   price: string;
-  rhythm: string;
   scope: string;
   cta: string;
   ctaHref: string;
@@ -30,16 +29,15 @@ const plans: Plan[] = [
     badge: "生活品牌首選",
     icon: "sparkles",
     price: "NT$ 9，900",
-    rhythm: "首版 3-5 天 · 7 天內微調",
     scope: "單頁品牌 Landing Page、品牌資訊與社群連結。",
     cta: "聊聊你的需求",
     ctaHref: "#contact",
     featured: true,
     features: [
-      { label: "單頁式品牌 Landing Page 與流暢段落導覽", included: true },
+      { label: "單頁式品牌 Landing Page", included: true },
       { label: "基礎 SEO、OG 與品牌資訊設定", included: true },
-      { label: "聯絡表單、社群連結與 CTA 導流設計", included: true },
-      { label: "部署協助與上線後保固期內一次微調", included: true },
+      { label: "聯絡表單、社群連結與 CTA 導流", included: true },
+      { label: "部署協助與保固期內一次微調", included: true },
       { label: "App UI / 原生或跨平台開發", included: false },
       { label: "後台會員與複雜營運邏輯整合", included: false },
     ],
@@ -48,16 +46,15 @@ const plans: Plan[] = [
     name: "品牌延伸方案",
     icon: "sparkles",
     price: "NT$ 29，900 起",
-    rhythm: "2-4 週交付 · 30 天支援",
     scope: "多頁官網、預約流程、後台與內容架構。",
     cta: "聊聊你的需求",
     ctaHref: "#contact",
     secondary: true,
     features: [
-      { label: "起步方案內容，並延伸為多頁品牌網站", included: true },
-      { label: "可加入會員、預約、詢價或內容管理機制", included: true },
-      { label: "服務流程、案例與方案說明的完整頁面編排", included: true },
-      { label: "第三方工具、付款或 AI 功能的延伸整合", included: true },
+      { label: "起步方案內容，延伸為多頁品牌網站", included: true },
+      { label: "會員、預約、詢價或內容管理機制", included: true },
+      { label: "服務流程、案例與方案的完整頁面編排", included: true },
+      { label: "第三方工具、付款或 AI 功能整合", included: true },
       { label: "上線後 30 天技術支援與調整建議", included: true },
       { label: "App UI / 原生或跨平台開發", included: false },
     ],
@@ -67,7 +64,6 @@ const plans: Plan[] = [
     badge: "含 App 開發設計",
     icon: "smartphone",
     price: "依需求報價",
-    rhythm: "4-10 週 · 依模組範圍調整",
     scope: "App UI / 原生或跨平台、後台與上架輔導。",
     cta: "聊聊你的需求",
     ctaHref: "#contact",
@@ -95,7 +91,7 @@ export function Pricing() {
       <SectionIntro
         eyebrow="Pricing / Plans"
         title="三種節奏，總有一種剛好對上你現在的位置。"
-        description="方案以可感知的交付成果為核心，不用被複雜術語包圍，也不用擔心額外費用在後面才出現。"
+        description="方案以可感知的交付成果為核心，節奏與時程在 Hero 一目了然。"
         align="center"
       />
 
@@ -137,8 +133,7 @@ export function Pricing() {
                 <p className="mt-2 font-serif text-3xl font-semibold tracking-wide text-stone-900">
                   {plan.price}
                 </p>
-                <p className="mt-3 text-sm font-medium text-[#8B5E3C]">{plan.rhythm}</p>
-                <p className="mt-2 text-xs leading-6 text-stone-500">{plan.scope}</p>
+                <p className="mt-3 text-xs leading-6 text-stone-500">{plan.scope}</p>
               </div>
 
               <ul className="mt-6 space-y-3">

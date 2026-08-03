@@ -88,20 +88,19 @@ export function HeroSection() {
         <div>
           <div className="inline-flex items-center gap-2 rounded-full border border-stone-200 bg-stone-100 px-4 py-2 text-sm text-stone-600">
             <Leaf className="h-4 w-4 text-emerald-700/70" />
-            為生活美學品牌而生的編輯式數位體驗
+            編輯式 Web · App Studio
           </div>
 
           <h1
             id="hero-title"
-            className="mt-7 max-w-4xl font-serif text-4xl font-semibold tracking-wide text-stone-900 sm:text-5xl lg:text-7xl lg:leading-[1.15]"
+            className="mt-7 max-w-4xl font-serif text-4xl font-semibold tracking-wide text-stone-900 sm:text-5xl lg:text-6xl lg:leading-[1.15]"
           >
-            讓你的品牌
-            <span className="text-[#8B5E3C]"> 從網站到 App，</span>
-            像一本值得翻閱的生活雜誌。
+            讓品牌從網站到 App，
+            <span className="text-[#8B5E3C]">像一本值得翻閱的雜誌。</span>
           </h1>
 
           <p className="mt-7 max-w-2xl text-base leading-8 text-stone-700 sm:text-lg">
-            我們把網站與 App 重新梳理成更有呼吸感的品牌場景，讓每一頁、每一個畫面，都更貼近你的品牌溫度。
+            為生活美學品牌做的編輯式數位體驗，讓每一頁、每一個畫面，都更貼近你的品牌溫度。
           </p>
 
           <ul className="mt-6 flex flex-wrap gap-2 text-xs">

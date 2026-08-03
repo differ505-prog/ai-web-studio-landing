@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { ArrowUpRight, Quote, Sparkles } from "lucide-react";
+import { Quote, Sparkles } from "lucide-react";
 import { AnimatedSection } from "@/components/animated-section";
 
 const testimonials = [
@@ -23,7 +23,7 @@ const testimonials = [
   },
   {
     quote:
-      "想要一款安靜又專注的 App，他們從品牌語氣一路做到互動節奏，整個過程比想像中更從容。",
+      "想要一款安靜又專注的 App，從品牌語氣一路做到互動節奏，整個過程比想像中更從容。",
     author: "VibeList · 禪模式任務管理",
     role: "App 開發設計 · 自有 Side Project",
     avatar:
@@ -40,51 +40,50 @@ export function ProofStripSection() {
     >
       <div className="pointer-events-none absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-stone-100/70 to-transparent" />
 
-      <div className="relative grid gap-8 lg:grid-cols-[1fr_2fr] lg:items-start">
-        <div>
-          <p className="text-xs uppercase tracking-[0.3em] text-stone-500">Words From Clients</p>
-          <h2
-            id="proof-strip-title"
-            className="mt-4 font-serif text-3xl font-semibold tracking-wide text-stone-900 sm:text-4xl lg:text-[40px] lg:leading-[1.2]"
-          >
-            客戶說的話，比我們說的更值得你參考。
-          </h2>
-          <p className="mt-4 max-w-md text-sm leading-7 text-stone-700">
-            從品牌官網、空間設計到 App 開發，我們把每一段合作都收斂成一段真實回饋。希望這些話，能讓你在簽約前更安心。
-          </p>
-          <div className="mt-6 inline-flex items-center gap-2 rounded-full border border-stone-200 bg-white px-4 py-2 text-xs uppercase tracking-[0.22em] text-stone-600">
-            <Sparkles className="h-3.5 w-3.5 text-[#8B5E3C]" />
-            Web · App · Brand Direction
+      <div className="relative">
+        <div className="flex flex-wrap items-end justify-between gap-4">
+          <div className="max-w-xl">
+            <p className="text-xs uppercase tracking-[0.3em] text-stone-500">Words From Clients</p>
+            <h2
+              id="proof-strip-title"
+              className="mt-3 font-serif text-3xl font-semibold tracking-wide text-stone-900 sm:text-4xl"
+            >
+              客戶說的話，比我們說的更值得你參考。
+            </h2>
           </div>
+          <span className="inline-flex items-center gap-2 rounded-full border border-stone-200 bg-white px-4 py-2 text-xs uppercase tracking-[0.22em] text-stone-600">
+            <Sparkles className="h-3.5 w-3.5 text-[#8B5E3C]" />
+            Web · App · Brand
+          </span>
         </div>
 
-        <ul className="grid gap-4 sm:grid-cols-3">
+        <ul className="mt-8 grid gap-4 sm:grid-cols-3">
           {testimonials.map(({ quote, author, role, avatar, accent }) => (
             <li
               key={author}
-              className="group flex h-full flex-col gap-5 rounded-[28px] border border-stone-200 bg-white p-5 shadow-[0_4px_18px_rgb(0,0,0,0.03)] transition hover:-translate-y-0.5 hover:border-stone-300"
+              className="group flex h-full flex-col gap-4 rounded-[28px] border border-stone-200 bg-white p-5 shadow-[0_4px_18px_rgb(0,0,0,0.03)]"
             >
-              <span className="relative inline-flex h-20 w-full items-center justify-center overflow-hidden rounded-[20px] border border-stone-200">
+              <span className="relative inline-flex h-14 w-full items-center justify-center overflow-hidden rounded-[20px] border border-stone-200">
                 <span
                   className={`absolute inset-0 bg-gradient-to-br ${accent}`}
                   aria-hidden
                 />
-                <Quote className="relative h-7 w-7 text-stone-700/70" />
+                <Quote className="relative h-6 w-6 text-stone-700/70" />
               </span>
               <p className="text-[15px] leading-7 text-stone-700">「{quote}」</p>
-              <div className="mt-auto flex items-center gap-3 border-t border-stone-100 pt-4">
+              <div className="mt-auto flex items-center gap-3 pt-2">
                 <Image
                   src={avatar}
                   alt={author}
-                  width={40}
-                  height={40}
-                  className="h-10 w-10 rounded-full border border-stone-200 object-cover"
+                  width={36}
+                  height={36}
+                  className="h-9 w-9 rounded-full border border-stone-200 object-cover"
                 />
                 <div>
                   <p className="font-serif text-sm font-semibold tracking-wide text-stone-900">
                     {author}
                   </p>
-                  <p className="mt-0.5 text-[11px] uppercase tracking-[0.2em] text-stone-500">
+                  <p className="mt-0.5 text-[10px] uppercase tracking-[0.2em] text-stone-500">
                     {role}
                   </p>
                 </div>
@@ -92,19 +91,6 @@ export function ProofStripSection() {
             </li>
           ))}
         </ul>
-      </div>
-
-      <div className="relative mt-10 flex flex-col gap-4 border-t border-stone-200 pt-8 sm:flex-row sm:items-center sm:justify-between">
-        <p className="max-w-xl text-sm leading-7 text-stone-700">
-          想看看這些合作實際走過的流程與作品？點下去直接感受成品，比再多說明都來得具體。
-        </p>
-        <a
-          href="#portfolio"
-          className="inline-flex items-center gap-1.5 rounded-full bg-[#8B5E3C] px-5 py-3 text-sm font-semibold text-white transition hover:bg-stone-800"
-        >
-          看看實際作品
-          <ArrowUpRight className="h-4 w-4" />
-        </a>
       </div>
     </AnimatedSection>
   );

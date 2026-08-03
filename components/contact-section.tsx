@@ -38,14 +38,22 @@ export function ContactSection() {
             無論剛起步、想改版、或想把服務延伸成 App，從一個想法開始就可以聊。我們會在 1-2 個工作天內回覆你下一步。
           </p>
 
-          <div className="mt-8 space-y-4">
-            <div className="rounded-[28px] border border-stone-200 bg-stone-50 p-5">
-              <p className="text-sm text-stone-500">很適合現在就聊聊的情境</p>
-              <p className="mt-2 font-serif text-lg font-semibold tracking-wide text-stone-900">
-                品牌剛起步、想改版首頁、需要更好的詢問轉換，或想把服務延伸成 App
-              </p>
-            </div>
-            <div className="rounded-[28px] border border-stone-200 bg-[#f7f3ec] p-5">
+          <div className="mt-8 flex flex-wrap gap-2 text-xs text-stone-600">
+            {[
+              "品牌剛起步",
+              "想改版首頁",
+              "需要更好的詢問轉換",
+              "想把服務延伸成 App",
+            ].map((tag) => (
+              <span
+                key={tag}
+                className="rounded-full border border-stone-200 bg-white px-3 py-1.5"
+              >
+                {tag}
+              </span>
+            ))}
+          </div>
+          <div className="mt-6 rounded-[28px] border border-stone-200 bg-[#f7f3ec] p-5">
               <div className="flex flex-col gap-5 sm:flex-row sm:items-center sm:justify-between">
                 <div className="max-w-md">
                   <p className="inline-flex items-center gap-2 text-sm font-medium text-stone-500">
@@ -56,7 +64,7 @@ export function ContactSection() {
                     想更快開始，也可以直接加 LINE 詢問。
                   </p>
                   <p className="mt-3 text-sm leading-7 text-stone-700">
-                    適合先快速確認需求方向、預約初步諮詢，或先丟品牌現況給築時數位評估。
+                    先快速確認需求方向，或先丟品牌現況給築時數位評估。
                   </p>
                   <div className="mt-4 flex flex-wrap gap-3">
                     <a
@@ -96,12 +104,11 @@ export function ContactSection() {
             </div>
             <a
               href="mailto:hello.arrivestudio@gmail.com"
-              className="inline-flex items-center gap-2 text-sm font-semibold text-[#8B5E3C] transition hover:text-stone-800"
+              className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-[#8B5E3C] transition hover:text-stone-800"
             >
               hello.arrivestudio@gmail.com
               <Mail className="h-4 w-4" />
             </a>
-          </div>
         </div>
 
         <form

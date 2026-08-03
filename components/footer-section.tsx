@@ -9,7 +9,7 @@ export function FooterSection() {
             築時數位 · Arrive Studio
           </p>
           <p className="mt-2 max-w-md leading-7">
-            為生活美學品牌做品牌官網與 App，用一致的編輯式節奏讓每一個畫面都更值得停留。
+            為生活美學品牌做品牌官網與 App，用一致的編輯式節奏讓作品更值得停留。
           </p>
           <a
             href="https://lin.ee/uh4z4dL"

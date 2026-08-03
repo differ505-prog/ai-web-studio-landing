@@ -44,7 +44,7 @@ export function PainPointsSection() {
       <SectionIntro
         eyebrow="Brand Perspective"
         title="當兩個載體像同一本雜誌，訊息反而更容易被理解。"
-        description="我們不追求堆滿功能與高刺激視覺，而是整理出更溫柔、更清楚的資訊層次。"
+        description="我們不追求堆滿功能，而是整理出更溫柔、更清楚的資訊層次。"
       />
 
       <div className="mt-12 grid gap-6 lg:grid-cols-2">
