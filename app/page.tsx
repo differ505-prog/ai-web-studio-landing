@@ -2,9 +2,11 @@ import { ContactSection } from "@/components/contact-section";
 import { FAQ } from "@/components/FAQ";
 import { FooterSection } from "@/components/footer-section";
 import { HeroSection } from "@/components/hero-section";
+import { MobileStickyCta } from "@/components/mobile-sticky-cta";
 import { PainPointsSection } from "@/components/pain-points-section";
 import { PortfolioSection } from "@/components/portfolio-section";
 import { Pricing } from "@/components/Pricing";
+import { ProofStripSection } from "@/components/proof-strip-section";
 import { ServicesSection } from "@/components/services-section";
 import { WorkflowSection } from "@/components/workflow-section";
 
@@ -37,7 +39,12 @@ export default function HomePage() {
 
       <main className="mx-auto w-full max-w-[1440px] px-5 py-5 sm:px-8 lg:px-10 lg:py-8">
         <HeroSection />
-        <PainPointsSection />
+        <div className="mt-10 lg:mt-14">
+          <ProofStripSection />
+        </div>
+        <div className="mt-12 lg:mt-16">
+          <PainPointsSection />
+        </div>
         <ServicesSection />
         <PortfolioSection />
         <WorkflowSection />
@@ -46,6 +53,7 @@ export default function HomePage() {
         <ContactSection />
         <FooterSection />
       </main>
+      <MobileStickyCta />
     </>
   );
 }
