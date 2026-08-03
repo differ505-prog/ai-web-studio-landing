@@ -47,7 +47,7 @@ export const showcaseCases: CaseStudy[] = [
     name: "青曦設計 Qingxi Design",
     description:
       "收攏繁雜的空間配置邏輯，轉化為俐落的專業門面。兼具藝廊般的空間作品展示與系統化的服務流程，展現處理多層次資訊架構的硬實力。",
-    href: "https://www.qingxi.design/",
+    href: "https://www.qingxidesign.tw/",
     ctaLabel: "探索設計工作室官網",
     planLabel: "對應 29，900 延伸方案",
     category: "official",
