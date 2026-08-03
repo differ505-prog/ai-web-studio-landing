@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { ArrowRight, Leaf, Sparkles } from "lucide-react";
+import { ArrowRight, Clock4, HandHeart, Leaf, ShieldCheck, Sparkles, Star } from "lucide-react";
 import { AnimatedSection } from "@/components/animated-section";
 
 const quickStats = [
@@ -14,6 +14,34 @@ const quickStats = [
   {
     label: "合作方式",
     value: "策略、設計、開發一體完成",
+  },
+];
+
+const heroProof = [
+  {
+    icon: HandHeart,
+    eyebrow: "已交付 / 合作中的品牌",
+    value: "12+",
+    note: "餐飲、空間、生活選物、SaaS 團隊",
+  },
+  {
+    icon: Clock4,
+    eyebrow: "首次回覆時間",
+    value: "12 小時內",
+    note: "工作日 09:00–19:00 主理人親自回覆",
+  },
+  {
+    icon: ShieldCheck,
+    eyebrow: "上線後保固",
+    value: "90 天",
+    note: "小改版、文案調整與技術問題不另收費",
+  },
+];
+
+const voiceQuotes = [
+  {
+    quote: "把美感整理成能讓客戶在第一眼就信任的節奏。",
+    author: "築時數位 · 主理人",
   },
 ];
 
@@ -115,24 +143,38 @@ export function HeroSection() {
         </div>
 
         <div className="relative">
-          <article className="overflow-hidden rounded-[32px] border border-stone-200 bg-[#f7f2ea] shadow-[0_8px_30px_rgb(0,0,0,0.04)]">
-            <div className="relative min-h-[520px]">
-              <Image
-                src="https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=1200&q=80"
-                alt="以柔和木質、餐桌器皿與生活選物呈現的日系北歐空間氛圍"
-                fill
-                className="object-cover"
-                sizes="(max-width: 1024px) 100vw, 42vw"
-                priority
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#f7f2ea] via-[#f7f2ea]/20 to-transparent" />
-            </div>
-
-            <div className="relative grid gap-4 border-t border-stone-200 bg-white/90 p-6 sm:grid-cols-[1.1fr_0.9fr]">
+          <article className="overflow-hidden rounded-[32px] border border-stone-200 bg-white shadow-[0_8px_30px_rgb(0,0,0,0.04)]">
+            <header className="flex items-center justify-between border-b border-stone-200 bg-[#f7f3ec] px-6 py-4">
               <div>
-                <p className="text-xs uppercase tracking-[0.28em] text-stone-500">
-                  Brand Direction
+                <p className="text-xs uppercase tracking-[0.3em] text-stone-500">Why Teams Choose Us</p>
+                <p className="mt-2 font-serif text-lg font-semibold tracking-wide text-stone-900">
+                  把美感與信任，整理成看得到的數字
                 </p>
+              </div>
+              <span className="hidden items-center gap-1 rounded-full border border-emerald-200 bg-emerald-50 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-emerald-700 sm:inline-flex">
+                <Star className="h-3.5 w-3.5 fill-emerald-500 text-emerald-500" />
+                Verified
+              </span>
+            </header>
+
+            <ul className="grid divide-y divide-stone-200 sm:grid-cols-3 sm:divide-x sm:divide-y-0">
+              {heroProof.map(({ icon: Icon, eyebrow, value, note }) => (
+                <li key={eyebrow} className="flex flex-col gap-3 p-6">
+                  <span className="inline-flex h-10 w-10 items-center justify-center rounded-2xl border border-stone-200 bg-stone-50 text-emerald-700/80">
+                    <Icon className="h-5 w-5" />
+                  </span>
+                  <p className="text-[11px] uppercase tracking-[0.22em] text-stone-500">{eyebrow}</p>
+                  <p className="font-serif text-[28px] font-semibold leading-[1.1] tracking-wide text-stone-900">
+                    {value}
+                  </p>
+                  <p className="text-sm leading-6 text-stone-600">{note}</p>
+                </li>
+              ))}
+            </ul>
+
+            <footer className="grid gap-4 border-t border-stone-200 bg-[#f7f3ec] p-6 sm:grid-cols-[1.1fr_0.9fr]">
+              <div>
+                <p className="text-xs uppercase tracking-[0.28em] text-stone-500">Brand Direction</p>
                 <p className="mt-3 font-serif text-2xl font-semibold tracking-wide text-stone-900">
                   Calm, Editorial, Trustworthy
                 </p>
@@ -140,7 +182,7 @@ export function HeroSection() {
                   以材質感、留白、柔和層次與細節排版，讓品牌訊息更像被細心編輯，而不是被大聲推銷。
                 </p>
               </div>
-              <div className="rounded-[24px] border border-stone-200 bg-stone-50 p-5">
+              <div className="rounded-[24px] border border-stone-200 bg-white p-5">
                 <p className="text-sm text-stone-500">價值承諾</p>
                 <ul className="mt-4 space-y-3 text-sm leading-7 text-stone-700">
                   <li>優雅的閱讀節奏：透過極致的字體編排與呼吸感留白，讓訪客能放鬆地停留在您的網站。</li>
@@ -148,8 +190,24 @@ export function HeroSection() {
                   <li>安定的互動體驗：不使用刺眼強烈的按鈕逼迫點擊，而是以柔和的視覺引導，自然提升客戶的詢問意願。</li>
                 </ul>
               </div>
-            </div>
+            </footer>
           </article>
+
+          <figure className="mt-5 flex items-center gap-3 rounded-[24px] border border-stone-200 bg-white/70 p-4">
+            <Image
+              src="https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=160&q=80"
+              alt="以柔和木質、餐桌器皿與生活選物呈現的日系北歐空間氛圍"
+              width={56}
+              height={56}
+              className="h-14 w-14 rounded-full border border-stone-200 object-cover"
+            />
+            <figcaption className="text-sm leading-6 text-stone-600">
+              <span className="font-serif text-base font-semibold text-stone-900">
+                {voiceQuotes[0].author}
+              </span>
+              <span className="mt-1 block italic text-stone-700">「{voiceQuotes[0].quote}」</span>
+            </figcaption>
+          </figure>
         </div>
       </div>
     </AnimatedSection>
