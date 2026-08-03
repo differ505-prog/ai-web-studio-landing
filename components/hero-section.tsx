@@ -3,11 +3,9 @@ import {
   ArrowRight,
   CheckCheck,
   Leaf,
-  MessagesSquare,
-  PencilLine,
   ScanSearch,
-  Sparkles,
   Smartphone,
+  Sparkles,
 } from "lucide-react";
 import { AnimatedSection } from "@/components/animated-section";
 
@@ -20,14 +18,14 @@ const navLinks = [
 const heroProof = [
   {
     icon: Smartphone,
-    eyebrow: "網站 × App 開發",
-    value: "品牌官網 / iOS · Android App",
-    note: "從品牌頁面到原生 App，用同一個節奏與語氣一體完成。",
+    eyebrow: "交付範圍",
+    value: "網站 × App",
+    note: "從品牌頁面到原生 App，用同一個節奏完成。",
   },
   {
     icon: ScanSearch,
     eyebrow: "首版提案節奏",
-    value: "3 - 5 個工作天",
+    value: "3 - 5 天",
     note: "先看到方向，再決定要不要往下走。",
   },
   {
@@ -38,32 +36,7 @@ const heroProof = [
   },
 ];
 
-const collaborationSteps = [
-  {
-    icon: MessagesSquare,
-    step: "01",
-    label: "梳理品牌與產品",
-    detail: "從目標受眾、服務重點到 App 核心流程一起對齊。",
-  },
-  {
-    icon: ScanSearch,
-    step: "02",
-    label: "整理頁面與功能節奏",
-    detail: "把資訊拆成更好理解的段落，安排留白、互動與 CTA 位置。",
-  },
-  {
-    icon: PencilLine,
-    step: "03",
-    label: "完成視覺與原型整合",
-    detail: "在風格一致的基礎上補齊細節，讓成品更像被編輯過。",
-  },
-  {
-    icon: CheckCheck,
-    step: "04",
-    label: "上線、交付與持續優化",
-    detail: "完成部署後仍保留擴充空間，成長時不必從頭來過。",
-  },
-];
+const audienceChips = ["生活美學品牌", "餐飲與選物", "空間與工作室", "原生 App 開發"];
 
 export function HeroSection() {
   return (
@@ -115,7 +88,7 @@ export function HeroSection() {
         <div>
           <div className="inline-flex items-center gap-2 rounded-full border border-stone-200 bg-stone-100 px-4 py-2 text-sm text-stone-600">
             <Leaf className="h-4 w-4 text-emerald-700/70" />
-            為生活美學品牌而生的溫潤網站 · App 體驗
+            為生活美學品牌而生的編輯式數位體驗
           </div>
 
           <h1
@@ -124,12 +97,23 @@ export function HeroSection() {
           >
             讓你的品牌
             <span className="text-[#8B5E3C]"> 從網站到 App，</span>
-            像一本值得翻閱的生活雜誌，在第一眼就傳遞品味與信任。
+            像一本值得翻閱的生活雜誌。
           </h1>
 
           <p className="mt-7 max-w-2xl text-base leading-8 text-stone-700 sm:text-lg">
-            我們把網站、App UI/UX 與原生開發重新梳理成更有呼吸感的品牌場景。無論你經營的是空間收納、餐飲美學、生活選物，或是想為自己的服務打造一款 App，都能用更細膩的節奏承接詢問、建立信任，讓每一次瀏覽與每一次開啟 App，都更貼近你的品牌溫度。
+            我們把網站與 App 重新梳理成更有呼吸感的品牌場景，讓每一頁、每一個畫面，都更貼近你的品牌溫度。
           </p>
+
+          <ul className="mt-6 flex flex-wrap gap-2 text-xs">
+            {audienceChips.map((chip) => (
+              <li
+                key={chip}
+                className="rounded-full border border-stone-200 bg-stone-50 px-3 py-1.5 text-stone-600"
+              >
+                {chip}
+              </li>
+            ))}
+          </ul>
 
           <div className="mt-9 flex flex-col gap-4 sm:flex-row">
             <a
@@ -156,7 +140,7 @@ export function HeroSection() {
                   What We Deliver
                 </p>
                 <p className="mt-2 font-serif text-lg font-semibold tracking-wide text-stone-900">
-                  一個團隊，把網站與 App 一起做完
+                  一個節奏，把網站與 App 一起收尾
                 </p>
               </div>
               <span className="hidden items-center gap-1 rounded-full border border-emerald-200 bg-emerald-50 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-emerald-700 sm:inline-flex">
@@ -180,34 +164,16 @@ export function HeroSection() {
               ))}
             </ul>
 
-            <footer className="border-t border-stone-200 bg-[#f7f3ec] p-6">
+            <footer className="flex items-center justify-between gap-4 border-t border-stone-200 bg-[#f7f3ec] px-6 py-4">
               <p className="text-xs uppercase tracking-[0.28em] text-stone-500">
                 Collaboration Flow
               </p>
-              <p className="mt-3 font-serif text-xl font-semibold tracking-wide text-stone-900">
-                一個節奏走完：策略 → 設計 → 開發 → 上線
-              </p>
-              <ol className="mt-5 grid gap-3 sm:grid-cols-2">
-                {collaborationSteps.map(({ icon: Icon, step, label, detail }) => (
-                  <li
-                    key={step}
-                    className="flex items-start gap-3 rounded-[20px] border border-stone-200 bg-white p-4"
-                  >
-                    <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-stone-200 bg-stone-50 text-[#8B5E3C]">
-                      <Icon className="h-4 w-4" />
-                    </span>
-                    <div>
-                      <p className="text-[11px] font-medium uppercase tracking-[0.24em] text-stone-500">
-                        Step {step}
-                      </p>
-                      <p className="mt-1 font-serif text-sm font-semibold tracking-wide text-stone-900">
-                        {label}
-                      </p>
-                      <p className="mt-1 text-xs leading-5 text-stone-600">{detail}</p>
-                    </div>
-                  </li>
-                ))}
-              </ol>
+              <a
+                href="#workflow"
+                className="text-sm font-semibold tracking-wide text-[#8B5E3C] underline-offset-4 hover:underline"
+              >
+                查看完整四步流程 →
+              </a>
             </footer>
           </article>
 

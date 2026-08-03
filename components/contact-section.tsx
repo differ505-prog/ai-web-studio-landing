@@ -35,7 +35,7 @@ export function ContactSection() {
             如果你想讓品牌從網站到 App 都更安定、更有質感，現在就開始。
           </h2>
           <p className="mt-6 max-w-xl text-base leading-8 text-stone-700 md:text-lg">
-            無論你經營的是餐飲、空間收納、生活選物，或是想為自己的服務打造一款 App，我們都能把內容整理成更優雅的頁面節奏，讓使用者在舒服的閱讀裡，自然走向詢問與合作。
+            無論剛起步、想改版、或想把服務延伸成 App，從一個想法開始就可以聊。我們會在 1-2 個工作天內回覆你下一步。
           </p>
 
           <div className="mt-8 space-y-4">
@@ -240,7 +240,7 @@ export function ContactSection() {
               disabled={submitState === "submitting"}
               className="inline-flex items-center justify-center gap-2 rounded-full bg-[#8B5E3C] px-6 py-3.5 text-sm font-semibold text-white transition hover:bg-stone-800 disabled:cursor-not-allowed disabled:bg-stone-400"
             >
-              {submitState === "submitting" ? "送出中..." : "送出需求，聊聊下一步"}
+              {submitState === "submitting" ? "送出中..." : "送出需求"}
               {submitState === "submitting" ? (
                 <LoaderCircle className="h-4 w-4 animate-spin" />
               ) : (

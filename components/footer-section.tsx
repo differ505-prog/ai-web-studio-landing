@@ -1,4 +1,4 @@
-import { Smartphone, Sparkles } from "lucide-react";
+import { Sparkles } from "lucide-react";
 
 export function FooterSection() {
   return (
@@ -9,18 +9,8 @@ export function FooterSection() {
             築時數位 · Arrive Studio
           </p>
           <p className="mt-2 max-w-md leading-7">
-            為生活美學品牌提供品牌官網、數位體驗與 App 開發設計，用一致的編輯式節奏讓每一個畫面都更值得停留。
+            為生活美學品牌做品牌官網與 App，用一致的編輯式節奏讓每一個畫面都更值得停留。
           </p>
-          <div className="mt-4 flex flex-wrap items-center gap-2 text-xs">
-            <span className="inline-flex items-center gap-1.5 rounded-full border border-stone-200 bg-white px-3 py-1 text-stone-600">
-              <Sparkles className="h-3.5 w-3.5 text-[#8B5E3C]" />
-              品牌官網 · Landing Page
-            </span>
-            <span className="inline-flex items-center gap-1.5 rounded-full border border-stone-200 bg-white px-3 py-1 text-stone-600">
-              <Smartphone className="h-3.5 w-3.5 text-[#8B5E3C]" />
-              App 開發設計
-            </span>
-          </div>
           <a
             href="https://lin.ee/uh4z4dL"
             target="_blank"

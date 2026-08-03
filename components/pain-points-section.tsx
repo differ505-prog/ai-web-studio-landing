@@ -11,14 +11,12 @@ const traditional = [
   {
     icon: Coins,
     label: "預算感受不安",
-    description:
-      "看不清交付細節與優先順序時，品牌很容易為了不確定性付出更高成本。",
+    description: "看不清交付細節與優先順序時，品牌很容易為了不確定性付出更高成本。",
   },
   {
     icon: Wrench,
-    label: "網站與 App 脫節",
-    description:
-      "網站做完之後才想做 App，結果兩邊風格與流程對不上，使用體驗也跟著打折。",
+    label: "兩個載體節奏脫鉤",
+    description: "網站先做完之後才想做 App，結果兩邊風格與流程對不上。",
   },
 ];
 
@@ -26,20 +24,17 @@ const betterWay = [
   {
     icon: PencilRuler,
     label: "先對齊品牌氣質",
-    description:
-      "從空間氛圍、材質感與閱讀節奏開始設定方向，讓後續設計更穩定。",
+    description: "從空間氛圍、材質感與閱讀節奏開始設定方向，讓後續設計更穩定。",
   },
   {
     icon: Smartphone,
-    label: "網站 × App 同一節奏",
-    description:
-      "用同一組品牌語氣延伸網站與 App UI，讓兩邊都像出自同一位編輯之手。",
+    label: "同一編輯貫穿兩端",
+    description: "用同一組語氣延伸網站與 App，讓兩邊都像出自同一位編輯之手。",
   },
   {
     icon: CheckCircle2,
     label: "保留營運彈性",
-    description:
-      "在質感與轉換之間取得平衡，讓你的網站與 App 既漂亮，也能持續承接品牌成長。",
+    description: "在質感與轉換之間取得平衡，讓作品既漂亮也能持續承接成長。",
   },
 ];
 
@@ -48,8 +43,8 @@ export function PainPointsSection() {
     <AnimatedSection id="comparison" ariaLabelledBy="pain-points-title" className="py-24 lg:py-32">
       <SectionIntro
         eyebrow="Brand Perspective"
-        title="當網站與 App 像同一本雜誌，品牌訊息反而更容易被理解。"
-        description="我們不追求堆滿功能與高刺激視覺，而是整理出更溫柔、更清楚的資訊層次。對於重視空間感、服務體驗與品牌信任的主理人來說，這樣的呈現更能讓人放鬆停留。"
+        title="當兩個載體像同一本雜誌，訊息反而更容易被理解。"
+        description="我們不追求堆滿功能與高刺激視覺，而是整理出更溫柔、更清楚的資訊層次。"
       />
 
       <div className="mt-12 grid gap-6 lg:grid-cols-2">
@@ -62,9 +57,7 @@ export function PainPointsSection() {
               <h3 className="font-serif text-2xl font-semibold tracking-wide text-stone-900">
                 常見的數位體驗焦慮
               </h3>
-              <p className="mt-1 text-sm text-stone-500">
-                太多功能名詞，卻沒有真正安定人心的品牌畫面。
-              </p>
+              <p className="mt-1 text-sm text-stone-500">太多功能名詞，缺少安定人心的品牌畫面。</p>
             </div>
           </div>
 
@@ -96,9 +89,7 @@ export function PainPointsSection() {
               <h3 className="font-serif text-2xl font-semibold tracking-wide text-stone-900">
                 我們偏好的呈現方式
               </h3>
-              <p className="mt-1 text-sm text-stone-500">
-                把重點收斂成更能閱讀、感受與信任的品牌敘事。
-              </p>
+              <p className="mt-1 text-sm text-stone-500">把重點收斂成更能閱讀、感受與信任的品牌敘事。</p>
             </div>
           </div>
 

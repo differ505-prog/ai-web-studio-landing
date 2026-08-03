@@ -1,4 +1,4 @@
-import { CheckCheck, MessagesSquare, PencilLine, ScanSearch, Smartphone } from "lucide-react";
+import { CheckCheck, MessagesSquare, PencilLine, ScanSearch } from "lucide-react";
 import { AnimatedSection } from "@/components/animated-section";
 import { SectionIntro } from "@/components/section-intro";
 
@@ -7,29 +7,25 @@ const steps = [
     icon: MessagesSquare,
     step: "01",
     title: "梳理品牌語氣",
-    description:
-      "先釐清受眾、服務重點與你希望被感受到的品牌氣質。",
+    description: "先釐清受眾、服務重點與你希望被感受到的氣質。",
   },
   {
     icon: ScanSearch,
     step: "02",
     title: "整理頁面與功能節奏",
-    description:
-      "把資訊拆成更好理解的段落，安排標題、留白、圖片與 CTA 的位置。",
+    description: "把資訊拆成更好理解的段落，安排標題、留白、圖片與 CTA 位置。",
   },
   {
-    icon: Smartphone,
+    icon: PencilLine,
     step: "03",
-    title: "完成 App 與視覺整合",
-    description:
-      "若包含 App 開發，會同步處理 UI/UX、原型與開發節奏，讓兩邊語氣一致。",
+    title: "完成視覺與原型",
+    description: "在風格一致的基礎上補齊細節，讓成品更像被編輯過。",
   },
   {
     icon: CheckCheck,
     step: "04",
     title: "上線並持續優化",
-    description:
-      "完成部署後，仍保留後續擴充與調整空間，讓品牌成長時不必重新來過。",
+    description: "完成部署後，仍保留後續擴充與調整空間。",
   },
 ];
 
@@ -38,8 +34,8 @@ export function WorkflowSection() {
     <AnimatedSection id="workflow" ariaLabelledBy="workflow-title" className="py-24 lg:py-32">
       <SectionIntro
         eyebrow="Workflow"
-        title="真正讓人安心的合作流程，是每一步都看得到方向。"
-        description="從品牌語氣、版型成品到 App 開發，整個節奏都圍繞著清楚、舒服與可決策而設計。"
+        title="四個步驟，把方向與細節都收進同一份節奏裡。"
+        description="整個合作節奏圍繞著清楚、舒服、可決策而設計，讓你看得到方向也走得到終點。"
         align="center"
       />
 
