@@ -80,7 +80,7 @@ export type OpsTaskView = OpsTaskDefinition & {
   completed: boolean;
 };
 
-export type OpsGroupView = OpsTaskGroupDefinition & {
+export type OpsGroupView = Omit<OpsTaskGroupDefinition, "items"> & {
   collapsed: boolean;
   rewardClaimed: boolean;
   completed: boolean;
