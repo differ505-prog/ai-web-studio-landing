@@ -1,47 +1,67 @@
 import Image from "next/image";
-import { ArrowRight, Clock4, HandHeart, Leaf, ShieldCheck, Sparkles, Star } from "lucide-react";
+import {
+  ArrowRight,
+  CheckCheck,
+  Leaf,
+  MessagesSquare,
+  PencilLine,
+  ScanSearch,
+  Sparkles,
+  Smartphone,
+} from "lucide-react";
 import { AnimatedSection } from "@/components/animated-section";
 
-const quickStats = [
-  {
-    label: "首版提案節奏",
-    value: "3-5 個工作天",
-  },
-  {
-    label: "適合品牌",
-    value: "餐飲 / 收納 / 生活選物",
-  },
-  {
-    label: "合作方式",
-    value: "策略、設計、開發一體完成",
-  },
+const navLinks = [
+  { label: "核心服務", href: "#services" },
+  { label: "風格案例", href: "#portfolio" },
+  { label: "合作方案", href: "#pricing" },
 ];
 
 const heroProof = [
   {
-    icon: HandHeart,
-    eyebrow: "已交付 / 合作中的品牌",
-    value: "12+",
-    note: "餐飲、空間、生活選物、SaaS 團隊",
+    icon: Smartphone,
+    eyebrow: "網站 × App 開發",
+    value: "品牌官網 / iOS · Android App",
+    note: "從品牌頁面到原生 App，用同一個節奏與語氣一體完成。",
   },
   {
-    icon: Clock4,
-    eyebrow: "首次回覆時間",
-    value: "12 小時內",
-    note: "工作日 09:00–19:00 主理人親自回覆",
+    icon: ScanSearch,
+    eyebrow: "首版提案節奏",
+    value: "3 - 5 個工作天",
+    note: "先看到方向，再決定要不要往下走。",
   },
   {
-    icon: ShieldCheck,
+    icon: CheckCheck,
     eyebrow: "上線後保固",
     value: "90 天",
-    note: "小改版、文案調整與技術問題不另收費",
+    note: "小改版、文案調整與技術問題不另收費。",
   },
 ];
 
-const voiceQuotes = [
+const collaborationSteps = [
   {
-    quote: "把美感整理成能讓客戶在第一眼就信任的節奏。",
-    author: "築時數位 · 主理人",
+    icon: MessagesSquare,
+    step: "01",
+    label: "梳理品牌與產品",
+    detail: "從目標受眾、服務重點到 App 核心流程一起對齊。",
+  },
+  {
+    icon: ScanSearch,
+    step: "02",
+    label: "整理頁面與功能節奏",
+    detail: "把資訊拆成更好理解的段落，安排留白、互動與 CTA 位置。",
+  },
+  {
+    icon: PencilLine,
+    step: "03",
+    label: "完成視覺與原型整合",
+    detail: "在風格一致的基礎上補齊細節，讓成品更像被編輯過。",
+  },
+  {
+    icon: CheckCheck,
+    step: "04",
+    label: "上線、交付與持續優化",
+    detail: "完成部署後仍保留擴充空間，成長時不必從頭來過。",
   },
 ];
 
@@ -64,7 +84,7 @@ export function HeroSection() {
           </span>
           <span>
             <span className="block text-[11px] uppercase tracking-[0.28em] text-stone-500">
-              Editorial Landing Page
+              Editorial · Web · App Studio
             </span>
             <span className="font-serif text-xl font-semibold tracking-wide text-stone-900">
               築時數位
@@ -73,20 +93,20 @@ export function HeroSection() {
         </a>
 
         <div className="flex flex-wrap items-center gap-2 text-sm text-stone-600">
-          <a href="#services" className="rounded-full px-3 py-2 transition hover:bg-stone-100 hover:text-stone-900">
-            核心服務
-          </a>
-          <a href="#portfolio" className="rounded-full px-3 py-2 transition hover:bg-stone-100 hover:text-stone-900">
-            風格案例
-          </a>
-          <a href="#pricing" className="rounded-full px-3 py-2 transition hover:bg-stone-100 hover:text-stone-900">
-            合作方案
-          </a>
+          {navLinks.map((link) => (
+            <a
+              key={link.href}
+              href={link.href}
+              className="rounded-full px-3 py-2 transition hover:bg-stone-100 hover:text-stone-900"
+            >
+              {link.label}
+            </a>
+          ))}
           <a
             href="#contact"
             className="rounded-full border border-stone-300 px-4 py-2 font-medium text-stone-700 transition hover:bg-stone-100"
           >
-            預約諮詢
+            聊聊你的需求
           </a>
         </div>
       </nav>
@@ -95,50 +115,36 @@ export function HeroSection() {
         <div>
           <div className="inline-flex items-center gap-2 rounded-full border border-stone-200 bg-stone-100 px-4 py-2 text-sm text-stone-600">
             <Leaf className="h-4 w-4 text-emerald-700/70" />
-            為生活美學品牌而生的溫潤網站體驗
+            為生活美學品牌而生的溫潤網站 · App 體驗
           </div>
 
           <h1
             id="hero-title"
             className="mt-7 max-w-4xl font-serif text-4xl font-semibold tracking-wide text-stone-900 sm:text-5xl lg:text-7xl lg:leading-[1.15]"
           >
-            讓你的品牌網站像一本
-            <span className="text-[#8B5E3C]"> 值得翻閱的生活雜誌，</span>
-            在第一眼就傳遞品味、安心與信任。
+            讓你的品牌
+            <span className="text-[#8B5E3C]"> 從網站到 App，</span>
+            像一本值得翻閱的生活雜誌，在第一眼就傳遞品味與信任。
           </h1>
 
           <p className="mt-7 max-w-2xl text-base leading-8 text-stone-700 sm:text-lg">
-            我們把網站從冷硬的資訊堆疊，重新梳理成更有呼吸感的品牌場景。無論你經營的是空間收納、餐飲美學或選物品牌，都能用更細膩的節奏承接詢問、建立信任，並讓每一次瀏覽都更貼近你的品牌溫度。
+            我們把網站、App UI/UX 與原生開發重新梳理成更有呼吸感的品牌場景。無論你經營的是空間收納、餐飲美學、生活選物，或是想為自己的服務打造一款 App，都能用更細膩的節奏承接詢問、建立信任，讓每一次瀏覽與每一次開啟 App，都更貼近你的品牌溫度。
           </p>
 
           <div className="mt-9 flex flex-col gap-4 sm:flex-row">
             <a
-              href="#pricing"
+              href="#portfolio"
               className="inline-flex items-center justify-center gap-2 rounded-full bg-[#8B5E3C] px-6 py-3.5 text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:bg-stone-800"
             >
-              查看合作方案
+              看看實際作品
               <ArrowRight className="h-4 w-4" />
             </a>
             <a
               href="#contact"
               className="inline-flex items-center justify-center rounded-full border border-stone-300 px-6 py-3.5 text-sm font-semibold text-stone-700 transition hover:bg-stone-100"
             >
-              預約風格諮詢
+              聊聊你的需求
             </a>
-          </div>
-
-          <div className="mt-12 grid gap-4 sm:grid-cols-3">
-            {quickStats.map(({ label, value }) => (
-              <article
-                key={label}
-                className="rounded-[28px] border border-stone-200 bg-stone-50/80 p-5"
-              >
-                <p className="text-sm text-stone-500">{label}</p>
-                <p className="mt-3 font-serif text-lg font-semibold tracking-wide text-stone-900">
-                  {value}
-                </p>
-              </article>
-            ))}
           </div>
         </div>
 
@@ -146,14 +152,16 @@ export function HeroSection() {
           <article className="overflow-hidden rounded-[32px] border border-stone-200 bg-white shadow-[0_8px_30px_rgb(0,0,0,0.04)]">
             <header className="flex items-center justify-between border-b border-stone-200 bg-[#f7f3ec] px-6 py-4">
               <div>
-                <p className="text-xs uppercase tracking-[0.3em] text-stone-500">Why Teams Choose Us</p>
+                <p className="text-xs uppercase tracking-[0.3em] text-stone-500">
+                  What We Deliver
+                </p>
                 <p className="mt-2 font-serif text-lg font-semibold tracking-wide text-stone-900">
-                  把美感與信任，整理成看得到的數字
+                  一個團隊，把網站與 App 一起做完
                 </p>
               </div>
               <span className="hidden items-center gap-1 rounded-full border border-emerald-200 bg-emerald-50 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-emerald-700 sm:inline-flex">
-                <Star className="h-3.5 w-3.5 fill-emerald-500 text-emerald-500" />
-                Verified
+                <Sparkles className="h-3.5 w-3.5 text-emerald-700" />
+                Web · App
               </span>
             </header>
 
@@ -164,7 +172,7 @@ export function HeroSection() {
                     <Icon className="h-5 w-5" />
                   </span>
                   <p className="text-[11px] uppercase tracking-[0.22em] text-stone-500">{eyebrow}</p>
-                  <p className="font-serif text-[28px] font-semibold leading-[1.1] tracking-wide text-stone-900">
+                  <p className="font-serif text-[20px] font-semibold leading-[1.2] tracking-wide text-stone-900">
                     {value}
                   </p>
                   <p className="text-sm leading-6 text-stone-600">{note}</p>
@@ -172,24 +180,34 @@ export function HeroSection() {
               ))}
             </ul>
 
-            <footer className="grid gap-4 border-t border-stone-200 bg-[#f7f3ec] p-6 sm:grid-cols-[1.1fr_0.9fr]">
-              <div>
-                <p className="text-xs uppercase tracking-[0.28em] text-stone-500">Brand Direction</p>
-                <p className="mt-3 font-serif text-2xl font-semibold tracking-wide text-stone-900">
-                  Calm, Editorial, Trustworthy
-                </p>
-                <p className="mt-3 text-sm leading-7 text-stone-700">
-                  以材質感、留白、柔和層次與細節排版，讓品牌訊息更像被細心編輯，而不是被大聲推銷。
-                </p>
-              </div>
-              <div className="rounded-[24px] border border-stone-200 bg-white p-5">
-                <p className="text-sm text-stone-500">價值承諾</p>
-                <ul className="mt-4 space-y-3 text-sm leading-7 text-stone-700">
-                  <li>優雅的閱讀節奏：透過極致的字體編排與呼吸感留白，讓訪客能放鬆地停留在您的網站。</li>
-                  <li>溫潤的視覺層次：放棄冷硬的科技感，以輕盈乾淨的版面，完美突顯您作品與商品的最美細節。</li>
-                  <li>安定的互動體驗：不使用刺眼強烈的按鈕逼迫點擊，而是以柔和的視覺引導，自然提升客戶的詢問意願。</li>
-                </ul>
-              </div>
+            <footer className="border-t border-stone-200 bg-[#f7f3ec] p-6">
+              <p className="text-xs uppercase tracking-[0.28em] text-stone-500">
+                Collaboration Flow
+              </p>
+              <p className="mt-3 font-serif text-xl font-semibold tracking-wide text-stone-900">
+                一個節奏走完：策略 → 設計 → 開發 → 上線
+              </p>
+              <ol className="mt-5 grid gap-3 sm:grid-cols-2">
+                {collaborationSteps.map(({ icon: Icon, step, label, detail }) => (
+                  <li
+                    key={step}
+                    className="flex items-start gap-3 rounded-[20px] border border-stone-200 bg-white p-4"
+                  >
+                    <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-stone-200 bg-stone-50 text-[#8B5E3C]">
+                      <Icon className="h-4 w-4" />
+                    </span>
+                    <div>
+                      <p className="text-[11px] font-medium uppercase tracking-[0.24em] text-stone-500">
+                        Step {step}
+                      </p>
+                      <p className="mt-1 font-serif text-sm font-semibold tracking-wide text-stone-900">
+                        {label}
+                      </p>
+                      <p className="mt-1 text-xs leading-5 text-stone-600">{detail}</p>
+                    </div>
+                  </li>
+                ))}
+              </ol>
             </footer>
           </article>
 
@@ -203,9 +221,11 @@ export function HeroSection() {
             />
             <figcaption className="text-sm leading-6 text-stone-600">
               <span className="font-serif text-base font-semibold text-stone-900">
-                {voiceQuotes[0].author}
+                築時數位 · 主理人
               </span>
-              <span className="mt-1 block italic text-stone-700">「{voiceQuotes[0].quote}」</span>
+              <span className="mt-1 block italic text-stone-700">
+                「把美感整理成能讓客戶在第一眼就信任的節奏。」
+              </span>
             </figcaption>
           </figure>
         </div>

@@ -7,6 +7,14 @@ import { AnimatedSection } from "@/components/animated-section";
 
 type SubmitState = "idle" | "submitting" | "success" | "error";
 
+const projectTypes = [
+  "品牌形象官網",
+  "Landing Page / 活動頁",
+  "App 開發設計",
+  "既有網站改版",
+  "其他",
+];
+
 export function ContactSection() {
   const [submitState, setSubmitState] = useState<SubmitState>("idle");
   const [feedbackMessage, setFeedbackMessage] = useState("");
@@ -24,17 +32,17 @@ export function ContactSection() {
             id="contact-title"
             className="mt-5 font-serif text-3xl font-semibold tracking-wide text-stone-900 md:text-5xl md:leading-[1.25]"
           >
-            如果你想讓品牌網站更安定、更有質感，也更容易被信任，現在就開始。
+            如果你想讓品牌從網站到 App 都更安定、更有質感，現在就開始。
           </h2>
           <p className="mt-6 max-w-xl text-base leading-8 text-stone-700 md:text-lg">
-            無論你經營的是餐飲、空間收納、生活選物或個人品牌，我們都能把內容整理成更優雅的頁面節奏，讓使用者在舒服的閱讀裡，自然走向詢問與合作。
+            無論你經營的是餐飲、空間收納、生活選物，或是想為自己的服務打造一款 App，我們都能把內容整理成更優雅的頁面節奏，讓使用者在舒服的閱讀裡，自然走向詢問與合作。
           </p>
 
           <div className="mt-8 space-y-4">
             <div className="rounded-[28px] border border-stone-200 bg-stone-50 p-5">
               <p className="text-sm text-stone-500">很適合現在就聊聊的情境</p>
               <p className="mt-2 font-serif text-lg font-semibold tracking-wide text-stone-900">
-                品牌剛起步、想改版首頁、需要更好的詢問轉換，或想把服務內容整理得更清楚
+                品牌剛起步、想改版首頁、需要更好的詢問轉換，或想把服務延伸成 App
               </p>
             </div>
             <div className="rounded-[28px] border border-stone-200 bg-[#f7f3ec] p-5">
@@ -57,17 +65,14 @@ export function ContactSection() {
                       rel="noreferrer"
                       className="inline-flex items-center gap-2 rounded-full bg-[#06C755] px-5 py-3 text-sm font-semibold text-white transition hover:brightness-95"
                     >
-                      加入 LINE 官方帳號
+                      加 LINE 聊聊需求
                       <MessageCircleMore className="h-4 w-4" />
                     </a>
                     <a
-                      href="https://lin.ee/uh4z4dL"
-                      target="_blank"
-                      rel="noreferrer"
+                      href="#portfolio"
                       className="inline-flex items-center gap-2 rounded-full border border-stone-300 px-5 py-3 text-sm font-semibold text-stone-700 transition hover:bg-stone-100"
                     >
-                      複製加入連結
-                      <QrCode className="h-4 w-4" />
+                      看看實際作品
                     </a>
                   </div>
                 </div>
@@ -112,6 +117,7 @@ export function ContactSection() {
               name: String(formData.get("name") ?? "").trim(),
               email: String(formData.get("email") ?? "").trim(),
               message: String(formData.get("message") ?? "").trim(),
+              projectType: String(formData.get("projectType") ?? "").trim(),
               website: String(formData.get("website") ?? "").trim(),
             };
 
@@ -189,11 +195,27 @@ export function ContactSection() {
             </label>
 
             <label className="block">
+              <span className="mb-2 block text-sm font-medium text-stone-700">想做的項目</span>
+              <select
+                name="projectType"
+                defaultValue={projectTypes[0]}
+                disabled={submitState === "submitting"}
+                className="w-full rounded-[20px] border border-stone-200 bg-white px-4 py-3 text-stone-800"
+              >
+                {projectTypes.map((type) => (
+                  <option key={type} value={type}>
+                    {type}
+                  </option>
+                ))}
+              </select>
+            </label>
+
+            <label className="block">
               <span className="mb-2 block text-sm font-medium text-stone-700">需求描述</span>
               <textarea
                 name="message"
                 rows={6}
-                placeholder="請簡述你的品牌類型、想呈現的風格，以及目前最想改善的頁面問題。"
+                placeholder="請簡述你的品牌類型、想呈現的風格，以及目前最想改善的問題（網站或 App）。"
                 required
                 disabled={submitState === "submitting"}
                 className="w-full rounded-[20px] border border-stone-200 bg-white px-4 py-3 text-stone-800 placeholder:text-stone-400"
@@ -218,7 +240,7 @@ export function ContactSection() {
               disabled={submitState === "submitting"}
               className="inline-flex items-center justify-center gap-2 rounded-full bg-[#8B5E3C] px-6 py-3.5 text-sm font-semibold text-white transition hover:bg-stone-800 disabled:cursor-not-allowed disabled:bg-stone-400"
             >
-              {submitState === "submitting" ? "送出中..." : "送出需求"}
+              {submitState === "submitting" ? "送出中..." : "送出需求，聊聊下一步"}
               {submitState === "submitting" ? (
                 <LoaderCircle className="h-4 w-4 animate-spin" />
               ) : (

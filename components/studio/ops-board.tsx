@@ -36,20 +36,25 @@ function getItemStatus(currentCount: number, targetCount: number) {
   return "待開始";
 }
 
+function readPersistedState(): OpsBoardState {
+  if (typeof window === "undefined") return createInitialOpsState();
+  try {
+    const raw = window.localStorage.getItem(OPS_STORAGE_KEY);
+    return raw ? syncOpsState(JSON.parse(raw)) : createInitialOpsState();
+  } catch {
+    return createInitialOpsState();
+  }
+}
+
 export function OpsBoard() {
   const [state, setState] = useState<OpsBoardState>(() => createInitialOpsState());
   const [isHydrated, setIsHydrated] = useState(false);
 
   useEffect(() => {
-    try {
-      const raw = window.localStorage.getItem(OPS_STORAGE_KEY);
-      const parsed = raw ? JSON.parse(raw) : null;
-      setState(syncOpsState(parsed));
-    } catch {
-      setState(createInitialOpsState());
-    } finally {
-      setIsHydrated(true);
-    }
+    // Hydrate from localStorage after mount; this is the standard SSR-safe pattern.
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setState(readPersistedState());
+    setIsHydrated(true);
   }, []);
 
   useEffect(() => {

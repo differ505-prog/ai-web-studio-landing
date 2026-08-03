@@ -1,4 +1,4 @@
-import { Blocks, Building2, Cpu, LineChart } from "lucide-react";
+import { Building2, LineChart, Cpu, Smartphone } from "lucide-react";
 import { AnimatedSection } from "@/components/animated-section";
 import { SectionIntro } from "@/components/section-intro";
 
@@ -24,6 +24,13 @@ const services = [
       "若品牌需要更進一步的預約、會員、資料管理或 AI 功能，我們也能延伸成可持續擴充的系統。",
     highlights: ["後台與權限規劃", "第三方串接", "可擴充技術架構"],
   },
+  {
+    icon: Smartphone,
+    title: "App 開發設計",
+    description:
+      "為你的服務量身打造原生或跨平台 App，含 UI/UX 設計、使用者流程規劃與 iOS / Android 上架。",
+    highlights: ["App UI/UX 與互動原型", "iOS / Android 原生或跨平台開發", "上架輔導與後續維運"],
+  },
 ];
 
 export function ServicesSection() {
@@ -31,11 +38,11 @@ export function ServicesSection() {
     <AnimatedSection id="services" ariaLabelledBy="services-title" className="py-24 lg:py-32">
       <SectionIntro
         eyebrow="Core Services"
-        title="設計不只是漂亮，而是讓品牌被更細緻地理解。"
-        description="我們會先整理內容，再安排節奏，最後才把視覺放進去。讓網站不只是一張亮眼的數位名片，而是能真實傳遞你品牌溫度的專屬空間。"
+        title="從品牌官網到 App，一個團隊把數位體驗一體完成。"
+        description="我們會先整理內容，再安排節奏，最後才把視覺放進去。無論是網站還是 App，都不只是亮眼的數位名片，而是能真實傳遞你品牌溫度的專屬體驗。"
       />
 
-      <div className="mt-12 grid gap-6 lg:grid-cols-3">
+      <div className="mt-12 grid gap-6 lg:grid-cols-2 xl:grid-cols-4">
         {services.map(({ icon: Icon, title, description, highlights }) => (
           <article
             key={title}
@@ -50,7 +57,7 @@ export function ServicesSection() {
             <p className="mt-4 text-sm leading-8 text-stone-700">{description}</p>
 
             <div className="mt-7 flex items-center gap-2 text-xs uppercase tracking-[0.24em] text-stone-500">
-              <Blocks className="h-4 w-4" />
+              <Cpu className="h-4 w-4" />
               服務內容
             </div>
             <ul className="mt-4 space-y-3">

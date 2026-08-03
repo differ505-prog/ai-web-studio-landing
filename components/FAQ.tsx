@@ -7,6 +7,16 @@ import { AnimatedSection } from "@/components/animated-section";
 
 const faqs = [
   {
+    question: "你們只做網站，還是連 App 也能一起做？",
+    answer:
+      "兩種都可以。網站、App UI/UX 與原生 App 開發都是我們的服務範圍，多數客戶會從品牌網站起步，等品牌定位穩定後再延伸成 App。",
+  },
+  {
+    question: "我現在只有一個想法，要怎麼開始比較安心？",
+    answer:
+      "我們會先安排一次 30 分鐘左右的線上諮詢，一起釐清品牌定位、目標受眾與適合的載體（網站 / App / 兩者並行）。完成後再提供初步方向與建議方案。",
+  },
+  {
     question: "網站上線後，如果要更新新菜單、案例照片或服務內容怎麼辦？",
     answer:
       "若是單頁品牌方案，我們會保留清楚的區塊結構，方便後續微調與延伸。若你需要更高頻率更新，也能進一步規劃可自行維護的內容管理方式。",
@@ -17,9 +27,14 @@ const faqs = [
       "可以，因為我們會先聚焦真正重要的內容層次與品牌語氣，再安排頁面節奏。不是靠華麗效果撐場，而是用更準確的編排縮短反覆修改時間。",
   },
   {
-    question: "如果之後想加入預約、會員或更完整的功能呢？",
+    question: "如果之後想加入預約、會員、App 或更完整的功能呢？",
     answer:
-      "這次的頁面會以可延伸架構規劃，所以可以先建立品牌門面，再依照營運需求逐步增加預約、後台或其他數位流程，不必全部重做。",
+      "這次的頁面會以可延伸架構規劃，所以可以先建立品牌門面，再依照營運需求逐步增加預約、後台、第三方金流或 App，不必全部重做。",
+  },
+  {
+    question: "App 開發會做到可以上架的程度嗎？會不會還要再找別人？",
+    answer:
+      "會一路做到可在 App Store / Google Play 上架的狀態，包含帳號設定、憑證、截圖素材與審核建議，盡量讓你不需要再另外找團隊接手。",
   },
 ];
 
@@ -30,11 +45,14 @@ export function FAQ() {
     <AnimatedSection id="faq" ariaLabelledBy="faq-title" className="py-24 lg:py-32">
       <div className="mx-auto max-w-3xl text-center">
         <p className="text-xs uppercase tracking-[0.36em] text-stone-500">FAQ</p>
-        <h2 id="faq-title" className="mt-5 font-serif text-3xl font-semibold tracking-wide text-stone-900 md:text-5xl md:leading-[1.25]">
+        <h2
+          id="faq-title"
+          className="mt-5 font-serif text-3xl font-semibold tracking-wide text-stone-900 md:text-5xl md:leading-[1.25]"
+        >
           把常見疑問先說清楚，信任感就會更自然地建立。
         </h2>
         <p className="mt-6 text-base leading-8 text-stone-700 md:text-lg">
-          從交付速度、後續維護到品牌延伸方式，我們會在合作前先把界線與可能性說明完整。
+          從網站交付、App 開發、後續維護到品牌延伸方式，我們會在合作前先把界線與可能性說明完整。
         </p>
       </div>
 

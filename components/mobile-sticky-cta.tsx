@@ -38,7 +38,7 @@ export function MobileStickyCta() {
           className="flex flex-1 items-center justify-center gap-1.5 rounded-[18px] bg-[#06C755] px-3 py-2.5 text-[13px] font-semibold text-white shadow-sm transition active:scale-[0.98]"
         >
           <MessageCircleMore className="h-4 w-4" />
-          加 LINE 諮詢
+          加 LINE 聊聊需求
         </a>
         <a
           href="mailto:hello.arrivestudio@gmail.com"

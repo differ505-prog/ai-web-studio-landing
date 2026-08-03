@@ -15,7 +15,7 @@ const structuredData = {
   "@type": "ProfessionalService",
   name: "築時數位",
   description:
-    "提供品牌網站、風格 Landing Page、企業官網與兼具美感與轉換的數位體驗規劃。",
+    "提供品牌網站、風格 Landing Page、企業官網、App 開發設計與兼具美感與轉換的數位體驗規劃。",
   areaServed: "Taiwan",
   email: "hello.arrivestudio@gmail.com",
   serviceType: [
@@ -24,7 +24,8 @@ const structuredData = {
     "形象網站",
     "數位體驗設計",
     "SaaS 產品網站",
-    "任務管理工具 / 工具型 Web App",
+    "App 開發設計",
+    "iOS / Android App 開發",
   ],
   url: "https://arrive-studio.vercel.app/",
 };

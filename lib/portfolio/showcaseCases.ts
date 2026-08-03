@@ -60,16 +60,17 @@ export const showcaseCases: CaseStudy[] = [
   },
   {
     slug: "vibelist",
-    name: "VibeList · 禪模式任務管理工具",
+    name: "VibeList · 禪模式任務管理 App",
     description:
-      "為了想安靜完成重要事情的人所打造的待辦清單，以禪模式聚焦當下最重要的一件任務，必要時再展開完整列表；支援訪客模式直接體驗、Email 密碼與 Google 帳號登入，資料全程加密儲存，符合 GDPR 規範。",
+      "為了想安靜完成重要事情的人所打造的待辦任務 App。以禪模式聚焦當下最重要的一件任務，必要時再展開完整列表；支援訪客模式直接體驗、Email 密碼與 Google 帳號登入，資料全程加密儲存，符合 GDPR 規範。",
     href: "https://www.vibelist.work/",
     ctaLabel: "前往體驗 VibeList",
+    planLabel: "對應 App 與系統客製方案",
     category: "self",
-    categoryLabel: "個人 Side Project",
+    categoryLabel: "App 開發設計 · 自有 Side Project",
     theme: "product",
     productMeta: {
-      eyebrow: "Task Management · 禪模式",
+      eyebrow: "iOS · Android · PWA",
       featureChips: [
         "禪模式焦點視圖",
         "訪客模式免登入",
@@ -77,7 +78,7 @@ export const showcaseCases: CaseStudy[] = [
         "資料加密儲存 / GDPR",
       ],
       backgroundTone: "sage",
-      accentLabel: "Web App · Next.js + Lucia Auth + Postgres",
+      accentLabel: "App · Next.js + Lucia Auth + Postgres",
     },
   },
 ];

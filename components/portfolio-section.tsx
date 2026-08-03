@@ -224,7 +224,7 @@ export function PortfolioSection() {
       <SectionIntro
         eyebrow="Selected Direction"
         title="我們偏愛用真實作品說話，讓案例本身成為最安靜也最有力的說服。"
-        description={`以下為築時數位收錄的精選案例，目前共 ${totalCases} 件作品。我們以一致的編輯式視覺語言，針對不同產業的內容密度，量身打造專屬的閱讀節奏與商業信任感。`}
+        description={`以下為築時數位收錄的精選案例，目前共 ${totalCases} 件作品。從品牌官網、空間設計到 App 開發，我們以一致的編輯式視覺語言，針對不同載體與內容密度，量身打造專屬的閱讀節奏與商業信任感。`}
       />
 
       <div className="mt-12 grid gap-6 lg:grid-cols-3 lg:gap-7">

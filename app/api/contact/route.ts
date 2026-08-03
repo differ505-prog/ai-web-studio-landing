@@ -7,6 +7,7 @@ type ContactPayload = {
   name?: string;
   email?: string;
   message?: string;
+  projectType?: string;
   website?: string;
 };
 
@@ -22,6 +23,7 @@ export async function POST(request: Request) {
   const name = payload.name?.trim() ?? "";
   const email = payload.email?.trim() ?? "";
   const message = payload.message?.trim() ?? "";
+  const projectType = payload.projectType?.trim() ?? "";
   const website = payload.website?.trim() ?? "";
 
   if (website) {
@@ -36,7 +38,12 @@ export async function POST(request: Request) {
     return NextResponse.json({ message: "請輸入有效的 Email。" }, { status: 400 });
   }
 
-  if (name.length > 80 || email.length > 160 || message.length > 3000) {
+  if (
+    name.length > 80 ||
+    email.length > 160 ||
+    message.length > 3000 ||
+    projectType.length > 80
+  ) {
     return NextResponse.json({ message: "內容長度超出限制，請精簡後再送出。" }, { status: 400 });
   }
 
@@ -58,6 +65,7 @@ export async function POST(request: Request) {
         name,
         email,
         message,
+        projectType,
         _subject: "Arrive Studio 官網新詢問",
       }),
     });
