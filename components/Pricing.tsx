@@ -28,7 +28,7 @@ const plans: Plan[] = [
     name: "品牌起步方案",
     badge: "生活品牌首選",
     icon: "sparkles",
-    price: "NT$ 9，900",
+    price: "NT$ 9,900",
     scope: "單頁品牌 Landing Page、品牌資訊與社群連結。",
     cta: "聊聊你的需求",
     ctaHref: "#contact",
@@ -45,7 +45,7 @@ const plans: Plan[] = [
   {
     name: "品牌延伸方案",
     icon: "sparkles",
-    price: "NT$ 29，900 起",
+    price: "NT$ 29,900 起",
     scope: "多頁官網、預約流程、後台與內容架構。",
     cta: "聊聊你的需求",
     ctaHref: "#contact",
