@@ -100,7 +100,7 @@ export function HeroSection() {
           </h1>
 
           <p className="mt-7 max-w-2xl text-base leading-8 text-stone-700 sm:text-lg">
-            為生活美學品牌做的編輯式數位體驗，讓每一頁、每一個畫面，都更貼近你的品牌溫度。
+            從品牌定位、網站設計到 App 上架，用同一套語氣完成。交付前先確認方向，上線後 90 天內技術問題不另收費。
           </p>
 
           <ul className="mt-6 flex flex-wrap gap-2 text-xs">

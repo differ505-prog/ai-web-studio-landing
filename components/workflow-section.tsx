@@ -6,26 +6,26 @@ const steps = [
   {
     icon: MessagesSquare,
     step: "01",
-    title: "梳理品牌語氣",
-    description: "先釐清受眾、服務重點與你希望被感受到的氣質。",
+    title: "確認方向與品牌定位",
+    description: "交付：品牌語氣方向書與頁面結構藍圖，確認後再做設計。",
   },
   {
     icon: ScanSearch,
     step: "02",
-    title: "整理頁面與功能節奏",
-    description: "把資訊拆成更好理解的段落，安排標題、留白、圖片與 CTA 位置。",
+    title: "內容架構與版面配置",
+    description: "交付：完整的內容區塊配置圖，標題、留白、圖片位置一目了然。",
   },
   {
     icon: PencilLine,
     step: "03",
-    title: "完成視覺與原型",
-    description: "在風格一致的基礎上補齊細節，讓成品更像被編輯過。",
+    title: "視覺設計與原型確認",
+    description: "交付：可直接操作的互動原型，確認風格後再進開發。",
   },
   {
     icon: CheckCheck,
     step: "04",
-    title: "上線並持續優化",
-    description: "完成部署後，仍保留後續擴充與調整空間。",
+    title: "開發、部署與交接",
+    description: "交付：上線網站／App、原始碼、90 天技術支援。",
   },
 ];
 
@@ -34,8 +34,8 @@ export function WorkflowSection() {
     <AnimatedSection id="workflow" ariaLabelledBy="workflow-title" className="py-24 lg:py-32">
       <SectionIntro
         eyebrow="Workflow"
-        title="四個步驟，把方向與細節都收進同一份節奏裡。"
-        description="整個合作節奏圍繞著清楚、舒服、可決策而設計，讓你看得到方向也走得到終點。"
+        title="四個交付節點，每個階段都有可操作的交付物。"
+        description="每個階段結束時你會收到一份可操作的交付物，確認後再往下一步走。"
         align="center"
       />
 

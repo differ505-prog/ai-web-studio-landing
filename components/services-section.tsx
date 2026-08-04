@@ -6,7 +6,7 @@ const services = [
   {
     icon: Building2,
     title: "品牌形象官網",
-    description: "以雜誌式節奏重整品牌介紹與詢問入口。",
+    description: "把品牌介紹與詢問入口整合成一份清晰、可持續擴充的頁面。",
     highlights: ["首頁敘事重構", "RWD 響應式頁面", "基礎 SEO"],
   },
   {
@@ -35,7 +35,7 @@ export function ServicesSection() {
       <SectionIntro
         eyebrow="Core Services"
         title="從品牌官網到 App，一個團隊把數位體驗一體完成。"
-        description="我們會先整理內容，再安排節奏，最後才把視覺放進去。"
+        description="從品牌官網到 App，每項服務都可以獨立啟動，也可以隨著品牌成長逐步延伸。"
       />
 
       <div className="mt-12 grid gap-6 lg:grid-cols-2 xl:grid-cols-4">

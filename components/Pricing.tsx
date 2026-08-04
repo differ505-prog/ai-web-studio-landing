@@ -29,7 +29,7 @@ const plans: Plan[] = [
     badge: "生活品牌首選",
     icon: "sparkles",
     price: "NT$ 9,900",
-    scope: "單頁品牌 Landing Page、品牌資訊與社群連結。",
+    scope: "從零建立品牌門面。已有方向但不確定從哪開始。",
     cta: "聊聊你的需求",
     ctaHref: "#contact",
     featured: true,
@@ -46,7 +46,7 @@ const plans: Plan[] = [
     name: "品牌延伸方案",
     icon: "sparkles",
     price: "NT$ 29,900 起",
-    scope: "多頁官網、預約流程、後台與內容架構。",
+    scope: "從單頁升級為完整品牌體驗。需要會員、預約或內容管理。",
     cta: "聊聊你的需求",
     ctaHref: "#contact",
     secondary: true,
@@ -64,7 +64,7 @@ const plans: Plan[] = [
     badge: "含 App 開發設計",
     icon: "smartphone",
     price: "依需求報價",
-    scope: "App UI / 原生或跨平台、後台與上架輔導。",
+    scope: "想把服務延伸成原生或跨平台 App，一路做到上架。",
     cta: "聊聊你的需求",
     ctaHref: "#contact",
     features: [
@@ -91,7 +91,7 @@ export function Pricing() {
       <SectionIntro
         eyebrow="Pricing / Plans"
         title="三種節奏，總有一種剛好對上你現在的位置。"
-        description="方案以可感知的交付成果為核心，節奏與時程在 Hero 一目了然。"
+        description="每個方案都有明確的交付節點。你可以先從最小可行的版本開始，確認方向後再逐步延伸。"
         align="center"
       />
 
