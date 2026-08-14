@@ -9,12 +9,14 @@ import {
   LayoutDashboard,
   LogOut,
   ScrollText,
+  Target,
 } from "lucide-react";
 
 const navItems = [
   { href: "/studio", label: "總覽", icon: LayoutDashboard },
   { href: "/studio/blueprint", label: "藍圖", icon: Compass },
   { href: "/studio/ops", label: "作戰台", icon: CheckSquare },
+  { href: "/studio/hunt", label: "狩獵名單", icon: Target },
   { href: "/studio/projects", label: "案件", icon: FolderKanban },
   { href: "/studio/contracts", label: "合約", icon: FilePenLine },
   { href: "/studio/records", label: "留存", icon: ScrollText },
