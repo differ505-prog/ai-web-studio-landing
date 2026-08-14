@@ -14,21 +14,22 @@ const description =
   "為講究空間美學、餐飲體驗與生活風格的品牌主理人，打造優雅、清晰且能承接商機的網站與數位體驗。";
 
 const bodyFont = Noto_Sans_TC({
-  subsets: ["latin"],
   weight: ["400", "500", "700", "900"],
   variable: "--font-body",
+  display: "swap",
 });
 
 const serifTcFont = Noto_Serif_TC({
-  subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
   variable: "--font-serif-tc",
+  display: "swap",
 });
 
 const serifLatinFont = Playfair_Display({
   subsets: ["latin"],
   weight: ["500", "600", "700", "800"],
   variable: "--font-serif-latin",
+  display: "swap",
 });
 
 export async function generateMetadata(): Promise<Metadata> {
