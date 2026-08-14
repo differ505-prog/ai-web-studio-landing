@@ -8,6 +8,10 @@ import {
   ChevronDown,
   ChevronUp,
   Target,
+  MapPin,
+  Globe,
+  Map,
+  PlusCircle,
 } from "lucide-react";
 import {
   type HuntState,
@@ -37,6 +41,17 @@ function AddTargetForm({
   const [source, setSource] = useState("");
   const [sourceUrl, setSourceUrl] = useState("");
   const [notes, setNotes] = useState("");
+  const [city, setCity] = useState("");
+  const [existingWebsite, setExistingWebsite] = useState("");
+  const [googleMapsUrl, setGoogleMapsUrl] = useState("");
+  const [showMore, setShowMore] = useState(false);
+
+  const cities = [
+    "台北市", "新北市", "桃園市", "台中市", "台南市", "高雄市",
+    "基隆市", "新竹市", "嘉義市", "新竹縣", "苗栗縣", "彰化縣",
+    "南投縣", "雲林縣", "嘉義縣", "屏東縣", "宜蘭縣", "花蓮縣",
+    "台東縣", "澎湖縣", "金門縣", "連江縣",
+  ];
 
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -49,6 +64,9 @@ function AddTargetForm({
       source: source.trim() || "IG",
       sourceUrl: sourceUrl.trim(),
       notes: notes.trim(),
+      city: city.trim(),
+      existingWebsite: existingWebsite.trim(),
+      googleMapsUrl: googleMapsUrl.trim(),
     });
 
     saveHuntState({ targets: [...state.targets, newTarget] });
@@ -89,6 +107,58 @@ function AddTargetForm({
         rows={2}
         className="w-full resize-none rounded-xl border border-stone-200 bg-stone-50 px-4 py-2.5 text-sm text-stone-900 placeholder-stone-400 focus:border-[#8B5E3C] focus:outline-none focus:ring-1 focus:ring-[#8B5E3C]"
       />
+
+      {!showMore ? (
+        <button
+          type="button"
+          onClick={() => setShowMore(true)}
+          className="flex items-center gap-2 text-sm text-stone-500 hover:text-[#8B5E3C] transition"
+        >
+          <PlusCircle className="h-4 w-4" />
+          新增更多資訊
+        </button>
+      ) : (
+        <div className="space-y-3 pt-2 border-t border-stone-100">
+          <select
+            value={city}
+            onChange={(e) => setCity(e.target.value)}
+            className="w-full rounded-xl border border-stone-200 bg-stone-50 px-4 py-2.5 text-sm text-stone-900 focus:border-[#8B5E3C] focus:outline-none focus:ring-1 focus:ring-[#8B5E3C]"
+          >
+            <option value="">選擇縣市（選填）</option>
+            {cities.map((c) => (
+              <option key={c} value={c}>{c}</option>
+            ))}
+          </select>
+          <div className="relative">
+            <Globe className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-stone-400" />
+            <input
+              type="url"
+              placeholder="現有網站連結（選填）"
+              value={existingWebsite}
+              onChange={(e) => setExistingWebsite(e.target.value)}
+              className="w-full rounded-xl border border-stone-200 bg-stone-50 pl-10 pr-4 py-2.5 text-sm text-stone-900 placeholder-stone-400 focus:border-[#8B5E3C] focus:outline-none focus:ring-1 focus:ring-[#8B5E3C]"
+            />
+          </div>
+          <div className="relative">
+            <Map className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-stone-400" />
+            <input
+              type="url"
+              placeholder="Google 地圖連結（選填）"
+              value={googleMapsUrl}
+              onChange={(e) => setGoogleMapsUrl(e.target.value)}
+              className="w-full rounded-xl border border-stone-200 bg-stone-50 pl-10 pr-4 py-2.5 text-sm text-stone-900 placeholder-stone-400 focus:border-[#8B5E3C] focus:outline-none focus:ring-1 focus:ring-[#8B5E3C]"
+            />
+          </div>
+          <button
+            type="button"
+            onClick={() => setShowMore(false)}
+            className="text-xs text-stone-400 hover:text-stone-600 transition"
+          >
+            收合
+          </button>
+        </div>
+      )}
+
       <div className="flex gap-2">
         <button
           type="submit"
@@ -128,6 +198,12 @@ function TargetCard({
             <span className="rounded-full border border-stone-200 bg-stone-50 px-2 py-0.5">
               {target.source}
             </span>
+            {target.city && (
+              <span className="inline-flex items-center gap-1 rounded-full border border-stone-200 bg-stone-50 px-2 py-0.5">
+                <MapPin className="h-3 w-3" />
+                {target.city}
+              </span>
+            )}
             {target.sourceUrl && (
               <a
                 href={target.sourceUrl}
@@ -139,6 +215,34 @@ function TargetCard({
               </a>
             )}
           </div>
+
+          {(target.existingWebsite || target.googleMapsUrl) && (
+            <div className="mt-2 flex flex-wrap items-center gap-3">
+              {target.existingWebsite && (
+                <a
+                  href={target.existingWebsite}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1 text-xs text-stone-600 hover:text-[#8B5E3C] transition"
+                >
+                  <Globe className="h-3 w-3" />
+                  現有網站
+                </a>
+              )}
+              {target.googleMapsUrl && (
+                <a
+                  href={target.googleMapsUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1 text-xs text-stone-600 hover:text-[#8B5E3C] transition"
+                >
+                  <Map className="h-3 w-3" />
+                  地圖
+                </a>
+              )}
+            </div>
+          )}
+
           {target.notes && (
             <p className="mt-2 text-sm text-stone-600 leading-relaxed">{target.notes}</p>
           )}

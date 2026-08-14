@@ -8,6 +8,9 @@ export type HuntTarget = {
   sourceUrl: string;
   notes: string;
   status: HuntStatus;
+  city: string;
+  existingWebsite: string;
+  googleMapsUrl: string;
   createdAt: string;
   updatedAt: string;
 };
@@ -96,7 +99,7 @@ export function saveHuntState(state: HuntState) {
 }
 
 export function createTarget(
-  data: Pick<HuntTarget, "name" | "category" | "source" | "sourceUrl" | "notes">,
+  data: Pick<HuntTarget, "name" | "category" | "source" | "sourceUrl" | "notes" | "city" | "existingWebsite" | "googleMapsUrl">,
 ): HuntTarget {
   const now = new Date().toISOString();
   return {
