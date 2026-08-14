@@ -111,6 +111,17 @@ export function createTarget(
   };
 }
 
+export function updateTarget(state: HuntState, targetId: string, updates: Partial<Omit<HuntTarget, "id" | "createdAt" | "updatedAt">>): HuntState {
+  return {
+    ...state,
+    targets: state.targets.map((t) =>
+      t.id === targetId
+        ? { ...t, ...updates, updatedAt: new Date().toISOString() }
+        : t,
+    ),
+  };
+}
+
 export function updateTargetStatus(state: HuntState, targetId: string, status: HuntStatus): HuntState {
   return {
     ...state,
