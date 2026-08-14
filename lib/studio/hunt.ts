@@ -3,7 +3,7 @@ export type HuntStatus = "found" | "contacted" | "interested" | "converted" | "n
 export type HuntTarget = {
   id: string;
   name: string;
-  category: "homestay" | "design-studio" | "private-dining";
+  category: "priority-1" | "priority-2" | "priority-3" | "priority-4";
   source: string;
   sourceUrl: string;
   notes: string;
@@ -13,8 +13,9 @@ export type HuntTarget = {
 };
 
 export type HuntCategory = {
-  id: "homestay" | "design-studio" | "private-dining";
+  id: "priority-1" | "priority-2" | "priority-3" | "priority-4";
   label: string;
+  badge: string;
   description: string;
   targetCount: number;
 };
@@ -23,25 +24,35 @@ export type HuntState = {
   targets: HuntTarget[];
 };
 
-export const HUNT_STORAGE_KEY = "arrive-studio-hunt-v1";
+export const HUNT_STORAGE_KEY = "arrive-studio-hunt-v2";
 
 export const huntCategories: HuntCategory[] = [
   {
-    id: "homestay",
-    label: "高端民宿 / 豪華露營區",
-    description: "依賴 IG 訂房但無官網的獨立業者",
+    id: "priority-1",
+    badge: "🥇",
+    label: "優先級 1：挖角戰術",
+    description: "被醜陋模板封印、實體裝潢極佳的潛力民宿",
     targetCount: 10,
   },
   {
-    id: "design-studio",
-    label: "室內設計 / 軟裝工作室",
-    description: "只靠 Facebook 或 IG 接案",
+    id: "priority-2",
+    badge: "🥈",
+    label: "優先級 2：IG 訂房民宿 / 豪華露營",
+    description: "依賴 IG 訂房但無官網的高端獨立業者",
     targetCount: 10,
   },
   {
-    id: "private-dining",
-    label: "私廚 / 預約制餐飲",
+    id: "priority-3",
+    badge: "🥉",
+    label: "優先級 3：私廚 / 預約制餐飲",
     description: "只用 Google 表單預約的高客單價餐飲",
+    targetCount: 10,
+  },
+  {
+    id: "priority-4",
+    badge: "⚠️",
+    label: "優先級 4：室內設計 / 軟裝（避雷區）",
+    description: "只靠 FB/IG 接案，容易陷入修改地獄",
     targetCount: 10,
   },
 ];

@@ -277,15 +277,16 @@ export function HuntBoard() {
 
           return (
             <div key={cat.id} className="space-y-4">
-              <div className="flex items-center justify-between">
-                <div>
+                <div className="flex items-center gap-2">
+                  <span>{cat.badge}</span>
                   <h3 className="text-lg font-semibold text-stone-900">{cat.label}</h3>
-                  <p className="text-sm text-stone-500">{cat.description}</p>
                 </div>
-                <span className="rounded-full border border-stone-200 bg-stone-50 px-3 py-1 text-sm font-medium text-stone-600">
-                  {targets.length}/{cat.targetCount}
-                </span>
-              </div>
+                <div className="flex items-center justify-between mt-1">
+                  <p className="text-sm text-stone-500">{cat.description}</p>
+                  <span className="shrink-0 rounded-full border border-stone-200 bg-stone-50 px-3 py-1 text-sm font-medium text-stone-600 ml-3">
+                    {targets.length}/{cat.targetCount}
+                  </span>
+                </div>
 
               <div className="space-y-3">
                 {targets.map((target) => (
