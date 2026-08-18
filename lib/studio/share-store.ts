@@ -28,25 +28,23 @@ function getKvConfig() {
   };
 }
 
-let redisClient: Redis | null | undefined;
+let redisClient: Redis | null | undefined = undefined;
 
 export function isContractLinkStorageConfigured() {
   const { url, token } = getKvConfig();
   return Boolean(url && token);
 }
 
-function getKvClient() {
-  if (redisClient !== undefined) {
-    return redisClient;
+function getKvClient(): Redis | null {
+  if (redisClient === undefined) {
+    const { url, token } = getKvConfig();
+    redisClient = url && token ? new Redis({ url, token }) : null;
   }
-
-  const { url, token } = getKvConfig();
-  redisClient = url && token ? new Redis({ url, token }) : null;
   return redisClient;
 }
 
 function createToken() {
-  return randomUUID().replace(/-/g, "").slice(0, 12);
+  return randomUUID().replace(/-/g, "").slice(0, 24) + randomUUID().replace(/-/g, "").slice(0, 12);
 }
 
 function buildStorageKey(token: string) {

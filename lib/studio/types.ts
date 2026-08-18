@@ -76,7 +76,8 @@ export type SignatureSubmission = {
   signerPhone: string;
   signerRole: string;
   signatureDataUrl: string;
-  agreedToTerms: boolean;
+  agreedToTerms: true;
+  signedAt?: string;
 };
 
 export type SignedContractRecord = {
