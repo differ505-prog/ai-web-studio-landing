@@ -1,3 +1,5 @@
+import { randomUUID } from "node:crypto";
+
 export type HuntStatus = "found" | "contacted" | "interested" | "converted" | "no_response";
 
 export type HuntTarget = {
@@ -103,7 +105,7 @@ export function createTarget(
 ): HuntTarget {
   const now = new Date().toISOString();
   return {
-    id: `${Date.now()}-${Math.random().toString(36).slice(2, 7)}`,
+    id: randomUUID(),
     ...data,
     status: "found",
     createdAt: now,

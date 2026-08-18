@@ -16,8 +16,10 @@ export const defaultContractNotes = [
   "附件三：品牌素材交接清單",
 ];
 
+import { randomUUID } from "node:crypto";
+
 function createDraftId(prefix: "contract" | "project") {
-  const suffix = `${Date.now().toString(36)}${Math.random().toString(36).slice(2, 8)}`;
+  const suffix = `${Date.now().toString(36)}${randomUUID().replace(/-/g, "").slice(0, 12)}`;
   return `${prefix}-${suffix}`;
 }
 

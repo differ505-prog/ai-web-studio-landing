@@ -29,10 +29,18 @@ const securityHeaders = [
     key: "Strict-Transport-Security",
     value: "max-age=63072000; includeSubDomains; preload",
   },
+  {
+    key: "X-Cache-Control",
+    value: "no-cache, no-store, must-revalidate",
+  },
 ];
 
 const nextConfig: NextConfig = {
+  compress: true,
+  poweredByHeader: false,
+  reactStrictMode: true,
   images: {
+    formats: ["image/avif", "image/webp"],
     remotePatterns: [
       {
         protocol: "https",
@@ -59,6 +67,9 @@ const nextConfig: NextConfig = {
         headers: securityHeaders,
       },
     ];
+  },
+  experimental: {
+    optimizeCss: true,
   },
 };
 

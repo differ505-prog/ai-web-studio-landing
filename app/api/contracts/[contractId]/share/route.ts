@@ -1,8 +1,8 @@
 import { auth } from "@/auth";
-import { NextResponse } from "next/server";
 import { headers } from "next/headers";
 import { findContractDraft } from "@/lib/studio/mock-data";
 import { createShareToken } from "@/lib/studio/share-store";
+import { successResponse, errorResponse, ApiError } from "@/lib/api-response";
 import type { ContractDraft, SharedContractPayload } from "@/lib/studio/types";
 
 export async function POST(
@@ -12,7 +12,11 @@ export async function POST(
   const session = await auth();
 
   if (!session?.user?.email) {
-    return NextResponse.json({ message: "請先登入築時數位工作面板。" }, { status: 401 });
+    throw new ApiError({
+      code: "UNAUTHORIZED",
+      message: "請先登入築時數位工作面板。",
+      status: 401,
+    });
   }
 
   const { contractId } = await context.params;
@@ -20,13 +24,21 @@ export async function POST(
   const fallbackDraft = findContractDraft(contractId);
 
   if (!fallbackDraft && !body?.draft) {
-    return NextResponse.json({ message: "找不到指定合約。" }, { status: 404 });
+    throw new ApiError({
+      code: "NOT_FOUND",
+      message: "找不到指定合約。",
+      status: 404,
+    });
   }
 
   const draft = body?.draft ?? fallbackDraft;
 
   if (!draft) {
-    return NextResponse.json({ message: "找不到可分享的合約內容。" }, { status: 404 });
+    throw new ApiError({
+      code: "NOT_FOUND",
+      message: "找不到可分享的合約內容。",
+      status: 404,
+    });
   }
 
   const payload: SharedContractPayload = {
@@ -42,18 +54,12 @@ export async function POST(
     const protocol = requestHeaders.get("x-forwarded-proto") || new URL(request.url).protocol.replace(":", "");
     const origin = host ? `${protocol}://${host}` : new URL(request.url).origin;
 
-    return NextResponse.json({
+    return successResponse({
       token: shareResult.token,
       shareUrl: `${origin}/sign/${shareResult.token}`,
       storageMode: shareResult.storageMode,
-      message: shareResult.message,
-    });
+    }, shareResult.message);
   } catch (error) {
-    return NextResponse.json(
-      {
-        message: error instanceof Error ? error.message : "簽署連結建立失敗。",
-      },
-      { status: 500 },
-    );
+    return errorResponse(error, 500);
   }
 }

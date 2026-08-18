@@ -1,4 +1,4 @@
-import { NextResponse } from "next/server";
+import { successResponse, rateLimitResponse, validationErrorResponse, errorResponse } from "@/lib/api-response";
 import { ContactSchema, createSafeErrorMessage } from "@/lib/validation";
 import { getContactRateLimiter, getRateLimitInfo } from "@/lib/rate-limit";
 
@@ -17,10 +17,7 @@ export async function POST(request: Request) {
   );
 
   if (!success) {
-    return NextResponse.json(
-      { message: "請求過於頻繁，請稍後再試。" },
-      { status: 429, headers: rateLimitHeaders }
-    );
+    return rateLimitResponse("請求過於頻繁，請稍後再試。");
   }
 
   let payload: unknown;
@@ -28,35 +25,23 @@ export async function POST(request: Request) {
   try {
     payload = await request.json();
   } catch {
-    return NextResponse.json(
-      { message: "提交資料格式錯誤，請重新整理後再試。" },
-      { status: 400, headers: rateLimitHeaders }
-    );
+    return validationErrorResponse("提交資料格式錯誤，請重新整理後再試。");
   }
 
   const parsed = ContactSchema.safeParse(payload);
 
   if (!parsed.success) {
-    return NextResponse.json(
-      { message: createSafeErrorMessage(parsed.error) },
-      { status: 400, headers: rateLimitHeaders }
-    );
+    return validationErrorResponse(createSafeErrorMessage(parsed.error));
   }
 
   const { name, email, message, projectType, website } = parsed.data;
 
   if (website) {
-    return NextResponse.json({ message: "已收到表單資料。" });
+    return successResponse({ received: true }, "已收到表單資料。");
   }
 
   if (!FORMSPREE_ENDPOINT) {
-    return NextResponse.json(
-      {
-        message:
-          "表單服務尚未完成設定，請直接來信至 hello.arrivestudio@gmail.com。",
-      },
-      { status: 500 }
-    );
+    return errorResponse(new Error("表單服務尚未完成設定，請直接來信至 hello.arrivestudio@gmail.com。"), 500);
   }
 
   try {
@@ -85,19 +70,11 @@ export async function POST(request: Request) {
         result?.errors?.[0]?.message ||
         "目前無法送出表單，請稍後再試或直接來信聯絡。";
 
-      return NextResponse.json({ message: upstreamMessage }, { status: 502 });
+      return errorResponse(new Error(upstreamMessage), 502);
     }
 
-    return NextResponse.json({
-      message: "已成功收到需求，我們會盡快回覆你。",
-    });
+    return successResponse({ submitted: true }, "已成功收到需求，我們會盡快回覆你。");
   } catch {
-    return NextResponse.json(
-      {
-        message:
-          "表單服務暫時無法連線，請稍後再試或直接來信聯絡。",
-      },
-      { status: 502 }
-    );
+    return errorResponse(new Error("表單服務暫時無法連線，請稍後再試或直接來信聯絡。"), 502);
   }
 }
