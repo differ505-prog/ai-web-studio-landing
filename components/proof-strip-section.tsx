@@ -14,7 +14,7 @@ const testimonials = [
   },
   {
     quote:
-      "繁雜的空間與服務，被收攏成俐落的專業門面。",
+            "繁雜的空間與服務，收攏成俐落的專業門面。",
     author: "青曦設計 · Qingxi Design",
     role: "品牌官方授權展示",
     avatar:
@@ -23,7 +23,7 @@ const testimonials = [
   },
   {
     quote:
-      "安靜又專注，從品牌語氣一路做到互動節奏。",
+            "安靜又專注，從品牌語氣到互動節奏，一路做到底。",
     author: "VibeList · 禪模式任務管理",
     role: "App 開發設計 · 自有 Side Project",
     avatar:

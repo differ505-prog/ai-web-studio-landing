@@ -8,7 +8,7 @@ import { AnimatedSection } from "@/components/animated-section";
 const faqs = [
   {
     question: "你們只做網站，App 也能一起做？",
-    answer: "網站與原生 App 都在服務範圍，多數客戶從品牌網站起步，定位穩定後再延伸 App。",
+    answer: "網站與原生 App 都在服務範圍，客戶從品牌網站起步，定位穩定後再延伸 App。",
   },
   {
     question: "網站上線後，更新菜單、案例或服務內容怎麼辦？",
@@ -16,7 +16,7 @@ const faqs = [
   },
   {
     question: "想加入預約、會員、App 或更完整的功能呢？",
-    answer: "頁面以可延伸架構規劃，先建立品牌門面，依照營運需求逐步增加功能，不必全部重做。",
+    answer: "頁面以可延伸架構規劃，先建立品牌門面，再根據營運需要增加功能，不必全部重做。",
   },
   {
     question: "App 開發做到上架程度嗎？要另外找人接手嗎？",
