@@ -34,8 +34,8 @@ export function ServicesSection() {
     <AnimatedSection id="services" ariaLabelledBy="services-title" className="py-24 lg:py-32">
       <SectionIntro
         eyebrow="Core Services"
-        title="網站、App、數位體驗，一個團隊完成。"
-        description="每項服務獨立啟動，隨品牌成長逐步延伸。"
+        title="網站、App、數位體驗，一個團隊做到底。"
+        description="每項服務獨立啟動，隨品牌成長延伸。"
       />
 
       <div className="mt-12 grid gap-6 lg:grid-cols-2 xl:grid-cols-4">

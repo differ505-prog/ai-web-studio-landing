@@ -26,7 +26,7 @@ const heroProof = [
     icon: ScanSearch,
     eyebrow: "首版提案",
     value: "3 - 5 天",
-    note: "先看到方向，再決定要不要往下走。",
+    note: "方向確認後，再開始設計。",
   },
   {
     icon: CheckCheck,
@@ -138,7 +138,7 @@ export function HeroSection() {
                 <p className="text-xs uppercase tracking-[0.3em] text-stone-500">
                   What We Deliver
                 </p>
-                一個節奏，把網站與 App 做完
+                一個節奏，網站與 App 同時完成。
               </div>
               <span className="hidden items-center gap-1 rounded-full border border-emerald-200 bg-emerald-50 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-emerald-700 sm:inline-flex">
                 <Sparkles className="h-3.5 w-3.5 text-emerald-700" />
@@ -187,7 +187,7 @@ export function HeroSection() {
                 築時數位 · 主理人
               </span>
           <span className="mt-1 block italic text-stone-700">
-            「把美感整理成客戶第一眼就信任的語氣。」
+            「用信任的語氣整理美感。」
           </span>
             </figcaption>
           </figure>

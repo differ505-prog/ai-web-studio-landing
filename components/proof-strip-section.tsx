@@ -48,7 +48,7 @@ export function ProofStripSection() {
               id="proof-strip-title"
               className="mt-3 font-serif text-3xl font-semibold tracking-wide text-stone-900 sm:text-4xl"
             >
-              實際合作過的客戶怎麼說。
+              合作客戶的說法。
             </h2>
           </div>
           <span className="inline-flex items-center gap-2 rounded-full border border-stone-200 bg-white px-4 py-2 text-xs uppercase tracking-[0.22em] text-stone-600">
