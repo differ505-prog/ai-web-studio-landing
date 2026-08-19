@@ -7,7 +7,7 @@ import {
 import "./globals.css";
 
 const siteName = "築時數位";
-const siteUrl = "https://arrive-studio.vercel.app/";
+const siteUrl = "https://arrive-studio.com/";
 const title =
   "築時數位 | 以溫潤而高轉換的品牌網站，把品味變成信任";
 const description =

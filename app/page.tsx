@@ -27,7 +27,7 @@ const structuredData = {
     "App 開發設計",
     "iOS / Android App 開發",
   ],
-  url: "https://arrive-studio.vercel.app/",
+  url: "https://arrive-studio.com/",
 };
 
 export default function HomePage() {
