@@ -187,7 +187,7 @@ export function HeroSection() {
                 築時數位 · 主理人
               </span>
               <span className="mt-1 block italic text-stone-700">
-                「把美感整理成能讓客戶在第一眼就信任的節奏。」
+                「把美感整理成客戶第一眼就信任的節奏。」
               </span>
             </figcaption>
           </figure>

@@ -18,7 +18,7 @@ const services = [
   {
     icon: Cpu,
     title: "數位體驗延伸",
-    description: "預約、會員、資料管理或 AI 功能都可延伸成可擴充系統。",
+    description: "預約、會員、資料管理或 AI 功能延伸成可擴充系統。",
     highlights: ["後台與權限規劃", "第三方串接", "可擴充技術架構"],
   },
   {
@@ -35,7 +35,7 @@ export function ServicesSection() {
       <SectionIntro
         eyebrow="Core Services"
         title="從品牌官網到 App，一個團隊把數位體驗一體完成。"
-        description="從品牌官網到 App，每項服務可以獨立啟動，隨著品牌成長再逐步延伸。"
+        description="從品牌官網到 App，每項服務獨立啟動，隨品牌成長逐步延伸。"
       />
 
       <div className="mt-12 grid gap-6 lg:grid-cols-2 xl:grid-cols-4">

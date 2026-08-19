@@ -44,7 +44,7 @@ export function PainPointsSection() {
       <SectionIntro
         eyebrow="Brand Perspective"
         title="網站與 App 如果出自同一個語氣，訊息反而更容易被理解。"
-        description="我們不追求堆滿功能，而是從品牌語氣出發，整理出清楚、有優先順序的資訊層次。"
+        description="不追求堆滿功能，從品牌語氣出發，整理出清楚、有優先順序的資訊層次。"
       />
 
       <div className="mt-12 grid gap-6 lg:grid-cols-2">
@@ -89,7 +89,7 @@ export function PainPointsSection() {
               <h3 className="font-serif text-2xl font-semibold tracking-wide text-stone-900">
                 我們偏好的呈現方式
               </h3>
-              <p className="mt-1 text-sm text-stone-500">先從品牌氣質與受眾確認方向，再依優先順序安排頁面結構與功能。</p>
+              <p className="mt-1 text-sm text-stone-500">從品牌氣質與受眾確認方向，依優先順序安排頁面結構與功能。</p>
             </div>
           </div>
 

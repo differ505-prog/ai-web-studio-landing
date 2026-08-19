@@ -9,7 +9,7 @@ export default function StudioContractsPage() {
     <StudioShell
       eyebrow="Contracts"
       title="合約工作台"
-      description="每一份合約都基於築時數位的防禦型模板，並可即時生成客戶手機簽署連結。"
+      description="每份合約基於築時數位防禦型模板，可即時生成客戶手機簽署連結。"
     >
       <section className="mb-6 rounded-[28px] border border-stone-200 bg-[#f7f1e7] p-6">
         <p className="text-xs uppercase tracking-[0.24em] text-stone-500">Create From Blank</p>

@@ -9,9 +9,9 @@ import "./globals.css";
 const siteName = "築時數位";
 const siteUrl = "https://arrive-studio.vercel.app/";
 const title =
-  "築時數位 | 以溫潤而高轉換的品牌網站，陪你把品味變成信任";
+  "築時數位 | 以溫潤而高轉換的品牌網站，把品味變成信任";
 const description =
-  "為講究空間美學、餐飲體驗與生活風格的品牌主理人，打造優雅、清晰且能承接商機的網站與數位體驗。";
+  "為講究空間美學、餐飲體驗與生活風格的品牌主理人，打造優雅、清晰、承接商機的網站與數位體驗。";
 
 const bodyFont = Noto_Sans_TC({
   weight: ["400", "500", "700", "900"],

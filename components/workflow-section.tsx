@@ -35,7 +35,7 @@ export function WorkflowSection() {
       <SectionIntro
         eyebrow="Workflow"
         title="四個交付節點，每個階段都有可操作的交付物。"
-        description="每個階段結束時，你會收到一份交付物，確認後再往下一步走。"
+        description="每個階段結束時，收到一份交付物，確認後往下一步走。"
         align="center"
       />
 

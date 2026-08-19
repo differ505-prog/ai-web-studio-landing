@@ -13,7 +13,7 @@ export default function StudioBlueprintPage() {
     <StudioShell
       eyebrow="Blueprint"
       title="策略藍圖"
-      description="把外部的行動藍圖轉成築時數位工作面板內可直接執行的節點。先在這裡抓重點，再視需要打開完整藍圖。"
+      description="把外部行動藍圖轉成可直接執行的節點。先在這裡抓重點，需要時再打開完整藍圖。"
     >
       <div className="grid gap-6 xl:grid-cols-[0.9fr_1.1fr]">
         <section className="space-y-6">
@@ -26,7 +26,7 @@ export default function StudioBlueprintPage() {
             <div className="mt-5 grid gap-3 rounded-[22px] bg-white p-4 text-sm text-stone-700">
               <p>目前進度：{blueprintSnapshot.completion}</p>
               <p>一次性任務：{blueprintSnapshot.completed}</p>
-              <p>推薦做法：把策略留在這頁統整，實作動作回到工作面板執行。</p>
+              <p>推薦做法：策略留在這頁統整，實作動作回到工作面板執行。</p>
             </div>
             <a
               href={blueprintUrl}
@@ -43,9 +43,9 @@ export default function StudioBlueprintPage() {
             <p className="text-xs uppercase tracking-[0.24em] text-stone-500">Focus Principle</p>
             <h3 className="mt-3 text-2xl font-semibold tracking-[0.05em] text-stone-900">先成交，再擴張</h3>
             <div className="mt-5 space-y-3 text-sm leading-7 text-stone-700">
-              <p>- 外部藍圖負責規劃節奏，不負責真正的案件留痕與法務留存。</p>
+              <p>- 外部藍圖負責規劃節奏，不負責案件留痕與法務留存。</p>
               <p>- 工作面板負責把客戶資料、合約、簽署證據與下一步沉澱成可追蹤資產。</p>
-              <p>- 最優先的不是一直看藍圖，而是把藍圖中的高價值任務轉成可操作頁面。</p>
+              <p>- 最優先的不是一直看藍圖，而是藍圖中的高價值任務轉成可操作頁面。</p>
             </div>
           </article>
         </section>
@@ -56,7 +56,7 @@ export default function StudioBlueprintPage() {
               <Target className="h-5 w-5 text-[#8B5E3C]" />
               <div>
                 <p className="text-xs uppercase tracking-[0.24em] text-stone-500">Action Mapping</p>
-                <h3 className="mt-2 text-2xl font-semibold tracking-[0.05em] text-stone-900">直接對應到工作面板的三個入口</h3>
+                <h3 className="mt-2 text-2xl font-semibold tracking-[0.05em] text-stone-900">對應到工作面板的三個入口</h3>
               </div>
             </div>
             <div className="mt-5 space-y-4">

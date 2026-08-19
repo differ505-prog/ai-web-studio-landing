@@ -5,7 +5,7 @@ import { AnimatedSection } from "@/components/animated-section";
 const testimonials = [
   {
     quote:
-      "把美感整理成能讓客戶在第一眼就信任的節奏，不只把網站做完，更把我們想說的話說對了。",
+      "把美感整理成客戶第一眼就信任的節奏，不只把網站做完，更把我們想說的話說對了。",
     author: "夏洛克民宿 · Summer Rock Villa",
     role: "品牌官方授權展示",
     avatar:

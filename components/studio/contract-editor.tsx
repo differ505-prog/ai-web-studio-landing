@@ -155,7 +155,7 @@ export function ContractEditor({
           <p className="text-xs uppercase tracking-[0.28em] text-stone-500">Contract Controls</p>
           <h3 className="mt-3 text-2xl font-semibold tracking-[0.05em] text-stone-900">築時合約工作台</h3>
           <p className="mt-3 text-sm leading-7 text-stone-600">
-            先填甲方資訊與專案資料，再套用築時數位的防禦型條款骨架，快速產出可直接傳給客戶簽署的正式合約。
+            先填甲方資訊與專案資料，套用築時數位防禦型條款骨架，快速產出可直接傳給客戶簽署的正式合約。
           </p>
         </div>
 

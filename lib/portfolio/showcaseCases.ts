@@ -30,7 +30,7 @@ export const showcaseCases: CaseStudy[] = [
     slug: "summer-rock-villa",
     name: "夏洛克民宿 Summer Rock Villa",
     description:
-      "讓旅客在訂房前，就先感受空間的溫柔。以流暢的頁面導覽與細膩的響應式排版，完整呈現旅宿的空間氣質與在地體驗。",
+      "旅客在訂房前，先感受空間的溫柔。流暢的頁面導覽與細膩的響應式排版，完整呈現旅宿的空間氣質與在地體驗。",
     href: "https://www.summerrockvilla.com.tw/",
     ctaLabel: "實際體驗民宿官網",
     planLabel: "對應 NT$ 9,900 起步方案",
@@ -62,7 +62,7 @@ export const showcaseCases: CaseStudy[] = [
     slug: "vibelist",
     name: "VibeList · 禪模式任務管理 App",
     description:
-      "為了想安靜完成重要事情的人所打造的待辦任務 App。以禪模式聚焦當下最重要的一件任務，必要時再展開完整列表；支援訪客模式直接體驗、Email 密碼與 Google 帳號登入，資料全程加密儲存，符合 GDPR 規範。",
+      "為想安靜完成重要事情的人打造的待辦任務 App。以禪模式聚焦當下最重要的一件任務，必要時再展開完整列表；支援訪客模式直接體驗、Email 密碼與 Google 帳號登入，資料全程加密儲存，符合 GDPR 規範。",
     href: "https://www.vibelist.work/",
     ctaLabel: "前往體驗 VibeList",
     planLabel: "對應 App 與系統客製方案",

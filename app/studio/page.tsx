@@ -32,7 +32,7 @@ export default function StudioPage() {
     <StudioShell
       eyebrow="Studio Dashboard"
       title="築時數位內部總覽"
-      description="集中掌握案件、合約、簽署與收款節點。這一版先用可運作的 MVP 架構，後續可再接正式資料庫與登入。"
+      description="集中掌握案件、合約、簽署與收款節點。這版先用可運作的 MVP，後續可接正式資料庫與登入。"
     >
       <div className="grid gap-4 xl:grid-cols-[1.4fr_0.9fr]">
         <section className="grid gap-4 md:grid-cols-3">
@@ -75,8 +75,7 @@ export default function StudioPage() {
               外部藍圖先抓方向，面板內再落地執行
             </h3>
             <p className="mt-3 max-w-3xl text-sm leading-7 text-stone-700">
-              目前外部藍圖顯示 {blueprintSnapshot.brand} 進度為 {blueprintSnapshot.completion}。我已把最重要的動作整理成
-              工作面板版本，避免你每次都要跳出去重新解讀長篇任務清單。
+              目前外部藍圖 {blueprintSnapshot.brand} 進度 {blueprintSnapshot.completion}。把最重要的動作整理成工作面板版本，避免每次跳出去重新解讀長篇任務清單。
             </p>
           </div>
           <Link
@@ -95,7 +94,7 @@ export default function StudioPage() {
             <p className="text-xs uppercase tracking-[0.24em] text-stone-500">Operations Console</p>
             <h3 className="mt-3 text-2xl font-semibold tracking-[0.05em] text-stone-900">任務作戰台</h3>
             <p className="mt-3 max-w-3xl text-sm leading-7 text-stone-700">
-              目前先收斂成你指定的那組任務，並補上每週循環、次數制達標與升級規則，讓作戰台不只是清單，而是真的會計算進度。
+              先收斂成指定的那組任務，補上每週循環、次數制達標與升級規則，讓作戰台不只是清單，而是真的會計算進度。
             </p>
           </div>
           <Link
