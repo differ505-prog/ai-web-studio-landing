@@ -7,9 +7,8 @@ import { AnimatedSection } from "@/components/animated-section";
 
 const faqs = [
   {
-    question: "你們只做網站，還是連 App 也能一起做？",
-    answer:
-      "兩種都能做。網站、App UI/UX 與原生 App 開發都是我們的服務範圍，多數客戶從品牌網站起步，等品牌定位穩定後再延伸成 App。",
+    question: "你們只做網站，App 也能一起做？",
+    answer:"網站與原生 App 開發都在服務範圍內，多數客戶從品牌網站起步，等定位穩定後再延伸 App。",
   },
   {
     question: "網站上線後，如果要更新新菜單、案例照片或服務內容怎麼辦？",
@@ -22,14 +21,12 @@ const faqs = [
       "頁面以可延伸架構規劃，先建立品牌門面，再依照營運需求逐步增加預約、後台、第三方金流或 App，不必全部重做。",
   },
   {
-    question: "App 開發會做到可以上架的程度嗎？會不會還要再找別人？",
-    answer:
-      "一路做到可在 App Store / Google Play 上架的狀態，包含帳號設定、憑證、截圖素材與審核建議，不需要再另外找團隊接手。",
+    question: "App 開發會做到上架程度嗎？還要另外找人接手嗎？",
+    answer:"一路做到可在 App Store / Google Play 上架，包含帳號設定、憑證、截圖素材與審核建議，不需要另外找團隊接手。",
   },
   {
-    question: "你們真的能在短時間內完成有質感的品牌頁面嗎？",
-    answer:
-      "多數起步方案 3-5 天就能看到首版提案，先確認方向再往下走，避免做完後再大改。",
+    question: "你們能在短時間內完成有質感的品牌頁面嗎？",
+    answer:"多數起步方案 3-5 天能看到首版提案，先確認方向再往下走，避免做完後大改。",
   },
 ];
 
@@ -47,7 +44,7 @@ export function FAQ() {
           把常見疑問先說清楚。
         </h2>
         <p className="mt-6 text-base leading-8 text-stone-700 md:text-lg">
-          從網站交付、App 開發到後續維護，在合作前先把界線與可能性說明完整。
+          在合作前先把界線與可能性說明完整。
         </p>
       </div>
 

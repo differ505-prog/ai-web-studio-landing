@@ -29,7 +29,7 @@ const betterWay = [
   {
     icon: Smartphone,
     label: "同一編輯貫穿兩端",
-    description: "用同一組語氣延伸網站與 App，兩邊都像出自同一位編輯之手。",
+    description: "用同一組語氣延伸網站與 App，兩邊出自同一位編輯之手。",
   },
   {
     icon: CheckCircle2,
