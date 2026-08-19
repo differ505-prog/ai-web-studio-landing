@@ -16,9 +16,8 @@ const faqs = [
       "若是單頁品牌方案，保留清楚的區塊結構，方便後續微調與延伸。若你需要更高頻率更新，可進一步規劃可自行維護的內容管理方式。",
   },
   {
-    question: "如果之後想加入預約、會員、App 或更完整的功能呢？",
-    answer:
-      "頁面以可延伸架構規劃，先建立品牌門面，再依照營運需求逐步增加預約、後台、第三方金流或 App，不必全部重做。",
+    question: "想加入預約、會員、App 或更完整的功能呢？",
+    answer:"頁面以可延伸架構規劃，先建立品牌門面，依照營運需求逐步增加預約、後台、第三方金流或 App，不必全部重做。",
   },
   {
     question: "App 開發會做到上架程度嗎？還要另外找人接手嗎？",
@@ -41,10 +40,10 @@ export function FAQ() {
           id="faq-title"
           className="mt-5 font-serif text-3xl font-semibold tracking-wide text-stone-900 md:text-5xl md:leading-[1.25]"
         >
-          把常見疑問先說清楚。
+          把常見疑問說清楚。
         </h2>
         <p className="mt-6 text-base leading-8 text-stone-700 md:text-lg">
-          在合作前先把界線與可能性說明完整。
+          先把界線與可能性說明完整。
         </p>
       </div>
 
