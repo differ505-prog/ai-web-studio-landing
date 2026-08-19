@@ -24,17 +24,17 @@ const betterWay = [
   {
     icon: PencilRuler,
     label: "先對齊品牌氣質",
-    description: "從空間氛圍、材質感與閱讀節奏開始設定方向，讓後續設計更穩定。",
+    description: "從空間氛圍、材質感與閱讀節奏開始設定方向，後續設計更穩定。",
   },
   {
     icon: Smartphone,
     label: "同一編輯貫穿兩端",
-    description: "用同一組語氣延伸網站與 App，讓兩邊都像出自同一位編輯之手。",
+    description: "用同一組語氣延伸網站與 App，兩邊都像出自同一位編輯之手。",
   },
   {
     icon: CheckCircle2,
     label: "保留營運彈性",
-    description: "在質感與轉換之間取得平衡，讓作品既漂亮也能持續承接成長。",
+    description: "在質感與轉換之間取得平衡，作品既漂亮也能持續承接成長。",
   },
 ];
 

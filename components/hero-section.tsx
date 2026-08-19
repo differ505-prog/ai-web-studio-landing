@@ -95,7 +95,7 @@ export function HeroSection() {
             id="hero-title"
             className="mt-7 max-w-4xl font-serif text-4xl font-semibold tracking-wide text-stone-900 sm:text-5xl lg:text-6xl lg:leading-[1.15]"
           >
-            讓品牌從網站到 App，
+            品牌從網站到 App，
             <span className="text-[#8B5E3C]">像一本值得翻閱的雜誌。</span>
           </h1>
 
@@ -138,9 +138,7 @@ export function HeroSection() {
                 <p className="text-xs uppercase tracking-[0.3em] text-stone-500">
                   What We Deliver
                 </p>
-                <p className="mt-2 font-serif text-lg font-semibold tracking-wide text-stone-900">
-                  一個節奏，把網站與 App 一起收尾
-                </p>
+一個節奏，把網站與 App 一起收尾
               </div>
               <span className="hidden items-center gap-1 rounded-full border border-emerald-200 bg-emerald-50 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-emerald-700 sm:inline-flex">
                 <Sparkles className="h-3.5 w-3.5 text-emerald-700" />
@@ -171,7 +169,7 @@ export function HeroSection() {
                 href="#workflow"
                 className="text-sm font-semibold tracking-wide text-[#8B5E3C] underline-offset-4 hover:underline"
               >
-                查看完整四步流程 →
+                查看四步流程 →
               </a>
             </footer>
           </article>

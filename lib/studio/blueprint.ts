@@ -6,13 +6,13 @@ export const blueprintSnapshot = {
   completion: "8%",
   completed: "3 / 37 項一次性任務",
   summary:
-    "這份外部藍圖適合拿來規劃營運節奏，但真正會產生現金流的動作，仍應落回築時數位工作面板內執行、留痕與追蹤。",
+    "這份外部藍圖適合拿來規劃營運節奏，但會產生現金流的動作，仍應落回築時數位工作面板內執行、留痕與追蹤。",
 };
 
 export const blueprintPriorityActions = [
   {
     title: "完成對外簽約動線",
-    detail: "從空白合約建檔、填客戶資料、產生短版簽署網址，讓陌生客戶能直接在手機簽署。",
+    detail: "從空白合約建檔、填客戶資料、產生短版簽署網址，陌生客戶直接在手機簽署。",
     href: "/studio/contracts/new",
     cta: "去建立合約",
   },
@@ -24,7 +24,7 @@ export const blueprintPriorityActions = [
   },
   {
     title: "固定迭代模板與防禦條款",
-    detail: "每接一案就回頭優化條款、付款機制與附件清單，讓合約工作台越用越成熟。",
+    detail: "每接一案就回頭優化條款、付款機制與附件清單，合約工作台越用越成熟。",
     href: "/studio/templates",
     cta: "去看模板",
   },

@@ -223,7 +223,7 @@ export function PortfolioSection() {
     <AnimatedSection id="portfolio" ariaLabelledBy="portfolio-title" className="py-24 lg:py-32">
       <SectionIntro
         eyebrow="Selected Direction"
-        title="讓作品說話，比再多說明都來得具體。"
+        title="作品說話，比再多說明都具體。"
         description={`築時數位收錄的 ${totalCases} 件精選案例，橫跨品牌官網、空間設計與 App 開發。`}
       />
 

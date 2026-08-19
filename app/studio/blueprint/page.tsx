@@ -45,7 +45,7 @@ export default function StudioBlueprintPage() {
             <div className="mt-5 space-y-3 text-sm leading-7 text-stone-700">
               <p>- 外部藍圖負責規劃節奏，不負責真正的案件留痕與法務留存。</p>
               <p>- 工作面板負責把客戶資料、合約、簽署證據與下一步沉澱成可追蹤資產。</p>
-              <p>- 所以最優先的不是一直看藍圖，而是把藍圖中的高價值任務轉成可操作頁面。</p>
+              <p>- 最優先的不是一直看藍圖，而是把藍圖中的高價值任務轉成可操作頁面。</p>
             </div>
           </article>
         </section>
