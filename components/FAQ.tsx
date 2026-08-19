@@ -24,7 +24,7 @@ const faqs = [
   {
     question: "App 開發會做到可以上架的程度嗎？會不會還要再找別人？",
     answer:
-      "會一路做到可在 App Store / Google Play 上架的狀態，包含帳號設定、憑證、截圖素材與審核建議，盡量讓你不需要再另外找團隊接手。",
+      "會一路做到可在 App Store / Google Play 上架的狀態，包含帳號設定、憑證、截圖素材與審核建議，你不需要再另外找團隊接手。",
   },
   {
     question: "你們真的能在短時間內完成有質感的品牌頁面嗎？",
@@ -44,7 +44,7 @@ export function FAQ() {
           id="faq-title"
           className="mt-5 font-serif text-3xl font-semibold tracking-wide text-stone-900 md:text-5xl md:leading-[1.25]"
         >
-          把常見疑問先說清楚，信任感就會更自然地建立。
+          把常見疑問先說清楚。
         </h2>
         <p className="mt-6 text-base leading-8 text-stone-700 md:text-lg">
           從網站交付、App 開發到後續維護，我們會在合作前先把界線與可能性說明完整。

@@ -27,7 +27,7 @@ export default async function SignPage({
           <p className="text-xs uppercase tracking-[0.28em] text-stone-500">Link Unavailable</p>
           <h1 className="mt-4 text-3xl font-semibold tracking-[0.06em] text-stone-900">此簽署連結目前不可使用</h1>
           <p className="mt-4 text-sm leading-7 text-stone-600">
-            可能是簽署連結已失效、尚未建立，或部署環境尚未配置持久化儲存。請聯繫築時數位重新取得簽署網址。
+            可能是連結已失效、尚未建立，或部署環境未配置持久化儲存。請聯繫築時數位重新取得簽署網址。
           </p>
           <Link
             href="/"

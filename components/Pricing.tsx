@@ -90,8 +90,8 @@ export function Pricing() {
     <AnimatedSection id="pricing" ariaLabelledBy="pricing-title" className="py-24 lg:py-32">
       <SectionIntro
         eyebrow="Pricing / Plans"
-        title="三種節奏，總有一種剛好對上你現在的位置。"
-        description="每個方案都有明確的交付節點。你可以先從最小可行的版本開始，確認方向後再逐步延伸。"
+        title="三種節奏，總有一種符合你現階段的需求。"
+        description="每個方案都有明確的交付節點。先從最小可行版本開始，確認方向後再逐步延伸。"
         align="center"
       />
 

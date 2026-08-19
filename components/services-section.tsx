@@ -35,7 +35,7 @@ export function ServicesSection() {
       <SectionIntro
         eyebrow="Core Services"
         title="從品牌官網到 App，一個團隊把數位體驗一體完成。"
-        description="從品牌官網到 App，每項服務都可以獨立啟動，也可以隨著品牌成長逐步延伸。"
+        description="從品牌官網到 App，每項服務都可以獨立啟動，隨著品牌成長再逐步延伸。"
       />
 
       <div className="mt-12 grid gap-6 lg:grid-cols-2 xl:grid-cols-4">
