@@ -20,11 +20,11 @@ const heroProof = [
     icon: Smartphone,
     eyebrow: "交付範圍",
     value: "網站 × App",
-    note: "從品牌頁面到原生 App，用同一個節奏完成。",
+    note: "從品牌頁面到原生 App，同一個團隊完成。",
   },
   {
     icon: ScanSearch,
-    eyebrow: "首版提案節奏",
+    eyebrow: "首版提案",
     value: "3 - 5 天",
     note: "先看到方向，再決定要不要往下走。",
   },
@@ -32,11 +32,11 @@ const heroProof = [
     icon: CheckCheck,
     eyebrow: "上線後保固",
     value: "90 天",
-    note: "小改版、文案調整與技術問題不另收費。",
+    note: "小改版與技術問題不另收費。",
   },
 ];
 
-const audienceChips = ["生活美學品牌", "餐飲與選物", "空間與工作室", "原生 App 開發"];
+const audienceChips = ["生活美學", "餐飲選物", "空間工作室", "App 開發"];
 
 export function HeroSection() {
   return (
@@ -88,19 +88,19 @@ export function HeroSection() {
         <div>
           <div className="inline-flex items-center gap-2 rounded-full border border-stone-200 bg-stone-100 px-4 py-2 text-sm text-stone-600">
             <Leaf className="h-4 w-4 text-emerald-700/70" />
-            編輯式 Web · App Studio
+            Web · App Studio
           </div>
 
           <h1
             id="hero-title"
             className="mt-7 max-w-4xl font-serif text-4xl font-semibold tracking-wide text-stone-900 sm:text-5xl lg:text-6xl lg:leading-[1.15]"
           >
-            品牌從網站到 App，
-            <span className="text-[#8B5E3C]">像一本值得翻閱的雜誌。</span>
+            品牌網站與 App，
+            <span className="text-[#8B5E3C]">同一個節奏做完。</span>
           </h1>
 
           <p className="mt-7 max-w-2xl text-base leading-8 text-stone-700 sm:text-lg">
-            從品牌定位、網站設計到 App 上架，用同一套語氣完成。交付前先確認方向，上線後 90 天內技術問題不另收費。
+            先確認方向再動手。上線後 90 天內，小改版不另收費。
           </p>
 
           <ul className="mt-6 flex flex-wrap gap-2 text-xs">
@@ -138,7 +138,7 @@ export function HeroSection() {
                 <p className="text-xs uppercase tracking-[0.3em] text-stone-500">
                   What We Deliver
                 </p>
-一個節奏，把網站與 App 一起收尾
+                一個節奏，把網站與 App 做完
               </div>
               <span className="hidden items-center gap-1 rounded-full border border-emerald-200 bg-emerald-50 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-emerald-700 sm:inline-flex">
                 <Sparkles className="h-3.5 w-3.5 text-emerald-700" />
@@ -186,9 +186,9 @@ export function HeroSection() {
               <span className="font-serif text-base font-semibold text-stone-900">
                 築時數位 · 主理人
               </span>
-              <span className="mt-1 block italic text-stone-700">
-                「把美感整理成客戶第一眼就信任的節奏。」
-              </span>
+          <span className="mt-1 block italic text-stone-700">
+            「把美感整理成客戶第一眼就信任的語氣。」
+          </span>
             </figcaption>
           </figure>
         </div>

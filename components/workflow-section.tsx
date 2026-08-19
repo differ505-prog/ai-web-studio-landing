@@ -7,25 +7,25 @@ const steps = [
     icon: MessagesSquare,
     step: "01",
     title: "確認方向與品牌定位",
-    description: "交付：品牌語氣方向書與頁面結構藍圖，確認後再做設計。",
+    description: "品牌語氣方向書與頁面結構藍圖，確認後再做設計。",
   },
   {
     icon: ScanSearch,
     step: "02",
     title: "內容架構與版面配置",
-    description: "交付：完整的內容區塊配置圖，標題、留白、圖片位置一目了然。",
+    description: "完整內容區塊配置圖，標題、留白、圖片位置一目了然。",
   },
   {
     icon: PencilLine,
     step: "03",
     title: "視覺設計與原型確認",
-    description: "交付：可直接操作的互動原型，確認風格後再進開發。",
+    description: "可直接操作的互動原型，確認風格後再進開發。",
   },
   {
     icon: CheckCheck,
     step: "04",
     title: "開發、部署與交接",
-    description: "交付：上線網站／App、原始碼、90 天技術支援。",
+    description: "上線網站／App、原始碼、90 天技術支援。",
   },
 ];
 
@@ -35,7 +35,7 @@ export function WorkflowSection() {
       <SectionIntro
         eyebrow="Workflow"
         title="四個交付節點，每個階段都有可操作的交付物。"
-        description="每個階段結束時，收到一份交付物，確認後往下一步走。"
+        description="每個階段結束時，收到一份交付物。"
         align="center"
       />
 

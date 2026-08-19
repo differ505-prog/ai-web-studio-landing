@@ -6,35 +6,35 @@ const traditional = [
   {
     icon: Clock3,
     label: "溝通往返太久",
-    description: "需求反覆確認卻缺少清楚的版面想像，決策疲勞也跟著增加。",
+    description: "需求反覆確認，卻沒有清楚的版面想像。",
   },
   {
     icon: Coins,
     label: "預算感受不安",
-    description: "看不清交付細節與優先順序時，品牌很容易為了不確定性付出更高成本。",
+    description: "交付細節與優先順序不清時，容易為不確定性付出更高成本。",
   },
   {
     icon: Wrench,
-    label: "兩個載體節奏脫鉤",
-    description: "網站先做完之後才想做 App，結果兩邊風格與流程對不上。",
+    label: "網站與 App 脫鉤",
+    description: "兩邊風格、流程各自發展，最後對不上。",
   },
 ];
 
 const betterWay = [
   {
     icon: PencilRuler,
-    label: "先對齊品牌氣質",
-    description: "從空間氛圍、材質感與閱讀節奏開始設定方向，後續設計更穩定。",
+    label: "先確認品牌語氣",
+    description: "從空間氛圍、閱讀節奏與受眾出發，設計方向更穩定。",
   },
   {
     icon: Smartphone,
     label: "同一編輯貫穿兩端",
-    description: "用同一組語氣延伸網站與 App，兩邊出自同一位編輯之手。",
+    description: "網站與 App 出自同一個人，節奏自然一致。",
   },
   {
     icon: CheckCircle2,
     label: "保留營運彈性",
-    description: "在質感與轉換之間取得平衡，作品既漂亮也能持續承接成長。",
+    description: "先建立品牌門面，依照需求逐步延伸功能。",
   },
 ];
 
@@ -44,7 +44,7 @@ export function PainPointsSection() {
       <SectionIntro
         eyebrow="Brand Perspective"
         title="網站與 App 如果出自同一個語氣，訊息反而更容易被理解。"
-        description="不追求堆滿功能，從品牌語氣出發，整理出清楚、有優先順序的資訊層次。"
+        description="從品牌語氣出發，整理出清楚、有優先順序的資訊層次。"
       />
 
       <div className="mt-12 grid gap-6 lg:grid-cols-2">
@@ -57,7 +57,6 @@ export function PainPointsSection() {
               <h3 className="font-serif text-2xl font-semibold tracking-wide text-stone-900">
                 常見的數位體驗焦慮
               </h3>
-              <p className="mt-1 text-sm text-stone-500">先確認方向再做設計，避免交付後才發現走了冤枉路。</p>
             </div>
           </div>
 
@@ -89,7 +88,6 @@ export function PainPointsSection() {
               <h3 className="font-serif text-2xl font-semibold tracking-wide text-stone-900">
                 我們偏好的呈現方式
               </h3>
-              <p className="mt-1 text-sm text-stone-500">從品牌氣質與受眾確認方向，依優先順序安排頁面結構與功能。</p>
             </div>
           </div>
 

@@ -32,7 +32,7 @@ export function ContactSection() {
             id="contact-title"
             className="mt-5 font-serif text-3xl font-semibold tracking-wide text-stone-900 md:text-5xl md:leading-[1.25]"
           >
-            如果你希望品牌從網站到 App 更安定、更有質感，現在開始。
+            讓品牌從網站到 App 更安定、更有質感，現在開始。
           </h2>
           <p className="mt-6 max-w-xl text-base leading-8 text-stone-700 md:text-lg">
             無論剛起步、想改版、或想把服務延伸成 App，從一個想法開始就能聊。1-2 個工作天內會收到回覆。
@@ -61,10 +61,10 @@ export function ContactSection() {
                     LINE 官方帳號
                   </p>
                   <p className="mt-3 font-serif text-xl font-semibold tracking-wide text-stone-900">
-                    直接加 LINE 詢問。
+                    加 LINE 直接聊。
                   </p>
                   <p className="mt-3 text-sm leading-7 text-stone-700">
-                    快速確認需求方向，或丟品牌現況給築時數位評估。
+                    快速確認需求方向，或讓築時數位評估品牌現況。
                   </p>
                   <div className="mt-4 flex flex-wrap gap-3">
                     <a

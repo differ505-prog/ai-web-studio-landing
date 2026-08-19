@@ -5,7 +5,7 @@ import { AnimatedSection } from "@/components/animated-section";
 const testimonials = [
   {
     quote:
-      "把美感整理成客戶第一眼就信任的節奏，不只把網站做完，更把想說的話說對了。",
+      "把美感整理成客戶第一眼就信任的語氣。",
     author: "夏洛克民宿 · Summer Rock Villa",
     role: "品牌官方授權展示",
     avatar:
@@ -14,7 +14,7 @@ const testimonials = [
   },
   {
     quote:
-      "原本繁雜的空間配置與服務內容，被收攏成俐落的專業門面，連客戶都主動稱讚頁面質感。",
+      "繁雜的空間與服務，被收攏成俐落的專業門面。",
     author: "青曦設計 · Qingxi Design",
     role: "品牌官方授權展示",
     avatar:
@@ -23,7 +23,7 @@ const testimonials = [
   },
   {
     quote:
-      "安靜又專注的 App，從品牌語氣一路做到互動節奏，整個過程比想像中從容。",
+      "安靜又專注，從品牌語氣一路做到互動節奏。",
     author: "VibeList · 禪模式任務管理",
     role: "App 開發設計 · 自有 Side Project",
     avatar:

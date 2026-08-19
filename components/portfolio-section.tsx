@@ -224,7 +224,7 @@ export function PortfolioSection() {
       <SectionIntro
         eyebrow="Selected Direction"
         title="作品說話，比說明更具體。"
-        description={`築時數位收錄 ${totalCases} 件精選案例，橫跨品牌官網、空間設計與 App 開發。`}
+        description={`收錄 ${totalCases} 件案例，含品牌官網、空間設計與 App。`}
       />
 
       <div className="mt-12 grid gap-6 lg:grid-cols-3 lg:gap-7">
